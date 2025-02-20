@@ -1,9 +1,11 @@
-import React from "react";
+import SubHeader from "@/components/CourseDetails/SubHeader";
 
-type Props = {};
-
-const CourseDetails = (props: Props) => {
-  return <div>CourseDetails</div>;
+const CourseDetails = () => {
+  return (
+    <div>
+      <SubHeader />
+    </div>
+  );
 };
 
 export default CourseDetails;
