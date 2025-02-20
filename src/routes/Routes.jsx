@@ -11,6 +11,7 @@ import Success from "../pages/Success";
 import Support from "../pages/Support";
 import MyClass from "../pages/MyClass";
 import Profile from "../pages/Profile";
+import Class from "../pages/Class";
 
 const routes = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const routes = createBrowserRouter([
       {
         path: "/my-class",
         element: <MyClass />,
+      },
+      {
+        path: "/class",
+        element: <Class/>
       },
       {
         path: "/profile",
