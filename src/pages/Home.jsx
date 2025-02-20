@@ -1,9 +1,9 @@
-import CommonWrapper from "../components/CommonWrapper";
+import HeroSection from "../components/Header/HeroSection";
 
 const Home = () => {
   return (
     <>
-      <CommonWrapper className="flex gap-8"></CommonWrapper>
+      <HeroSection />
     </>
   );
 };
