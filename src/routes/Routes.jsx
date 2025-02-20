@@ -4,6 +4,14 @@ import App from "../App";
 import NotFound from "../pages/NotFound";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import CourseDetails from "../pages/CourseDetails";
+import About from "../pages/About";
+import Blog from "../pages/Blog";
+import Success from "../pages/Success";
+import Support from "../pages/Support";
+import MyClass from "../pages/MyClass";
+import Profile from "../pages/Profile";
+import Class from "../pages/Class";
 
 const routes = createBrowserRouter([
   {
@@ -16,12 +24,42 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        index: true,
-        path: "/login",
-        element: <SignIn /> ,
+        path: "/course-details",
+        element: <CourseDetails />,
       },
       {
-        index: true,
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/success",
+        element: <Success />,
+      },
+      {
+        path: "/support",
+        element: <Support />,
+      },
+      {
+        path: "/my-class",
+        element: <MyClass />,
+      },
+      {
+        path: "/class",
+        element: <Class/>
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/login",
+        element: <SignIn />,
+      },
+      {
         path: "/signup",
         element: <SignUp />,
       },
