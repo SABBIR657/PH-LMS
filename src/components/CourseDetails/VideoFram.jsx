@@ -15,34 +15,36 @@ const VideoFrame = () => {
     return (
 
         <div>
-            <Title title="What you will learn_ from this course?" subtitle="Programming Hero's dynamic course guides students from MERN stack basics to complete mastery, ensuring a strong foundation. This comprehensive approach makes the learning journey smooth and engaging.
+            <Title title="What you will learn_ from this course?
 " />
-            <div className="flex justify-around">
-                <div class="w-auto bg-[#54241c] text-orange-600 py-2 px-6 rounded-md cursor-pointer">
+            <div className="flex justify-around mb-16">
+                <div className=" bg-[#54241c] text-orange-600 py-2 px-6 rounded-md cursor-pointer flex items-center justify-center">
                     HTML
                 </div>
-                <div class="w-auto bg-[#040c25] text-sky-700 py-2 px-6 rounded-md cursor-pointer ">
+
+                <div className="w-auto bg-[#040c25] text-sky-700 py-2 px-6 rounded-md cursor-pointer ">
                     CSS
                 </div>
-                <div class="w-auto bg-[#091f35] text-orange-600 py-2 px-6 rounded-md cursor-pointer ">
+                <div class="w-auto bg-[#091f35] text-[#2e97d4] py-2 px-6 rounded-md cursor-pointer ">
                     Tailwind
                 </div>
-                <div class="w-auto bg-[#847c1c] text-[#dec71c] py-2 px-6 rounded-md cursor-pointer ">
+                <div className="w-auto bg-[#e1ec3b41] text-[#fcf049] py-2 px-6 rounded-md cursor-pointer ">
                     JavaScript
                 </div>
-                <div class="w-auto bg-orange-400 text-orange-600 py-2 px-6 rounded-md cursor-pointer ">
+                <div className="w-auto bg-[#091f35] text-[#65b0fa] py-2 px-6 rounded-md cursor-pointer ">
                     React
                 </div>
-                <div class="w-auto bg-orange-400 text-orange-600 py-2 px-6 rounded-md cursor-pointer ">
+                <div className="w-auto bg-[#54241c] text-orange-600 py-2 px-6 rounded-md cursor-pointer ">
                     Firebase
                 </div>
-                <div class="w-auto bg-orange-400 text-orange-600 py-2 px-6 rounded-md cursor-pointer ">
+                <div className=" w-auto bg-[#1e863460] text-[#42c436] py-2 px-6 rounded-md cursor-pointer">
                     Node JS
                 </div>
-                <div class="w-auto bg-orange-400 text-orange-600 py-2 px-6 rounded-md cursor-pointer ">
+
+                <div className="w-auto bg-[#e1ec3b41] text-[#fcf049] py-2 px-6 rounded-md cursor-pointer ">
                     Express JS
                 </div>
-                <div class="w-auto bg-orange-400 text-orange-600 py-2 px-6 rounded-md cursor-pointer ">
+                <div className="w-auto bg-[#1e863460] text-[#42c436] py-2 px-6 rounded-md cursor-pointer ">
                     MongoDB
                 </div>
 
