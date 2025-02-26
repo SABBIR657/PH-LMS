@@ -1,5 +1,11 @@
+import SearchBlog from "../components/Blogs/SearchBlog";
+
 const Blog = () => {
-  return <div>Blog</div>;
+  return (
+    <div>
+      <SearchBlog />
+    </div>
+  );
 };
 
 export default Blog;
