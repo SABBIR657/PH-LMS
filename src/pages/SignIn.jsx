@@ -58,7 +58,7 @@ const SignIn = () => {
     toast.error(err?.response?.data?.message || "Something went wrong");
     setIsLoading(false);
   };
-  const { mutate } = usePostMutate("/api/v1/auth/login", onSuccess, onError);
+  const { mutate } = usePostMutate("/auth/login", onSuccess, onError);
 
   const onSubmit = async (userData) => {
     setIsLoading(true);
