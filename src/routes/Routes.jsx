@@ -12,6 +12,7 @@ import Support from "../pages/Support";
 import MyClass from "../pages/MyClass";
 import Profile from "../pages/Profile";
 import Class from "../pages/Class";
+import TestFooter from "../pages/TestFooter";
 
 const routes = createBrowserRouter([
   {
@@ -49,7 +50,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/class",
-        element: <Class/>
+        element: <Class />,
       },
       {
         path: "/profile",
@@ -62,6 +63,10 @@ const routes = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/test",
+        element: <TestFooter />,
       },
     ],
   },
