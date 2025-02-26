@@ -44,13 +44,13 @@ const SignIn = () => {
   const [isVisible, setIsVisible] = useState(false);
   const onSuccess = (res) => {
     console.log(res, "res");
-
-    toast.success("Successfully Logged In");
-
-    Cookies.set("user", res?.data?.data?.accessToken, { expires: 30 });
-    setUser(res?.data?.data?.user);
+    toast.success("Successfully Logged In", { position: "top-right" });
+    Cookies.set("user", res?.approvalToken, { expires: 30 });
+    Cookies.set("refreshToken", res?.refreshToken, { expires: 30 });
+    setUser(res?.user);
     setIsLoading(false);
-    navigate(path || "/admin");
+    // navigate(path || "/admin");
+    navigate("/");
   };
   const onError = (err) => {
     console.log(err);
@@ -58,12 +58,10 @@ const SignIn = () => {
     toast.error(err?.response?.data?.message || "Something went wrong");
     setIsLoading(false);
   };
-  const { mutate } = usePostMutate("/auth/login", onSuccess, onError);
+  const { mutate } = usePostMutate("/api/v1/auth/login", onSuccess, onError);
 
   const onSubmit = async (userData) => {
     setIsLoading(true);
-
-    console.log(userData);
     mutate(userData);
   };
 
@@ -171,13 +169,13 @@ const SignIn = () => {
                   name="password"
                   control={control}
                   defaultValue=""
-                  rules={{
-                    required: "Password is required",
-                    minLength: {
-                      value: 6,
-                      message: "Password is incorrect",
-                    },
-                  }}
+                  // rules={{
+                  //   required: "Password is required",
+                  //   minLength: {
+                  //     value: 6,
+                  //     message: "Password is incorrect",
+                  //   },
+                  // }}
                   render={({ field }) => (
                     <div>
                       <Input

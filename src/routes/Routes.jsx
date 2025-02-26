@@ -12,7 +12,17 @@ import Support from "../pages/Support";
 import MyClass from "../pages/MyClass";
 import Profile from "../pages/Profile";
 import Class from "../pages/Class";
-import TestFooter from "../pages/TestFooter";
+import Dashboard from "../pages/Admin/Dashboard";
+import CreateInstructor from "../pages/Admin/CreateInstructor";
+import CreateCourse from "../pages/Admin/CreateCourse";
+import AdminLayout from "../pages/Admin/AdminLayout";
+import Milestone from "../pages/Instructor/Milestone";
+import Module from "../pages/Instructor/Module";
+import Video from "../pages/Instructor/Video";
+import Question from "../pages/Instructor/Question";
+import InstructorLayout from "../pages/Instructor/InstructorLayout";
+import HelpDesk from "../pages/HelpDesk/HelpDesk";
+import HelpDeskHome from "../pages/HelpDesk/HelpDeskHome";
 
 const routes = createBrowserRouter([
   {
@@ -64,13 +74,58 @@ const routes = createBrowserRouter([
         path: "/signup",
         element: <SignUp />,
       },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
       {
-        path: "/test",
-        element: <TestFooter />,
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "create-instructor",
+        element: <CreateInstructor />,
+      },
+      {
+        path: "create-course",
+        element: <CreateCourse />,
       },
     ],
   },
-
+  {
+    path: "/instructor",
+    element: <InstructorLayout />,
+    children: [
+      {
+        path: "milestone",
+        element: <Milestone />,
+      },
+      {
+        path: "module",
+        element: <Module />,
+      },
+      {
+        path: "video",
+        element: <Video />,
+      },
+      {
+        path: "question",
+        element: <Question />,
+      },
+    ],
+  },
+  {
+    path: "/help-desk",
+    element: <HelpDesk />,
+    children: [
+      {
+        path: "",
+        element: <HelpDeskHome />,
+      },
+    ],
+  },
   {
     path: "*",
     element: <NotFound />,

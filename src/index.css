@@ -28,11 +28,35 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
+    --hero-button: linear-gradient(
+      459deg,
+      rgba(128, 27, 224, 1) 0%,
+      rgba(232, 85, 222, 1) 41%
+    );
+
     --border: 260 40% 20%;
     --input: 260 40% 20%;
     --ring: 267 100% 56%;
 
     --radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .hero-button {
+    background: var(--hero-button);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s ease;
+  }
+
+  .hero-button:hover {
+    background: linear-gradient(
+      459deg,
+      rgba(232, 85, 222, 1) 0%,
+      rgba(128, 27, 224, 1) 41%
+    );
   }
 }
 
