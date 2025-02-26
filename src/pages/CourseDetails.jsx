@@ -6,6 +6,7 @@ import CourseHighlights from "../components/CourseDetails/CourseHighlights";
 import VideoFram from "../components/CourseDetails/VideoFram";
 import FoundationCard from "../components/CourseDetails/FoundationCard";
 import SpecialityCard from "../components/CourseDetails/SpecialityCard";
+import CourseWork from "../components/CourseDetails/CourseWork";
 
 const CourseDetails = () => {
   return (
@@ -17,6 +18,7 @@ const CourseDetails = () => {
       <FoundationCard />
       <CourseDetailsModule />
       <SpecialityCard />
+      <CourseWork />
     </div>
   );
 };
