@@ -62,7 +62,7 @@ const SpecialityCard = () => {
                         <div
                             key={index}
                             className="bg-[#1b0d3a] rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:bg-gradient-to-b from-pink-400 to-red-500 flex flex-col justify-between"
-                            style={{ minHeight: '300px' }} // Set a minimum height for the card
+                            style={{ minHeight: '300px' }}
                         >
                             <div className="flex items-center ">{feature.icon}</div>
                             <h3 className="text-3xl mb-4  font-bold">{feature.title}</h3>
