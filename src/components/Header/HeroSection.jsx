@@ -9,10 +9,10 @@ const HeroSection = () => {
 
       <div className="relative z-10 container mx-auto px-6 pt-32">
         <div className="flex flex-col items-center text-center">
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent hover:animate-shake">
+          <h1 className="text-[100px] font-bold mb-6 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent hover:animate-shake">
             Let&apos;s Code
             <br />
-            Your Career
+            Your Career!
           </h1>
 
           <div className="backdrop-blur-md bg-white/10 rounded-lg p-4 mt-8">
