@@ -64,6 +64,9 @@ const CreateMilestone = () => {
                   labelPlacement="outside"
                   placeholder="Enter your milestone name"
                   type="text"
+                  classNames={{
+                    label: "bg-gray-300 px-3 rounded-sm",
+                  }}
                 />
               )}
             />
@@ -85,9 +88,16 @@ const CreateMilestone = () => {
                   label="Select a course"
                   labelPlacement="outside"
                   isLoading={isLoading}
+                  classNames={{
+                    label: "bg-gray-300 px-3 rounded-sm",
+                  }}
                 >
                   {courseListItems.map((item) => (
-                    <SelectItem key={item.key} value={item.key}>
+                    <SelectItem
+                      key={item.key}
+                      value={item.key}
+                      className="bg-[#1F2937]"
+                    >
                       {item.label}
                     </SelectItem>
                   ))}
