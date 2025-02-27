@@ -226,7 +226,7 @@ export default function CourseListTable({
             <Tooltip content="Details">
               <span
                 className="text-lg text-default-400 cursor-pointer active:opacity-50"
-                onClick={() => onDelete(item._id)}
+                onClick={() => onView(item._id)}
               >
                 <EyeIcon />
               </span>
@@ -289,7 +289,7 @@ export default function CourseListTable({
           <div className="flex gap-3">
             <Link to={createLink}>
               <Button
-                className="bg-foreground text-background"
+                // className="bg-foreground text-background"
                 endContent={<PlusIcon />}
                 size="sm"
               >
@@ -321,9 +321,9 @@ export default function CourseListTable({
       <div className="py-2 px-2 flex justify-center items-center">
         <Pagination
           showControls
-          classNames={{
-            cursor: "bg-foreground text-background",
-          }}
+          // classNames={{
+          //   cursor: "bg-foreground text-background",
+          // }}
           color="default"
           page={page}
           total={pages}

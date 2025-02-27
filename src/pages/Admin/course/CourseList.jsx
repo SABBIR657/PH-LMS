@@ -3,6 +3,8 @@ import useFetchQuery from "../../../hooks/shared/useFetch";
 import CourseListTable from "../../../components/Admin/course/CourseListTable";
 
 const CourseList = () => {
+  const userName = Cookies.get("userName");
+  const role = Cookies.get("userRole");
   const { data, isLoading, isSuccess, refetch } = useFetchQuery(
     "/course/all-courses"
   );
