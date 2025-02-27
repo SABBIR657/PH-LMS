@@ -121,7 +121,7 @@ export default function MilestoneListTable({
           <div className="flex gap-3">
             <Link to={createLink}>
               <Button
-                className="bg-foreground text-background"
+                // className="bg-foreground text-background"
                 endContent={<PlusIcon />}
                 size="sm"
               >
@@ -153,9 +153,9 @@ export default function MilestoneListTable({
       <div className="py-2 px-2 flex justify-center items-center">
         <Pagination
           showControls
-          classNames={{
-            cursor: "bg-foreground text-background",
-          }}
+          // classNames={{
+          //   cursor: "bg-foreground text-background",
+          // }}
           color="default"
           page={page}
           total={pages}
