@@ -3,9 +3,9 @@
 const AboutUs = () => {
     const teamMembers = [
         {
-            name: 'Jhankar Mahbub',
-            role: 'Chief Executive Officer (CEO)',
-            image1: 'https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1670513031775Jhankar-Mahbub.png', // Main image
+            name: 'Engr S Arfin Mia',
+            role: 'Co-Founder & (CEO)',
+            image1: 'https://i.ibb.co.com/TBkLjxvB/arfin.png', // Main image
             image2: 'https://web.programming-hero.com/static/media/team-bg.3478c063.png', // Background image
             image3: 'https://web.programming-hero.com/static/media/glow-bg.b77580da.png', // Glow effect image
         },
@@ -90,12 +90,13 @@ const AboutUs = () => {
                                 </div>
 
                                 {/* Hover Glow Effect Image */}
-                                <div className="absolute inset-0 bg-cover bg-center transition-all duration-300 opacity-0 hover:opacity-100 z-10"
+                                <div className="absolute inset-0 bg-cover bg-center transition-all duration-300 opacity-0 hover:opacity-100 z-0 "
                                     style={{
                                         backgroundImage: `url(${member.image3})`, // Glow effect image
                                         objectFit: 'cover',
                                         height: '100%',
                                         width: '100%',
+
                                     }}
                                 ></div>
                             </div>

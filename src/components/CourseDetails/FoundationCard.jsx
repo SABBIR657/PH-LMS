@@ -2,7 +2,7 @@ import React from "react";
 
 const FoundationCard = () => {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-950 p-10">
+        <div className="min-h-screen flex items-center justify-center bg-gray-950 p-10 -mb-56">
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6 w-full max-w-screen-xl">
                 {/* First Feature Card */}
                 <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg w-full max-w-[628px] h-[174px]">
