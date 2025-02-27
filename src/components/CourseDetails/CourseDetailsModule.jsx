@@ -101,13 +101,13 @@ const CourseDetailsModule = () => {
     ];
 
     return (
-        <div className="min-h-screen flex justify-center items-center max-auto">
-            <div className="w-[1400px]">
+        <div className="min-h-screen flex justify-center items-center max-auto mt-20 -mb-72">
+            <div className="w-[1400px] ">
                 <Title
                     title="Course Curriculum"
                     subtitle="Programming Hero's dynamic course guides students from MERN stack basics to complete mastery, ensuring a strong foundation. This comprehensive approach makes the learning journey smooth and engaging."
                 />
-                <div className="w-full mx-auto bg-[#0D0D0D] rounded-lg shadow-lg overflow-hidden">
+                <div className="h-[600px] w-full mx-auto bg-[#0D0D0D] rounded-lg shadow-lg overflow-hidden">
                     <div className="bg-gradient-to-r from-purple-600 to-pink-500 p-4 text-white text-lg font-semibold">
                         Course Module
                     </div>
