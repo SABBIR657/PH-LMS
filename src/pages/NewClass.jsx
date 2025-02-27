@@ -6,24 +6,31 @@ import { useParams } from "react-router-dom";
 
 const NewClass = () => {
   const { courseId } = useParams();
-  console.log(courseId, "courseId from NewClass on line 9999999999999999999");
-  //   const [courses, setCourses] = useState([]);
+  //   console.log(courseId, "courseId from NewClass on line 9999999999999999999");
+  const [milestones, setMilestones] = useState([]);
+  const [videoSrc, setVideoSrc] = useState(
+    "https://www.youtube.com/embed/gFj5RnkPgiw?si=_S7szwEpwITMofSl"
+  );
+  useEffect(() => {
+    const fetchMilestones = async () => {
+      try {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/course/allMilestonesByCourseId?course_id=${courseId}`
+        );
+        const data = await response.json();
+        setMilestones(data.data);
+      } catch (error) {
+        console.error("Error fetching courses: ", error);
+      }
+    };
 
-  //   useEffect(() => {
-  //     const fetchCourses = async () => {
-  //       try {
-  //         const response = await fetch(
-  //           `${import.meta.env.VITE_BACKEND_URL}/course/all-courses`
-  //         );
-  //         const data = await response.json();
-  //         setCourses(data.data);
-  //       } catch (error) {
-  //         console.error("Error fetching courses: ", error);
-  //       }
-  //     };
+    fetchMilestones();
+  }, [courseId]);
 
-  //     fetchCourses();
-  //   }, []);
+  //   console.log(milestones, "milestones from NewClass on line 222222999999999");
+  console.log(videoSrc, "videoSrc from NewClass on line 333333333333333333333");
 
   return (
     <div>
@@ -33,7 +40,7 @@ const NewClass = () => {
             <iframe
               width="100%"
               height="450"
-              src="https://www.youtube.com/embed/gFj5RnkPgiw?si=_S7szwEpwITMofSl"
+              src={videoSrc}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
@@ -52,7 +59,21 @@ const NewClass = () => {
             <div>
               <h1>Milestone</h1>
               <div className="">
-                <Accordion className="">
+                {Array.isArray(milestones.milestoneList) &&
+                  milestones.milestoneList.map((milestone) => (
+                    <Accordion key={milestone._id} className="">
+                      <AccordionItem
+                        className="mb-5 bg-[#160929] px-4 py-7 rounded-xl"
+                        title={milestone.milestoneName}
+                      >
+                        <Milestone
+                          milestone={milestone}
+                          setVideoSrc={setVideoSrc}
+                        />
+                      </AccordionItem>
+                    </Accordion>
+                  ))}
+                {/* <Accordion className="">
                   <AccordionItem
                     className="mb-5 bg-[#160929] px-4 py-7 rounded-xl"
                     title="Milestone 1"
@@ -65,7 +86,7 @@ const NewClass = () => {
                   >
                     <Milestone />
                   </AccordionItem>
-                </Accordion>
+                </Accordion> */}
               </div>
             </div>
           </div>
