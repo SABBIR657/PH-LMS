@@ -1,4 +1,5 @@
 import FeatureBlog from "../components/Blogs/FeatureBlog";
+import RecentBlog from "../components/Blogs/RecentBlog";
 import SearchBlog from "../components/Blogs/SearchBlog";
 
 const Blog = () => {
@@ -6,6 +7,7 @@ const Blog = () => {
     <div>
       <FeatureBlog />
       <SearchBlog />
+      <RecentBlog />
     </div>
   );
 };

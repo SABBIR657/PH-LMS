@@ -39,7 +39,7 @@ import VideoList from "../pages/Admin/video/VideoList";
 import VideoCreate from "../pages/Admin/video/VideoCreate";
 import VideoUpdate from "../pages/Admin/video/VideoUpdate";
 import VideoDetails from "../pages/Admin/video/VideoDetails";
-import NewClass from "../pages/NewClass";
+import NewClass from "../pages/Class";
 
 const routes = createBrowserRouter([
   {
@@ -76,11 +76,7 @@ const routes = createBrowserRouter([
         element: <MyClass />,
       },
       {
-        path: "/class",
-        element: <Class />,
-      },
-      {
-        path: "/new-class/:courseId",
+        path: "/class/:courseId",
         element: <NewClass />,
       },
       {

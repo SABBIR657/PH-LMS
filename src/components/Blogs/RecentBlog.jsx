@@ -1,10 +1,43 @@
 
-import CommonContainer from "../../common/CommonContainer";
 import { FaBackward, FaForward } from "react-icons/fa6";
+import CommonWrapper from "../CommonWrapper";
 
 export const blogs = [
     {
         id: 1,
+        category: "Software QA & Testing ",
+        title: "What To Do When There's a Bug in Production & How to Handel Production Bugs",
+        description:
+            "What To Do When There's a Bug in Production How to Handel Production Bugs: - Acknowledge the Issuecheck the stage server;- ch",
+        author: "Jhankar Mahbub",
+        date: "Dec 02, 2022",
+        image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/blog-images-prod/public/files/1693318086202.png",
+        tagColor: "bg-purple-600",
+    },
+    {
+        id: 2,
+        category: "Programming Career",
+        title: "Your Dream Developer Job Can Be Within Your Reach.",
+        description:
+            "“𝐏𝐥𝐞𝐚𝐬𝐮𝐫𝐞 in the job puts professiona in the work .” -𝐀𝐫𝐢𝐬𝐭𝐨𝐭𝐥𝐞.Pleasure and passion for your work are importan",
+        author: "Jhankar Mahbub",
+        date: "Nov 29, 2022",
+        image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/blog-images-prod/public/files/1669676678947.png",
+        tagColor: "bg-purple-600",
+    },
+    {
+        id: 3,
+        category: "Web Development",
+        title: "ওয়েব ডেভেলপমেন্ট পরিচিতি যা কিছু জানা প্রয়োজন",
+        description:
+            "প্রোগ্রামিং হিরো জব প্লেসমেন্ট রিপোর্ট কার্ড:গত এক বছরে ( মে ২০২২ থেকে মে ২০২৩: যদিও মে ২০২৩ এর পোস্টার পাবলিশ হইছে জুন ৬, ২০২৩ এ)জব পোষ্টার পাবলিশ কর",
+        author: "Rebeka Putul",
+        date: "Nov 29, 2022",
+        image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/blog-images-prod/public/files/1669700493261.png",
+        tagColor: "bg-yellow-500",
+    },
+    {
+        id: 4,
         category: "Web Development",
         title: "ওয়েব ডেভেলপমেন্ট-এর চাহিদা কেমন?",
         description:
@@ -15,7 +48,7 @@ export const blogs = [
         tagColor: "bg-purple-600",
     },
     {
-        id: 2,
+        id: 5,
         category: "Web Development",
         title: "আমি একজন ওয়েব ডেভেলপার হতে চাই? কিভাবে শুরু করতে পারি?",
         description:
@@ -26,7 +59,7 @@ export const blogs = [
         tagColor: "bg-purple-600",
     },
     {
-        id: 3,
+        id: 6,
         category: "Web Development",
         title: "ওয়েব ডেভেলপমেন্ট পরিচিতি যা কিছু জানা প্রয়োজন",
         description:
@@ -42,7 +75,7 @@ export const blogs = [
 const RecentBlog = () => {
     return (
 
-        <CommonContainer>
+        <CommonWrapper>
             <div className="bg-[#0b0b13] py-20 px-5 md:px-10 lg:px-20">
                 <h2 className="text-white text-lg md:text-xl font-semibold mb-6">
                     Recent Blogs
@@ -71,9 +104,12 @@ const RecentBlog = () => {
                                     <p className="text-gray-400 text-lg pb-5">{blog.description}</p>
 
                                     {/* Author & Date */}
-                                    <div className="flex justify-between items-center text-gray-500 text-md mt-4 border-t border-gray-700 pt-3">
+                                    <div className="flex justify-between items-center text-white text-md mt-4 border-t border-gray-700 pt-3">
                                         <span>Ahmad Tarique Hasan</span>
-                                        <span className="text-gray-400">Aug 29, 2023</span>
+                                        <span className="text-gray-400 font-medium text-[17px] leading-[180%]">
+                                            Aug 29, 2023
+                                        </span>
+
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +138,7 @@ const RecentBlog = () => {
                     </div>
                 </div>
             </div>
-        </CommonContainer>
+        </CommonWrapper>
 
     )
 }

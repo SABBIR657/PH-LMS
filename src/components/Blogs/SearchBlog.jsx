@@ -6,7 +6,6 @@ const SearchBlog = () => {
     return (
         <CommonWrapper>
             <div className=" p-5 rounded-lg pt-20 px-5 md:px-10 lg:px-20">
-                {/* Search Bar */}
                 <div className="max-w-[725px] mb-4 mx-auto ">
                     <input
                         type="text"
@@ -16,24 +15,21 @@ const SearchBlog = () => {
                     <SearchIcon className="relative -top-10 left-2.5 text-gray-400" />
                 </div>
 
-                {/* Category Filters */}
                 <div className="flex flex-wrap gap-3 justify-center sm:justify-center">
-                    {/* All Category */}
                     <button className="px-4 py-2 bg-[(rgba(96, 71, 236, .8))] bg-[rgba(96,71,236,.8)] text-white rounded-full font-medium">
                         All <span className="ml-1 px-2 py-1 bg-[rgba(96,71,236,0.63)] rounded-full text-xs">52</span>
                     </button>
 
-                    {/* Individual Categories */}
                     {[
                         { name: "Resume", count: 1 },
-                        { name: "Programming Career", count: 5 },
-                        { name: "Software QA & Testing", count: 1 },
-                        { name: "Web Development", count: 15 },
-                        { name: "Programming", count: 25 },
-                        { name: "CSS", count: 1 },
+                        { name: "Programming Career", count: 1 },
+                        { name: "Software QA & Testing", count: 2 },
+                        { name: "Web Development", count: 1 },
+                        { name: "Programming", count: 15 },
+                        { name: "CSS", count: 25 },
                         { name: "Machine Learning", count: 1 },
                         { name: "Git and Github", count: 1 },
-                        { name: "C Programming", count: 2 },
+                        { name: "C Programming", count: 5 },
                     ].map((category, index) => (
                         <button
                             key={index}

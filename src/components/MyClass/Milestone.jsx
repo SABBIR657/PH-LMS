@@ -1,20 +1,43 @@
 import { Accordion, AccordionItem } from "@heroui/react";
 import Module from "./Module";
+import { useEffect, useState } from "react";
 
-const Milestone = () => {
+const Milestone = ({ milestone, setVideoSrc }) => {
+  //   console.log(milestone, "milestone from mahim in line 5");
+  const milestoneId = milestone?._id;
+  const [module, setModule] = useState([]);
+  useEffect(() => {
+    const fetchModule = async () => {
+      try {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/milestone/allModuleByMilestoneId/${milestoneId}`
+        );
+        const data = await response.json();
+        // console.log(data, "data in fetchModule in line 16");
+        setModule(data.data);
+      } catch (error) {
+        console.error("Error fetching courses: ", error);
+      }
+    };
+
+    fetchModule();
+  }, [milestoneId]);
+
+  //   console.log(module, "module from mahim in line 27");
   return (
     <div>
-      <Accordion className="mb-5 bg-[#160929] px-4 py-7 rounded-xl space-y-2">
-        {/* <Milestone /> */}
-        <AccordionItem title="Module 1">
+      <Accordion className="">
+        {Array.isArray(module.moduleList) &&
+          module.moduleList.map((module) => (
+            <AccordionItem key={module._id} title={module.moduleName}>
+              <Module module={module} setVideoSrc={setVideoSrc} />
+            </AccordionItem>
+          ))}
+        {/* <AccordionItem title="Module 1">
           <Module />
-        </AccordionItem>
-        <AccordionItem title="Module 2">
-          <Module />
-        </AccordionItem>
-        <AccordionItem title="Module 3">
-          <Module />
-        </AccordionItem>
+        </AccordionItem> */}
       </Accordion>
     </div>
   );
