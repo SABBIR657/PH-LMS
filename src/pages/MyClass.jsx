@@ -25,7 +25,7 @@ const MyClass = () => {
     fetchCourses();
   }, []);
 
-  // console.log(courses, "courses from MyClass on line 28");
+  console.log(courses, "courses from MyClass on line 28");
 
   return (
     <div className="bg-[#010313] p-4">
@@ -82,9 +82,7 @@ const MyClass = () => {
                             <div className="mt-4 flex gap-4">
                               <button
                                 className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-                                onClick={() =>
-                                  navigate(`/new-class/${course.courseId}`)
-                                }
+                                onClick={() => navigate(`/class/${course._id}`)}
                               >
                                 Continue Course
                               </button>
