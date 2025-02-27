@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 />
               </main>
               <Toaster
-                position="bottom-left"
+                position="top-right"
                 toastOptions={{
                   duration: 3000,
                   style: {
