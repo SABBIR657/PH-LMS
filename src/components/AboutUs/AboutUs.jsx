@@ -63,7 +63,7 @@ const AboutUs = () => {
     return (
         <div className="bg-black py-12">
             <div className="container mx-auto px-4">
-                <h2 className="text-6xl font-bold text-center mb-24 text-transparent bg-clip-text bg-gradient-to-r from-[#eaaaff] to-[#b5acff] font-custom">Meet Our Team _</h2>
+                <h2 className="text-6xl font-bold text-center mb-24 text-transparent bg-clip-text bg-gradient-to-r from-[#cb84e2] to-[#b5acff] font-custom">Meet Our Team _</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {teamMembers.map((member, index) => (
