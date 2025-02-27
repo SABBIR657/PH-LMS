@@ -47,7 +47,7 @@ const features = [
 const SpecialityCard = () => {
     return (
         <div
-            className="relative bg-cover bg-center h-[1400px]"
+            className="relative bg-cover bg-center h-[1400px] "
             style={{
                 backgroundImage: "url('https://web.programming-hero.com/static/media/curve.cc103f94.png')",
                 clipPath: "ellipse(200% 98% at 50% 0%)",
