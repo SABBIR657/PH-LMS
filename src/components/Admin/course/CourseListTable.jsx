@@ -10,6 +10,7 @@ import {
   Button,
   Pagination,
   Tooltip,
+  Spinner,
 } from "@heroui/react";
 import { Link } from "react-router-dom";
 
@@ -387,7 +388,7 @@ export default function CourseListTable({
           emptyContent={"No users found"}
           items={courses}
           isLoading={isLoading}
-          loadingContent={"Loading..."}
+          loadingContent={<Spinner color="default" />}
         >
           {(item) => (
             <TableRow key={item._id}>

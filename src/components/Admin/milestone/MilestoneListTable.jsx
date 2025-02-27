@@ -11,6 +11,7 @@ import {
   Button,
   Pagination,
   Tooltip,
+  Spinner,
 } from "@heroui/react";
 import {
   EyeIcon,
@@ -219,7 +220,7 @@ export default function MilestoneListTable({
           emptyContent={"No users found"}
           items={courses}
           isLoading={isLoading}
-          loadingContent={"Loading..."}
+          loadingContent={<Spinner color="default" />}
         >
           {(item) => (
             <TableRow key={item._id}>

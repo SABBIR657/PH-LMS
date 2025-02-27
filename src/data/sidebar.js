@@ -10,14 +10,6 @@ export const sidebarUrlList = [
         label: "Course Create",
         url: "/admin/course-create",
       },
-      {
-        label: "Course Details",
-        url: "/admin/course-details",
-      },
-      {
-        label: "Course Update",
-        url: "/admin/course-update",
-      },
     ],
   },
   {
@@ -30,14 +22,6 @@ export const sidebarUrlList = [
       {
         label: "Milestone Create",
         url: "/admin/milestone-create",
-      },
-      {
-        label: "Milestone Details",
-        url: "/admin/milestone-details",
-      },
-      {
-        label: "Milestone Update",
-        url: "/admin/milestone-update",
       },
     ],
   },
@@ -52,14 +36,6 @@ export const sidebarUrlList = [
         label: "Module Create",
         url: "/admin/module-create",
       },
-      {
-        label: "Module Details",
-        url: "/admin/module-details",
-      },
-      {
-        label: "Module Update",
-        url: "/admin/module-update",
-      },
     ],
   },
   {
@@ -72,14 +48,6 @@ export const sidebarUrlList = [
       {
         label: "Video Create",
         url: "/admin/video-create",
-      },
-      {
-        label: "Video Details",
-        url: "/admin/video-details",
-      },
-      {
-        label: "Video Update",
-        url: "/admin/video-update",
       },
     ],
   },
