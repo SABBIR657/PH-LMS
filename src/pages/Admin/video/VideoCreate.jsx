@@ -84,6 +84,7 @@ const VideoCreate = () => {
                   labelPlacement="outside"
                   placeholder="Enter your video name"
                   type="text"
+                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
                 />
               )}
             />
@@ -107,6 +108,7 @@ const VideoCreate = () => {
                   placeholder="Enter your video url"
                   type="text"
                   className="mt-1"
+                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
                 />
               )}
             />
@@ -126,9 +128,14 @@ const VideoCreate = () => {
                   label="Select a course"
                   labelPlacement="outside"
                   isLoading={isLoading}
+                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
                 >
                   {courseListItems.map((item) => (
-                    <SelectItem key={item.key} value={item.key}>
+                    <SelectItem
+                      key={item.key}
+                      value={item.key}
+                      className="bg-[#1F2937]"
+                    >
                       {item.label}
                     </SelectItem>
                   ))}
@@ -152,9 +159,14 @@ const VideoCreate = () => {
                   label="Select a milestone"
                   labelPlacement="outside"
                   isLoading={milestoneLoading}
+                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
                 >
                   {milestoneListItems.map((item) => (
-                    <SelectItem key={item.key} value={item.key}>
+                    <SelectItem
+                      key={item.key}
+                      value={item.key}
+                      className="bg-[#1F2937]"
+                    >
                       {item.label}
                     </SelectItem>
                   ))}
@@ -178,9 +190,14 @@ const VideoCreate = () => {
                   label="Select a module"
                   labelPlacement="outside"
                   isLoading={moduleLoading}
+                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
                 >
                   {moduleListItems.map((item) => (
-                    <SelectItem key={item.key} value={item.key}>
+                    <SelectItem
+                      key={item.key}
+                      value={item.key}
+                      className="bg-[#1F2937]"
+                    >
                       {item.label}
                     </SelectItem>
                   ))}

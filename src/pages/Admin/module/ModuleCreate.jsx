@@ -71,6 +71,7 @@ const ModuleCreate = () => {
                   errorMessage={
                     errors.moduleName && "Please enter a module name"
                   }
+                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
                   label="Name"
                   labelPlacement="outside"
                   placeholder="Enter your module name"
@@ -96,9 +97,14 @@ const ModuleCreate = () => {
                   label="Select a course"
                   labelPlacement="outside"
                   isLoading={isLoading}
+                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
                 >
                   {courseListItems.map((item) => (
-                    <SelectItem key={item.key} value={item.key}>
+                    <SelectItem
+                      key={item.key}
+                      value={item.key}
+                      className="bg-[#1F2937]"
+                    >
                       {item.label}
                     </SelectItem>
                   ))}
@@ -122,9 +128,14 @@ const ModuleCreate = () => {
                   label="Select a milestone"
                   labelPlacement="outside"
                   isLoading={milestoneLoading}
+                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
                 >
                   {milestoneListItems.map((item) => (
-                    <SelectItem key={item.key} value={item.key}>
+                    <SelectItem
+                      key={item.key}
+                      value={item.key}
+                      className="bg-[#1F2937]"
+                    >
                       {item.label}
                     </SelectItem>
                   ))}
