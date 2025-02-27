@@ -121,7 +121,7 @@ const routes = createBrowserRouter([
         element: <UpdateCourse />,
       },
       {
-        path: "create-course",
+        path: "course-create",
         element: <CreateCourse />,
       },
       {
@@ -134,7 +134,7 @@ const routes = createBrowserRouter([
         element: <MilestoneList />,
       },
       {
-        path: "milestone-cretae",
+        path: "milestone-create",
         element: <CreateMilestone />,
       },
       {
@@ -151,7 +151,7 @@ const routes = createBrowserRouter([
         element: <ModuleList />,
       },
       {
-        path: "module-cretae",
+        path: "module-create",
         element: <ModuleCreate />,
       },
       {
@@ -168,7 +168,7 @@ const routes = createBrowserRouter([
         element: <VideoList />,
       },
       {
-        path: "video-cretae",
+        path: "video-create",
         element: <VideoCreate />,
       },
       {

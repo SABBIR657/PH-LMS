@@ -45,7 +45,7 @@
 @layer components {
   .hero-button {
     background: var(--hero-button);
-    color: white;
+    color: rgb(3, 1, 1);
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     transition: background 0.3s ease;
@@ -90,5 +90,16 @@
   60%,
   80% {
     transform: translateX(2px);
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
