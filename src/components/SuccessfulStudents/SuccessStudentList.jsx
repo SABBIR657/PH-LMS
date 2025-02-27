@@ -31,49 +31,49 @@ const SuccessStudentList = () => {
                 role: "Full Stack Developer",
                 company: "EKSHOP (A21)",
                 story: "Before starting the course, with the guidance of my friend who is a Senior...",
-                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718429548468.jpg",
+                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718429717885.jpg",
             },
             {
                 name: "Jahid Hasan Rony",
                 role: "Full Stack Developer",
                 company: "BUSINESS AUTOMATION",
                 story: "attrition figure only sets as value and flexibility, flexible, efficient...",
-                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718429548468.jpg",
+                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1733663413358.png",
             },
             {
                 name: "Al Amin",
                 role: "Front End Developer",
                 company: "SCOPIDE",
                 story: "I want to express my heartfelt gratitude to Jhankar Mahbub Sir and the Prog...",
-                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718429548468.jpg",
+                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1733667714119.png",
             },
             {
                 name: "Tofayel Ahmed",
                 role: "Junior Software Developer",
                 company: "ANZA CORPORATION LTD",
                 story: "After graduating from Daffodil International University, I found myself at ...",
-                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718429548468.jpg",
+                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1733668310297.png",
             },
             {
                 name: "Tofayel Ahmed",
                 role: "Junior Software Developer",
                 company: "ANZA CORPORATION LTD",
                 story: "After graduating from Daffodil International University, I found myself at ...",
-                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718429548468.jpg",
+                image: "	https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1733679320258.jpg",
             },
             {
                 name: "Tofayel Ahmed",
                 role: "Junior Software Developer",
                 company: "ANZA CORPORATION LTD",
                 story: "After graduating from Daffodil International University, I found myself at ...",
-                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718429548468.jpg",
+                image: "	https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718013608397.jpg",
             },
             {
                 name: "Tofayel Ahmed",
                 role: "Junior Software Developer",
                 company: "ANZA CORPORATION LTD",
                 story: "After graduating from Daffodil International University, I found myself at ...",
-                image: "https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718429548468.jpg",
+                image: "	https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1627885984709.jpg",
             },
         ],
     };
@@ -130,7 +130,7 @@ const StudentCard = ({ student, onSeeMore }) => {
             <img
                 src={student.image}
                 alt={student.name}
-                className="w-[171px] h-[120px] rounded-[12px] object-cover"
+                className="w-[171px] h-[150px] rounded-[12px] object-cover"
             />
 
             <div>
