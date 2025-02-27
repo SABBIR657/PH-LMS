@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
 import { FaUserCircle } from "react-icons/fa"; // Import a user icon for avatars
+import Cookies from "js-cookie";
 
 const ShowComments = ({ comments }) => {
+    const userName = Cookies.get("userName");
+    const role = Cookies.get("userRole");
+    console.log("user name", userName)
   return (
     <div className="space-y-4">
       {comments && comments.length > 0 ? (
@@ -15,7 +19,7 @@ const ShowComments = ({ comments }) => {
             {/* Comment Content */}
             <div className="flex-1">
               <div className="bg-gray-50 p-3 rounded-lg">
-                {/* <strong className="text-purple-700">{comment.username}</strong> */}
+                <strong className="text-purple-700">{userName}</strong>
                 <p className="text-gray-700 mt-1">{comment.description}</p>
               </div>
               <span className="text-xs text-gray-500 mt-1 block">

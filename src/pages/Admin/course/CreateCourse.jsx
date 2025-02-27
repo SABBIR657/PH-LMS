@@ -64,6 +64,9 @@ const CreateCourse = () => {
                   labelPlacement="outside"
                   placeholder="Enter your course name"
                   type="text"
+                  classNames={{
+                    label: "bg-gray-300 px-3 rounded-sm",
+                  }}
                 />
               )}
             />
@@ -88,6 +91,9 @@ const CreateCourse = () => {
                   labelPlacement="outside"
                   placeholder="Enter amount"
                   type="number"
+                  classNames={{
+                    label: "bg-gray-300 px-3 rounded-sm",
+                  }}
                 />
               )}
             />
