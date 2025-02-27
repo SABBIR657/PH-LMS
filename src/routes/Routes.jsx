@@ -11,7 +11,6 @@ import Success from "../pages/Success";
 import Support from "../pages/Support";
 import MyClass from "../pages/MyClass";
 import Profile from "../pages/Profile";
-import Class from "../pages/Class";
 import Dashboard from "../pages/Admin/Dashboard";
 import CreateCourse from "../pages/Admin/course/CreateCourse";
 import AdminLayout from "../pages/Admin/AdminLayout";
