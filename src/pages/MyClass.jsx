@@ -82,9 +82,7 @@ const MyClass = () => {
                             <div className="mt-4 flex gap-4">
                               <button
                                 className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-                                onClick={() =>
-                                  navigate(`/new-class/${course._id}`)
-                                }
+                                onClick={() => navigate(`/class/${course._id}`)}
                               >
                                 Continue Course
                               </button>
