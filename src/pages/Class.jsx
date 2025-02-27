@@ -21,6 +21,16 @@ const NewClass = () => {
         );
         const data = await response.json();
         setMilestones(data.data);
+        if (data.data.length > 0 && data.data[0].milestoneList.length > 0) {
+          const firstMilestone = data.data[0].milestoneList[0]; // Get the first milestone
+          const firstModule = firstMilestone.moduleList[0]; // Get the first module
+          const firstVideo = firstModule.videoList[0]; // Get the first video
+
+          if (firstVideo) {
+            const videoId = firstVideo.videoURL.split("v=")[1]?.split("&")[0];
+            setVideoSrc(`https://www.youtube.com/embed/${videoId}`);
+          }
+        }
       } catch (error) {
         console.error("Error fetching courses: ", error);
       }
