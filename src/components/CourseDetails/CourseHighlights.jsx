@@ -38,24 +38,18 @@ const CourseHighlights = () => {
                 return (
                     <div
                         key={index}
-                        className={`border-2 ${item.borderColor} p-6 rounded-xl text-white bg-[#2B1B42] hover:shadow-lg transition-all duration-300 w-80 relative overflow-hidden`}
+                        className={`border-2 ${item.borderColor} p-6 rounded-xl text-white bg-[#2B1B42] hover:shadow-lg transition-all duration-300 relative overflow-hidden w-full`}
                     >
-                        {/* Gradient Background Applied to Entire Card */}
                         <div className={`absolute inset-0 ${item.bgGradient} pointer-events-none`} />
-
-                        {/* Card Content */}
                         <div className="relative z-10">
                             <img src={item.icon} alt="" />
                             <h2 className={`text-xl font-semibold ${textColor[index]} mt-3`}>{item.title}</h2>
-
-                            {/* Text Container */}
                             <div className={`overflow-hidden transition-all duration-500 ${showFullText ? "h-auto" : "h-20"}`}>
                                 <p className="text-gray-400 text-start">
                                     {showFullText ? item.description : `${item.description.substring(0, 100)}...`}
                                 </p>
                             </div>
 
-                            {/* Read More / Read Less Button */}
                             <button
                                 onClick={() => setShowFullText(!showFullText)}
                                 className="text-orange-400 font-semibold focus:outline-none mt-2"

@@ -87,11 +87,7 @@ const CreateMilestone = () => {
                   isLoading={isLoading}
                 >
                   {courseListItems.map((item) => (
-                    <SelectItem
-                      key={item.key}
-                      value={item.key}
-                      className="bg-[#1F2937]"
-                    >
+                    <SelectItem key={item.key} value={item.key}>
                       {item.label}
                     </SelectItem>
                   ))}
