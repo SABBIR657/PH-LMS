@@ -25,7 +25,7 @@ const Milestone = ({ milestone, setVideoSrc }) => {
     fetchModule();
   }, [milestoneId]);
 
-  //   console.log(module, "module from mahim in line 27");
+  console.log(module, "module from mahim in line 27");
   return (
     <div>
       <Accordion className="">

@@ -25,7 +25,7 @@ const Module = ({ module, setVideoSrc }) => {
     fetchModule();
   }, [moduleId]);
 
-  //   console.log(video, "video from maaaaaaahiiiiiiim in line 27");
+  console.log(video, "video from maaaaaaahiiiiiiim in line 27");
 
   return (
     <div className="">
