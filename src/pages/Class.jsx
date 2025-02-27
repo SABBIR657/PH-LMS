@@ -16,13 +16,13 @@ const Class = () => {
     const fetchData = async () => {
       try {
         const milestoneResponse = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/v1/milestone/all-milestones`
+          `${import.meta.env.VITE_BACKEND_URL}/milestone/all-milestones`
         );
         const moduleResponse = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/v1/module/all-modules`
+          `${import.meta.env.VITE_BACKEND_URL}/module/all-modules`
         );
         const videoResponse = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/v1/video/all-videos`
+          `${import.meta.env.VITE_BACKEND_URL}/video/all-videos`
         );
 
         setMilestones(milestoneResponse?.data.data);
