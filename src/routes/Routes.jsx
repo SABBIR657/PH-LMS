@@ -158,7 +158,7 @@ const routes = createBrowserRouter([
         element: <ModuleUpdate />,
       },
       {
-        path: "milestone/:id",
+        path: "module/:id",
         element: <ModuleDetails />,
       },
       //video related all routes

@@ -1,17 +1,37 @@
 import React from "react";
 import useFetchQuery from "../../../hooks/shared/useFetch";
 import CourseListTable from "../../../components/Admin/course/CourseListTable";
+import { showDeleteConfirmation } from "../../../lib/alertUtils";
+import toast from "react-hot-toast";
+import { deleteData } from "../../../helpers/axios";
+import { useNavigate } from "react-router-dom";
 
 const CourseList = () => {
+  const navigate = useNavigate();
   const { data, isLoading, isSuccess, refetch } = useFetchQuery(
     "/course/all-courses"
   );
 
-  const onDelete = (id) => {
-    console.log(id);
+  const onDelete = async (id) => {
+    console.log("calling delete");
+    showDeleteConfirmation().then(async (result) => {
+      if (result.isConfirmed) {
+        let loadId = toast.loading("Deleting.....");
+        try {
+          const response = await deleteData(`/course/delete-course/${id}`);
+          toast.dismiss(loadId);
+          toast.success("Deleted successfully");
+          refetch();
+        } catch (error) {
+          toast.error("Something went wrong");
+        } finally {
+          toast.dismiss(loadId);
+        }
+      }
+    });
   };
   const onView = (id) => {
-    console.log(id);
+    navigate(`/admin/course/${id}`);
   };
   const onEdit = (id) => {
     console.log(id);
@@ -29,7 +49,7 @@ const CourseList = () => {
         onView={onView}
         onEdit={onEdit}
         isLoading={isLoading}
-        createLink="/admin/create-course"
+        createLink="/admin/course-create"
       />
     </div>
   );

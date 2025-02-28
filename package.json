@@ -44,6 +44,8 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.16.0",
     "sort-by": "^1.2.0",
+    "sweetalert2": "^11.17.2",
+    "sweetalert2-react-content": "^5.1.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.173.0"

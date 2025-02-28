@@ -1,16 +1,36 @@
 import React from "react";
 import useFetchQuery from "../../../hooks/shared/useFetch";
 import VideoListTable from "../../../components/Admin/video/VideoListTable";
+import { showDeleteConfirmation } from "../../../lib/alertUtils";
+import toast from "react-hot-toast";
+import { deleteData } from "../../../helpers/axios";
+import { useNavigate } from "react-router-dom";
 
 const VideoList = () => {
+  const navigate = useNavigate();
+
   const { data, isLoading, isSuccess, refetch } =
     useFetchQuery("/video/all-videos");
 
   const onDelete = (id) => {
-    console.log(id);
+    showDeleteConfirmation().then(async (result) => {
+      if (result.isConfirmed) {
+        let loadId = toast.loading("Deleting.....");
+        try {
+          const response = await deleteData(`/video/${id}`);
+          toast.dismiss(loadId);
+          toast.success("Deleted successfully");
+          refetch();
+        } catch (error) {
+          toast.error("Something went wrong");
+        } finally {
+          toast.dismiss(loadId);
+        }
+      }
+    });
   };
   const onView = (id) => {
-    console.log(id);
+    navigate(`/admin/video/${id}`);
   };
   const onEdit = (id) => {
     console.log(id);

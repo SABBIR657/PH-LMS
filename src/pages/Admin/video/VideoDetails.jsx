@@ -1,9 +1,17 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import useFetchQuery from "../../../hooks/shared/useFetch";
+import VideoDetailsCard from "../../../components/Admin/video/VideoDetailsCard";
 
 const VideoDetails = () => {
+  const { id } = useParams();
+
+  const { data, isLoading, isSuccess, refetch } = useFetchQuery(`/video/${id}`);
+
+  console.log(data);
   return (
     <div>
-      <h1 className="text-black">VideoDetails</h1>
+      <VideoDetailsCard videoDetails={data?.data} isLoading={isLoading} />
     </div>
   );
 };
