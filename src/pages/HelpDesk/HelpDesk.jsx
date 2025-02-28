@@ -9,6 +9,7 @@ import { postData } from "../../helpers/axios";
 import Cookies from "js-cookie";
 import Categories from "./Categories"; // Import the Categories component
 import CommonWrapper from "../../components/CommonWrapper";
+import { Link } from "react-router-dom";
 
 
 const HelpDesk = () => {
@@ -181,7 +182,9 @@ const HelpDesk = () => {
     <div className="bg-gray-200 min-h-screen p-6 font-sans">
       {/* Header Section */}
       <header className="flex justify-between items-center mb-6 bg-gray-400 py-5 px-8 w-full">
-        <h1 className="text-3xl font-bold text-purple-700">Help Desk</h1>
+       <Link to={"/"}>
+       <h1 className="text-3xl font-bold text-purple-700">Help Desk</h1>
+       </Link>
         <div className="text-lg  flex gap-2">
         <span className="pt-1 text-purple-500 bg-white rounded-full p-1"><FaUserSecret/></span>  <span className="text-gray-600">Hi, <span className="text-pink-700 font-bold">{username}</span></span>
         </div>
