@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 export const columns = [
   { name: "NAME", uid: "courseName" },
   { name: "Amount", uid: "amount" },
+  { name: "Status", uid: "isDeleted" },
   { name: "ACTIONS", uid: "actions" },
 ];
 
@@ -231,14 +232,14 @@ export default function CourseListTable({
                 <EyeIcon />
               </span>
             </Tooltip>
-            <Tooltip content="Edit">
+            {/* <Tooltip content="Edit">
               <span
                 className="text-lg text-default-400 cursor-pointer active:opacity-50"
                 onClick={() => onEdit(item._id)}
               >
                 <EditIcon />
               </span>
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip color="danger" content="Delete">
               <span
                 className="text-lg text-danger cursor-pointer active:opacity-50"
@@ -248,6 +249,16 @@ export default function CourseListTable({
               </span>
             </Tooltip>
           </div>
+        );
+      case "isDeleted":
+        return (
+          <p
+            className="flex items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.isDeleted ? "Deleted" : "Live"}
+          </p>
         );
       default:
         return cellValue;

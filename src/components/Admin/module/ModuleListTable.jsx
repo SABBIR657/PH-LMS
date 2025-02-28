@@ -24,6 +24,7 @@ import {
 export const columns = [
   { name: "NAME", uid: "moduleName" },
   { name: "Total Video", uid: "videoList" },
+  { name: "Status", uid: "isDeleted" },
   { name: "ACTIONS", uid: "actions" },
 ];
 
@@ -56,19 +57,19 @@ export default function ModuleListTable({
             <Tooltip content="Details">
               <span
                 className="text-lg text-default-400 cursor-pointer active:opacity-50"
-                onClick={() => onDelete(item._id)}
+                onClick={() => onView(item._id)}
               >
                 <EyeIcon />
               </span>
             </Tooltip>
-            <Tooltip content="Edit">
+            {/* <Tooltip content="Edit">
               <span
                 className="text-lg text-default-400 cursor-pointer active:opacity-50"
                 onClick={() => onEdit(item._id)}
               >
                 <EditIcon />
               </span>
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip color="danger" content="Delete">
               <span
                 className="text-lg text-danger cursor-pointer active:opacity-50"
@@ -78,6 +79,16 @@ export default function ModuleListTable({
               </span>
             </Tooltip>
           </div>
+        );
+      case "isDeleted":
+        return (
+          <p
+            className="flex items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.isDeleted ? "Deleted" : "Live"}
+          </p>
         );
       case "videoList":
         return <div className="flex items-center">{cellValue?.length}</div>;

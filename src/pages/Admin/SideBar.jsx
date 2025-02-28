@@ -16,6 +16,8 @@ const SideBar = () => {
     switch (label) {
       case "Course":
         return <FaListAlt />;
+      case "Admin":
+        return <FaUser />;
       case "Milestone":
         return <FaTachometerAlt />;
       case "Module":

@@ -1,5 +1,18 @@
 export const sidebarUrlList = [
   {
+    parentLabel: "Admin",
+    children: [
+      {
+        label: "Instructor Create",
+        url: "/admin/create-instructor",
+      },
+      {
+        label: "Assign course",
+        url: "/admin/assign-course",
+      },
+    ],
+  },
+  {
     parentLabel: "Course",
     children: [
       {

@@ -24,6 +24,7 @@ import {
 export const columns = [
   { name: "NAME", uid: "videoName" },
   { name: "Video URL", uid: "videoURL" },
+  { name: "Status", uid: "isDeleted" },
   { name: "ACTIONS", uid: "actions" },
 ];
 
@@ -48,6 +49,7 @@ export default function VideoListTable({
   const pages = Math.ceil(users.length / rowsPerPage);
 
   const renderCell = React.useCallback((item, columnKey, index) => {
+    console.log(item);
     const cellValue = item[columnKey];
     switch (columnKey) {
       case "actions":
@@ -56,19 +58,19 @@ export default function VideoListTable({
             <Tooltip content="Details">
               <span
                 className="text-lg text-default-400 cursor-pointer active:opacity-50"
-                onClick={() => onDelete(item._id)}
+                onClick={() => onView(item._id)}
               >
                 <EyeIcon />
               </span>
             </Tooltip>
-            <Tooltip content="Edit">
+            {/* <Tooltip content="Edit">
               <span
                 className="text-lg text-default-400 cursor-pointer active:opacity-50"
                 onClick={() => onEdit(item._id)}
               >
                 <EditIcon />
               </span>
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip color="danger" content="Delete">
               <span
                 className="text-lg text-danger cursor-pointer active:opacity-50"
@@ -89,6 +91,16 @@ export default function VideoListTable({
           >
             {cellValue}
           </a>
+        );
+      case "isDeleted":
+        return (
+          <p
+            className="flex items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.isDeleted ? "Deleted" : "Live"}
+          </p>
         );
       default:
         return cellValue;
