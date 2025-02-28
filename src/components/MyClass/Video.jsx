@@ -1,12 +1,5 @@
-const Video = ({
-  video,
-  setVideoSrc,
-  index,
-  setCurrentVideoIndex,
-  mainIndex,
-}) => {
-  // console.log(video, "video from maaaaaaahiiiiiiim in line 217");
-  // console.log("is getting index", mainIndex);
+const Video = ({ video, setVideoSrc, index }) => {
+  console.log(video, "video from maaaaaaahiiiiiiim in line 217");
   return (
     <div className="py-5 ">
       <button
@@ -14,7 +7,6 @@ const Video = ({
         onClick={() => {
           const videoId = video.videoURL.split("v=")[1]?.split("&")[0]; // Extract video ID
           setVideoSrc(`https://www.youtube.com/embed/${videoId}`);
-          setCurrentVideoIndex(mainIndex);
         }}
       >
         {video

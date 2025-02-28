@@ -28,6 +28,12 @@ export default function NavBar() {
           Blog
         </Link>
         <Link
+          to="/success"
+          className="text-gray-200 hover:text-white transition-colors"
+        >
+          Success
+        </Link>
+        <Link
           to="my-class"
           className="text-gray-200 hover:text-white transition-colors"
         >
