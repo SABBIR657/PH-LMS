@@ -1,11 +1,15 @@
 import { Accordion, AccordionItem } from "@heroui/react";
 import { useEffect, useState } from "react";
 import Video from "./Video";
+import { addPlaylist } from "../../redux/new store/playlistSlice";
+import { useDispatch } from "react-redux";
 
-const Module = ({ module, setVideoSrc }) => {
+const Module = ({ module, setVideoSrc, setCurrentVideoIndex }) => {
+  const dispatch = useDispatch();
   const moduleId = module?._id;
   //   console.log(module, "module from maaaaaaahiiiiiiim in line 5");
   const [video, setVideo] = useState([]);
+
   useEffect(() => {
     const fetchModule = async () => {
       try {
@@ -25,7 +29,16 @@ const Module = ({ module, setVideoSrc }) => {
     fetchModule();
   }, [moduleId]);
 
-  console.log(video, "video from maaaaaaahiiiiiiim in line 27");
+  useEffect(() => {
+    if (video?.videoList?.length) {
+      console.log("video has come", video?.videoList?.length);
+      dispatch(addPlaylist(video?.videoList));
+    }
+  }, [video]);
+
+  // console.log(video, "video from maaaaaaahiiiiiiim in line 27");
+
+  // console.log(module, "single module from module component");
 
   return (
     <div className="">
@@ -39,6 +52,8 @@ const Module = ({ module, setVideoSrc }) => {
             setVideoSrc={setVideoSrc}
             className="mb-2"
             index={index + 1}
+            setCurrentVideoIndex={setCurrentVideoIndex}
+            mainIndex={index}
           />
         ))}
     </div>
