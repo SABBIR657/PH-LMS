@@ -1,11 +1,21 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { GalleryVerticalEnd } from "lucide-react";
+import { UserRound } from "lucide-react";
+import { ShieldHalf } from "lucide-react";
+import { Filter } from "lucide-react";
 
-const Categories = ({ categories, onFilter, activeCategory, myPostCount, adminPostCount }) => {
+const Categories = ({
+  categories,
+  onFilter,
+  activeCategory,
+  myPostCount,
+  adminPostCount,
+}) => {
   return (
-    <aside className="w-full lg:w-1/4 p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
-      <h3 className="text-xl font-semibold text-purple-700 mb-4">Categories</h3>
-      <ul className="space-y-3">
+    <aside className="w-full lg:w-full p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+      <h3 className="text-xl font-semibold text-purple-700 mb-4 ">Categories</h3>
+      <ul className="flex flex-wrap gap-3 lg:block lg:space-y-3">
         {/* "All" Category */}
         <li
           className={`flex justify-between items-center p-3 rounded-lg cursor-pointer ${
@@ -15,7 +25,12 @@ const Categories = ({ categories, onFilter, activeCategory, myPostCount, adminPo
           } transition duration-300`}
           onClick={() => onFilter("All")}
         >
-          <span>All</span>
+          <div className="flex gap-2">
+            <span>
+              <GalleryVerticalEnd />
+            </span>
+            <span>All</span>
+          </div>
           <span className="text-sm bg-purple-600 text-white px-2 py-1 rounded-full">
             {categories.reduce((total, cat) => total + cat.count, 0)}
           </span>
@@ -30,7 +45,12 @@ const Categories = ({ categories, onFilter, activeCategory, myPostCount, adminPo
           } transition duration-300`}
           onClick={() => onFilter("My Posts")}
         >
-          <span>My Posts</span>
+          <div className="flex gap-2">
+            <span>
+              <UserRound />
+            </span>
+            <span>My Posts</span>
+          </div>
           <span className="text-sm bg-purple-600 text-white px-2 py-1 rounded-full">
             {myPostCount}
           </span>
@@ -45,7 +65,12 @@ const Categories = ({ categories, onFilter, activeCategory, myPostCount, adminPo
           } transition duration-300`}
           onClick={() => onFilter("Admin Posts")}
         >
-          <span>Admin Posts</span>
+          <div className="flex gap-2">
+            <span>
+              <ShieldHalf />
+            </span>
+            <span>Admin Posts</span>
+          </div>
           <span className="text-sm bg-purple-600 text-white px-2 py-1 rounded-full">
             {adminPostCount}
           </span>
@@ -62,7 +87,12 @@ const Categories = ({ categories, onFilter, activeCategory, myPostCount, adminPo
             } transition duration-300`}
             onClick={() => onFilter(category.name)}
           >
-            <span>{category.name}</span>
+            <div className="flex gap-2">
+              <span>
+                <Filter />
+              </span>
+              <span>{category.name}</span>
+            </div>
             <span className="text-sm bg-purple-600 text-white px-2 py-1 rounded-full">
               {category.count}
             </span>
