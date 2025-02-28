@@ -8,6 +8,8 @@ import { FaUserSecret } from "react-icons/fa6";
 import { postData } from "../../helpers/axios";
 import Cookies from "js-cookie";
 import Categories from "./Categories"; // Import the Categories component
+import CommonWrapper from "../../components/CommonWrapper";
+
 
 const HelpDesk = () => {
   const [posts, setPosts] = useState([]);
@@ -24,8 +26,12 @@ const HelpDesk = () => {
   const [comments, setComments] = useState([]);
   const [activeCategory, setActiveCategory] = useState("All"); // Track active category
   const username = Cookies.get("userName");
+  const isAdmin = Cookies.get("userRole") === "admin"; // Check if the user is an admin
+  const [showCategories, setShowCategories] = useState(false); // Add state to toggle categories
 
   // Fetch posts from the API on component mount
+  console.log("userName...", username)
+  console.log("isAdmin...", isAdmin)
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -35,6 +41,7 @@ const HelpDesk = () => {
         const data = await response.json();
 
         if (data.success) {
+          console.log("Fetched Posts:", data.data); // Log the posts data
           setPosts(data.data);
           setFilteredPosts(data.data); // Initialize filteredPosts with all posts
         } else {
@@ -66,14 +73,28 @@ const HelpDesk = () => {
     }));
   };
 
+  // Calculate counts for "My Posts" and "Admin Posts"
+  const myPostCount = username ? posts.length: 0;
+  const adminPostCount = isAdmin ? posts.length : 0; // Show all posts if the user is an admin
+
+  console.log("myPostCount...", myPostCount)
+  console.log("adminPostCount...", adminPostCount)
+
   // Handle category filter
   const handleCategoryFilter = (category) => {
     setActiveCategory(category); // Set the active category
+
     if (category === "All") {
       setFilteredPosts(posts); // Show all posts
+    } else if (category === "My Posts") {
+      const filtered = username ? posts: [];
+      setFilteredPosts(filtered); // Filter posts by the logged-in user
+    } else if (category === "Admin Posts") {
+      const filtered = isAdmin ? posts : [];
+      setFilteredPosts(filtered); // Filter posts by admin
     } else {
       const filtered = posts.filter((post) => post.type === category);
-      setFilteredPosts(filtered); // Filter posts by category
+      setFilteredPosts(filtered); // Filter posts by type
     }
   };
 
@@ -156,15 +177,16 @@ const HelpDesk = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen p-6 font-sans">
+
+    <div className="bg-gray-200 min-h-screen p-6 font-sans">
       {/* Header Section */}
-      <header className="flex justify-between items-center mb-8">
+      <header className="flex justify-between items-center mb-6 bg-gray-400 py-5 px-8 w-full">
         <h1 className="text-3xl font-bold text-purple-700">Help Desk</h1>
-        <div className="text-lg text-gray-700">
-          <span>Hi, {username}</span>
+        <div className="text-lg  flex gap-2">
+        <span className="pt-1 text-purple-500 bg-white rounded-full p-1"><FaUserSecret/></span>  <span className="text-gray-600">Hi, <span className="text-pink-700 font-bold">{username}</span></span>
         </div>
       </header>
-
+    <CommonWrapper>
       {/* Create Post Section */}
       <section className="mb-8">
         <textarea
@@ -260,10 +282,13 @@ const HelpDesk = () => {
         </section>
 
         {/* Categories Section */}
+        
         <Categories
           categories={generateCategories()}
           onFilter={handleCategoryFilter}
           activeCategory={activeCategory}
+          myPostCount={myPostCount}
+          adminPostCount={adminPostCount}
         />
       </div>
 
@@ -329,7 +354,9 @@ const HelpDesk = () => {
           setModalOpen={setModalOpen}
         />
       )}
+      </CommonWrapper>
     </div>
+    
   );
 };
 
