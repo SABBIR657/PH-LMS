@@ -1,14 +1,18 @@
 import { Navigate, useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 import { AuthContext } from "../hooks/AuthContextProvider";
 import { useContext } from "react";
-import Cookies from "js-cookie";
 // eslint-disable-next-line react/prop-types
-export default function PrivateRoute({ children }) {
-  const { pathname } = useLocation();
+
+export default function ForAdminRoute({ children }) {
   const { user } = useContext(AuthContext);
+  const { pathname } = useLocation();
   const token = Cookies.get("user");
-  if (token) {
+  const role = Cookies.get("userRole");
+  if (role == "admin") {
     return children;
   }
-  return <Navigate to={"/login"} replace state={{ path: pathname }} />;
+  return (
+    <Navigate to={"/admin/not-permitted"} replace state={{ path: pathname }} />
+  );
 }

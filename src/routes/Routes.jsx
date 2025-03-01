@@ -39,6 +39,10 @@ import VideoCreate from "../pages/Admin/video/VideoCreate";
 import VideoUpdate from "../pages/Admin/video/VideoUpdate";
 import VideoDetails from "../pages/Admin/video/VideoDetails";
 import NewClass from "../pages/Class";
+import NotPermitted from "../components/auth/NotPermitted";
+import ForInstructorRoute from "./ForInstructorRoute";
+import ForAdminRoute from "./ForAdminRoute";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -94,111 +98,173 @@ const routes = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: (
+      <PrivateRoute>
+        <AdminLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: (
+          <ForInstructorRoute>
+            <Dashboard />
+          </ForInstructorRoute>
+        ),
       },
 
       {
         path: "create-instructor",
-        element: <CreateInstructor />,
+        element: (
+          <ForAdminRoute>
+            <CreateInstructor />
+          </ForAdminRoute>
+        ),
       },
 
       //course related all routes
       {
         path: "course",
-        element: <CourseList />,
+        element: (
+          <ForInstructorRoute>
+            <CourseList />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "course/:id",
-        element: <CourseDetailsForAdmin />,
+        element: (
+          <ForInstructorRoute>
+            <CourseDetailsForAdmin />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "course/:id/update",
-        element: <UpdateCourse />,
+        element: (
+          <ForInstructorRoute>
+            <UpdateCourse />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "course-create",
-        element: <CreateCourse />,
+        element: (
+          <ForAdminRoute>
+            <CreateCourse />
+          </ForAdminRoute>
+        ),
       },
       {
         path: "assign-course",
-        element: <AssignCourse />,
+        element: (
+          <ForAdminRoute>
+            <AssignCourse />
+          </ForAdminRoute>
+        ),
       },
       //milestone related all routes
       {
         path: "milestone",
-        element: <MilestoneList />,
+        element: (
+          <ForInstructorRoute>
+            <MilestoneList />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "milestone-create",
-        element: <CreateMilestone />,
+        element: (
+          <ForInstructorRoute>
+            <CreateMilestone />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "milestone/:id/update",
-        element: <UpdateMilestone />,
+        element: (
+          <ForInstructorRoute>
+            <UpdateMilestone />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "milestone/:id",
-        element: <MilestoneDetails />,
+        element: (
+          <ForInstructorRoute>
+            <MilestoneDetails />
+          </ForInstructorRoute>
+        ),
       },
       //module related all routes
       {
         path: "module",
-        element: <ModuleList />,
+        element: (
+          <ForInstructorRoute>
+            <ModuleList />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "module-create",
-        element: <ModuleCreate />,
+        element: (
+          <ForInstructorRoute>
+            <ModuleCreate />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "module/:id/update",
-        element: <ModuleUpdate />,
+        element: (
+          <ForInstructorRoute>
+            <ModuleUpdate />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "module/:id",
-        element: <ModuleDetails />,
+        element: (
+          <ForInstructorRoute>
+            <ModuleDetails />
+          </ForInstructorRoute>
+        ),
       },
       //video related all routes
       {
         path: "video",
-        element: <VideoList />,
+        element: (
+          <ForInstructorRoute>
+            <VideoList />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "video-create",
-        element: <VideoCreate />,
+        element: (
+          <ForInstructorRoute>
+            <VideoCreate />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "video/:id/update",
-        element: <VideoUpdate />,
+        element: (
+          <ForInstructorRoute>
+            <VideoUpdate />
+          </ForInstructorRoute>
+        ),
       },
       {
         path: "video/:id",
-        element: <VideoDetails />,
-      },
-    ],
-  },
-  {
-    path: "/instructor",
-    element: <InstructorLayout />,
-    children: [
-      {
-        path: "milestone",
-        element: <Milestone />,
+        element: (
+          <ForInstructorRoute>
+            <VideoDetails />
+          </ForInstructorRoute>
+        ),
       },
       {
-        path: "module",
-        element: <Module />,
-      },
-      {
-        path: "video",
-        element: <Video />,
-      },
-      {
-        path: "question",
-        element: <Question />,
+        path: "not-permitted",
+        element: <NotPermitted />,
       },
     ],
   },
