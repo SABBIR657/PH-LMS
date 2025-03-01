@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Video from "./Video";
 import { addPlaylist } from "../../redux/new store/playlistSlice";
 import { useDispatch } from "react-redux";
+import useFetchQuery from "../../hooks/shared/useFetch";
 
 const Module = ({ module, setVideoSrc, setCurrentVideoIndex }) => {
   const dispatch = useDispatch();
@@ -10,24 +11,32 @@ const Module = ({ module, setVideoSrc, setCurrentVideoIndex }) => {
   //   console.log(module, "module from maaaaaaahiiiiiiim in line 5");
   const [video, setVideo] = useState([]);
 
-  useEffect(() => {
-    const fetchModule = async () => {
-      try {
-        const response = await fetch(
-          `${
-            import.meta.env.VITE_BACKEND_URL
-          }/module/allVideosByModuleId/${moduleId}`
-        );
-        const data = await response.json();
-        // console.log(data, "data in fetchModule in line 16");
-        setVideo(data.data);
-      } catch (error) {
-        console.error("Error fetching courses: ", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchModule = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `${
+  //           import.meta.env.VITE_BACKEND_URL
+  //         }/module/allVideosByModuleId/${moduleId}`
+  //       );
+  //       const data = await response.json();
+  //       // console.log(data, "data in fetchModule in line 16");
+  //       setVideo(data.data);
+  //     } catch (error) {
+  //       console.error("Error fetching courses: ", error);
+  //     }
+  //   };
 
-    fetchModule();
-  }, [moduleId]);
+  //   fetchModule();
+  // }, [moduleId]);
+
+  const response = useFetchQuery(`module/allVideosByModuleId/${moduleId}`);
+
+  useEffect(() => {
+    if (response.isSuccess) {
+      setVideo(response?.data?.data);
+    }
+  }, [response]);
 
   useEffect(() => {
     if (video?.videoList?.length) {

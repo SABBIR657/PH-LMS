@@ -4,28 +4,37 @@ import CommmonWrapper from "../components/CommonWrapper";
 import { Progress } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useFetchQuery from "../hooks/shared/useFetch";
 
 const MyClass = () => {
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   const fetchCourses = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `${import.meta.env.VITE_BACKEND_URL}/course/all-courses`
+  //       );
+  //       const data = await response.json();
+  //       setCourses(data.data);
+  //     } catch (error) {
+  //       console.error("Error fetching courses: ", error);
+  //     }
+  //   };
+
+  //   fetchCourses();
+  // }, []);
+
+  const response = useFetchQuery("course/all-courses");
+
   useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/course/all-courses`
-        );
-        const data = await response.json();
-        setCourses(data.data);
-      } catch (error) {
-        console.error("Error fetching courses: ", error);
-      }
-    };
+    if (response.isSuccess) {
+      setCourses(response?.data?.data);
+    }
+  }, [response]);
 
-    fetchCourses();
-  }, []);
-
-  console.log(courses, "courses from MyClass on line 28");
+  // console.log(courses, "courses from MyClass on line 28");
 
   return (
     <div className="bg-[#010313] p-4">
