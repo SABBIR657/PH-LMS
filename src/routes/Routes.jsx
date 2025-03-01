@@ -11,7 +11,6 @@ import Success from "../pages/Success";
 import Support from "../pages/Support";
 import MyClass from "../pages/MyClass";
 import Profile from "../pages/Profile";
-import Class from "../pages/Class";
 import Dashboard from "../pages/Admin/Dashboard";
 import CreateCourse from "../pages/Admin/course/CreateCourse";
 import AdminLayout from "../pages/Admin/AdminLayout";
@@ -39,7 +38,7 @@ import VideoList from "../pages/Admin/video/VideoList";
 import VideoCreate from "../pages/Admin/video/VideoCreate";
 import VideoUpdate from "../pages/Admin/video/VideoUpdate";
 import VideoDetails from "../pages/Admin/video/VideoDetails";
-import NewClass from "../pages/NewClass";
+import NewClass from "../pages/Class";
 
 const routes = createBrowserRouter([
   {
@@ -76,11 +75,7 @@ const routes = createBrowserRouter([
         element: <MyClass />,
       },
       {
-        path: "/class",
-        element: <Class />,
-      },
-      {
-        path: "/new-class/:courseId",
+        path: "/class/:courseId",
         element: <NewClass />,
       },
       {
@@ -125,7 +120,7 @@ const routes = createBrowserRouter([
         element: <UpdateCourse />,
       },
       {
-        path: "create-course",
+        path: "course-create",
         element: <CreateCourse />,
       },
       {
@@ -138,7 +133,7 @@ const routes = createBrowserRouter([
         element: <MilestoneList />,
       },
       {
-        path: "milestone-cretae",
+        path: "milestone-create",
         element: <CreateMilestone />,
       },
       {
@@ -155,7 +150,7 @@ const routes = createBrowserRouter([
         element: <ModuleList />,
       },
       {
-        path: "module-cretae",
+        path: "module-create",
         element: <ModuleCreate />,
       },
       {
@@ -163,7 +158,7 @@ const routes = createBrowserRouter([
         element: <ModuleUpdate />,
       },
       {
-        path: "milestone/:id",
+        path: "module/:id",
         element: <ModuleDetails />,
       },
       //video related all routes
@@ -172,7 +167,7 @@ const routes = createBrowserRouter([
         element: <VideoList />,
       },
       {
-        path: "video-cretae",
+        path: "video-create",
         element: <VideoCreate />,
       },
       {

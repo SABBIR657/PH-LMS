@@ -1,9 +1,22 @@
 import React from "react";
+import CourseDetails from "../../../components/Admin/course/CourseDetails";
+import { useParams } from "react-router-dom";
+import useFetchQuery from "../../../hooks/shared/useFetch";
 
 const CourseDetailsForAdmin = () => {
+  const { id } = useParams();
+  const { data, isLoading, isSuccess, refetch } = useFetchQuery(
+    `/course/single-course/${id}`
+  );
+
+  console.log(data);
   return (
     <div>
-      <h1 className="text-black">Course Details</h1>
+      <CourseDetails
+        courseDetails={data?.data}
+        isLoading={isLoading}
+        isSuccess={isSuccess}
+      />
     </div>
   );
 };

@@ -4,26 +4,35 @@ import CommmonWrapper from "../components/CommonWrapper";
 import { Progress } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useFetchQuery from "../hooks/shared/useFetch";
 
 const MyClass = () => {
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/course/all-courses`
-        );
-        const data = await response.json();
-        setCourses(data.data);
-      } catch (error) {
-        console.error("Error fetching courses: ", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchCourses = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `${import.meta.env.VITE_BACKEND_URL}/course/all-courses`
+  //       );
+  //       const data = await response.json();
+  //       setCourses(data.data);
+  //     } catch (error) {
+  //       console.error("Error fetching courses: ", error);
+  //     }
+  //   };
 
-    fetchCourses();
-  }, []);
+  //   fetchCourses();
+  // }, []);
+
+  const response = useFetchQuery("course/all-courses");
+
+  useEffect(() => {
+    if (response.isSuccess) {
+      setCourses(response?.data?.data);
+    }
+  }, [response]);
 
   // console.log(courses, "courses from MyClass on line 28");
 
@@ -82,9 +91,7 @@ const MyClass = () => {
                             <div className="mt-4 flex gap-4">
                               <button
                                 className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-                                onClick={() =>
-                                  navigate(`/new-class/${course.courseId}`)
-                                }
+                                onClick={() => navigate(`/class/${course._id}`)}
                               >
                                 Continue Course
                               </button>

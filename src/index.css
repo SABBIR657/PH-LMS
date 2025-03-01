@@ -28,9 +28,11 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --hero-button: linear-gradient(459deg,
-        rgba(128, 27, 224, 1) 0%,
-        rgba(232, 85, 222, 1) 41%);
+    --hero-button: linear-gradient(
+      459deg,
+      rgba(128, 27, 224, 1) 0%,
+      rgba(232, 85, 222, 1) 41%
+    );
 
     --border: 260 40% 20%;
     --input: 260 40% 20%;
@@ -43,16 +45,18 @@
 @layer components {
   .hero-button {
     background: var(--hero-button);
-    color: white;
+    color: rgb(3, 1, 1);
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     transition: background 0.3s ease;
   }
 
   .hero-button:hover {
-    background: linear-gradient(459deg,
-        rgba(232, 85, 222, 1) 0%,
-        rgba(128, 27, 224, 1) 41%);
+    background: linear-gradient(
+      459deg,
+      rgba(232, 85, 222, 1) 0%,
+      rgba(128, 27, 224, 1) 41%
+    );
   }
 }
 
@@ -71,7 +75,6 @@
 }
 
 @keyframes shake {
-
   0%,
   100% {
     transform: translateX(0);
@@ -92,8 +95,6 @@
     transform: translateX(2px);
   }
 }
-
-
 
 @layer base {
   * {
