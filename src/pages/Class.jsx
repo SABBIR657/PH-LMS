@@ -126,8 +126,8 @@ const NewClass = () => {
   return (
     <div>
       <CommonWrapper>
-        <div className="flex gap-8 p-4">
-          <div className="w-2/3">
+        <div className="lg:flex lg:gap-8 lg:p-4">
+          <div className="lg:w-2/3">
             {videoSrc ? (
               <iframe
                 width="100%"
@@ -138,7 +138,7 @@ const NewClass = () => {
                 allowfullscreen
               ></iframe>
             ) : (
-              <div className="w-full h-[450px] bg-[#101544]">
+              <div className="w-full h-[450px] p-1">
                 {questionPaper ? (
                   <Quiz quizData={questionPaper} />
                 ) : (
@@ -147,7 +147,7 @@ const NewClass = () => {
               </div>
             )}
             {/* button  */}
-            <div className="mt-4 flex justify-between gap-4">
+            <div className="mt-4 flex justify-between gap-4 px-5">
               <button
                 className="px-6 py-2 bg-transparent border-hero-button text-white rounded-lg border-2 border-hero-button cursor-pointer"
                 onClick={handlePreviousVideo}
@@ -162,16 +162,17 @@ const NewClass = () => {
               </button>
             </div>
           </div>
-          <div className="w-1/3">
+          <div className="lg:w-1/3">
             <div>
-              <h1>Milestone</h1>
+              {/* <h1>Milestone</h1> */}
               <div className="">
                 {Array.isArray(milestones.milestoneList) &&
-                  milestones.milestoneList.map((milestone) => (
+                  milestones.milestoneList.map((milestone, index) => (
                     <Accordion key={milestone._id} className="">
                       <AccordionItem
                         className="mb-5 bg-[#160929] px-4 py-7 rounded-xl"
                         title={milestone.milestoneName}
+                        subtitle={"Milestone " + (index + 1)}
                       >
                         <Milestone
                           milestone={milestone}

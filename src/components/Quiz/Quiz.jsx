@@ -26,8 +26,8 @@ const Quiz = ({ quizData }) => {
     const startQuiz = async () => {
       try {
         const response = await axiosInstance.post(`/exam/start`, {
-          startTime: Date.now(),
-          questionPaperId: quizData.questionPaperId,
+          startTime: Date.now().toString(),
+          questionPaperId: quizData._id,
         });
 
         console.log("Quiz started:", response.data);
@@ -38,7 +38,7 @@ const Quiz = ({ quizData }) => {
     };
 
     startQuiz();
-  }, [quizData.questionPaperId, axiosInstance]);
+  }, [quizData.questionPaperId, axiosInstance, quizData._id]);
 
   // Handle user answer selection
   const handleAnswerSelect = (selectedOptionIndex) => {
@@ -75,7 +75,7 @@ const Quiz = ({ quizData }) => {
       }));
 
       const payload = {
-        questionPaperId: quizData.questionPaperId, // Use questionPaperId instead of _id
+        questionPaperId: quizData._id, // Use questionPaperId instead of _id
         isSubmitted: true,
         endTime: Date.now(), // Ensure endTime is a number
         answerSheet,
@@ -95,7 +95,7 @@ const Quiz = ({ quizData }) => {
   // Render quiz completion screen
   if (isQuizCompleted) {
     return (
-      <div className="w-full h-[450px] bg-[#101544] text-white flex justify-center items-center">
+      <div className="w-full h-[450px] bg-[#101544] rounded-xl text-white flex justify-center items-center">
         <div>
           <h2>Quiz Completed!</h2>
           <p>
@@ -106,11 +106,11 @@ const Quiz = ({ quizData }) => {
     );
   }
 
-  console.log(quizData, "quizData from mahim in line 5555555555555");
+  //   console.log(quizData, "quizData from mahim in line 5555555555555");
 
   // Render the quiz questions
   return (
-    <div className="w-full h-[450px] bg-[#101544] text-white p-4">
+    <div className="w-full h-[450px] bg-[#101544] rounded-xl text-white p-4">
       <h2 className="text-xl font-bold mb-4">{currentQuestion.question}</h2>
       <ul>
         {Array.isArray(currentQuestion.options) &&
