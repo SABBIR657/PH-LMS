@@ -24,7 +24,7 @@ const OurImpact = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-600 to-blue-400 text-white">
+        <div className="ml-[600px] flex flex-col items-center justify-center min-h-screen bg-[#060022] text-white">
             <h2 className="text-6xl font-bold mb-8 text-transparent bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text leading-[1.167] text-right capitalize">
                 Our <br /> Impact_
             </h2>
