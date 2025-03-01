@@ -1,15 +1,14 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Assuming you're using react-router-dom for navigation
+import { useNavigate } from "react-router-dom";
 
 const NotPermitted = () => {
-  const navigate = useNavigate(); // Using history to navigate
-
+  const navigate = useNavigate();
   const goHome = () => {
     navigate("/");
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md text-center">
         <div className="text-red-600 text-6xl mb-6">
           <i className="fas fa-ban"></i>{" "}
