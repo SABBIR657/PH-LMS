@@ -5,7 +5,15 @@ const features = [
     },
     {
         title: "Scribbles Cafe",
-        image: 'https://web.programming-hero.com/home/_next/image?url=%2Fhome%2Fprojects%2Fcar-doctor.png&w=256&q=75',
+        image: 'https://web.programming-hero.com/home/_next/image?url=%2Fhome%2Fprojects%2Fcareer-hub.png&w=256&q=75',
+    },
+    {
+        title: "Scribbles Cafe",
+        image: 'https://web.programming-hero.com/home/_next/image?url=%2Fhome%2Fprojects%2Fdragon-news.png&w=256&q=75',
+    },
+    {
+        title: "Scribbles Cafe",
+        image: 'https://web.programming-hero.com/home/_next/image?url=%2Fhome%2Fprojects%2Femporium.png&w=256&q=75',
     },
     {
         title: "Scribbles Cafe",
@@ -13,15 +21,7 @@ const features = [
     },
     {
         title: "Scribbles Cafe",
-        image: 'https://web.programming-hero.com/home/_next/image?url=%2Fhome%2Fprojects%2Fcar-doctor.png&w=256&q=75',
-    },
-    {
-        title: "Scribbles Cafe",
-        image: 'https://web.programming-hero.com/home/_next/image?url=%2Fhome%2Fprojects%2Fcar-doctor.png&w=256&q=75',
-    },
-    {
-        title: "Scribbles Cafe",
-        image: 'https://web.programming-hero.com/home/_next/image?url=%2Fhome%2Fprojects%2Fcar-doctor.png&w=256&q=75',
+        image: 'https://web.programming-hero.com/home/_next/image?url=%2Fhome%2Fprojects%2Fboss-restaurant.png&w=256&q=75',
     },
 ];
 

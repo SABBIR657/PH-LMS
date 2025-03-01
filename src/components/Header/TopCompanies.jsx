@@ -163,7 +163,7 @@ const TopCompanies = () => {
     }, []);
 
     return (
-        <div className="relative w-full min-h-screen bg-gray-900 overflow-hidden flex flex-col justify-center items-center">
+        <div className="relative w-full min-h-screen bg-[#060022] overflow-hidden flex flex-col justify-center items-center">
             <h1 className="text-6xl font-semibold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-purple-400">
                 Heroes In Top Companies
             </h1>
