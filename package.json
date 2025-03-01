@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
     "@heroui/react": "^2.6.14",
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@radix-ui/react-avatar": "^1.1.2",
@@ -19,6 +20,7 @@
     "@radix-ui/react-separator": "^1.1.1",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toggle": "^1.1.1",
+    "@radix-ui/react-tooltip": "^1.1.8",
     "@react-three/drei": "^10.0.0",
     "@react-three/fiber": "^9.0.4",
     "@reduxjs/toolkit": "^2.6.0",
@@ -29,7 +31,8 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "firebase": "^10.4.0",
-    "framer-motion": "^12.0.5",
+    "framer-motion": "^12.4.7",
+    "gsap": "^3.12.7",
     "js-cookie": "^3.0.5",
     "localforage": "^1.10.0",
     "lucide-react": "^0.474.0",
