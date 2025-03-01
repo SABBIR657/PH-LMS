@@ -49,7 +49,7 @@ const AssignCourse = () => {
     }) || [];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#161A42] to-purple-50 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-[#45496D] p-6">
       <div className="max-w-lg w-full bg-slate-50 rounded-xl shadow-2xl p-8 space-y-6">
         <h2 className="text-3xl font-bold text-center text-gray-900">
           Assign Course to Instructor
