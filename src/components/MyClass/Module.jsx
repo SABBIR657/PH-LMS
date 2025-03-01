@@ -5,7 +5,12 @@ import { addPlaylist } from "../../redux/new store/playlistSlice";
 import { useDispatch } from "react-redux";
 import useFetchQuery from "../../hooks/shared/useFetch";
 
-const Module = ({ module, setVideoSrc, setCurrentVideoIndex }) => {
+const Module = ({
+  module,
+  setVideoSrc,
+  setCurrentVideoIndex,
+  setQuestionPaper,
+}) => {
   const dispatch = useDispatch();
   const moduleId = module?._id;
   //   console.log(module, "module from maaaaaaahiiiiiiim in line 5");
@@ -31,6 +36,7 @@ const Module = ({ module, setVideoSrc, setCurrentVideoIndex }) => {
   // }, [moduleId]);
 
   const response = useFetchQuery(`module/allVideosByModuleId/${moduleId}`);
+  // console.log(response, "response from moudle 9999999999999999999999999");
 
   useEffect(() => {
     if (response.isSuccess) {
@@ -43,11 +49,38 @@ const Module = ({ module, setVideoSrc, setCurrentVideoIndex }) => {
       console.log("video has come", video?.videoList?.length);
       dispatch(addPlaylist(video?.videoList));
     }
-  }, [video]);
+  }, [video, dispatch]);
+
+  const [quizResponse, setQuizResponse] = useState(null);
+
+  const {
+    data: quizData,
+    isSuccess: quizIsSuccess,
+    refetch: fetchQuiz,
+  } = useFetchQuery(
+    `/questionPaper/getSingleQuestionPaper?qp_id=${video.quizId}`,
+    {},
+    false // Disable automatic fetch
+  );
+
+  useEffect(() => {
+    if (quizIsSuccess && quizData) {
+      setQuizResponse(quizData?.data);
+      setQuestionPaper(quizData?.data);
+    }
+  }, [quizIsSuccess, quizData, setQuestionPaper]);
+
+  const handleQuiz = () => {
+    setVideoSrc(null); // remove iframe
+    fetchQuiz();
+  };
+
+  // console.log(quizResponse, "quizResponse from module newwwwwwwwwwwwwwwww");
 
   // console.log(video, "video from maaaaaaahiiiiiiim in line 27");
 
   // console.log(module, "single module from module component");
+  // console.log(video.quizId, "quizId from module component 555555555555555555");
 
   return (
     <div className="">
@@ -65,6 +98,16 @@ const Module = ({ module, setVideoSrc, setCurrentVideoIndex }) => {
             mainIndex={index}
           />
         ))}
+      <div>
+        {video.quizId && (
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleQuiz}
+          >
+            Start Quiz
+          </button>
+        )}
+      </div>
     </div>
   );
 };

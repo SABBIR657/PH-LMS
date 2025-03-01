@@ -1,5 +1,5 @@
 const Video = ({ video, setVideoSrc, index }) => {
-  console.log(video, "video from maaaaaaahiiiiiiim in line 217");
+  // console.log(video, "video from maaaaaaahiiiiiiim in line 217");
   return (
     <div className="py-5 ">
       <button

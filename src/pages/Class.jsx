@@ -5,6 +5,7 @@ import Milestone from "../components/MyClass/Milestone";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import useFetchQuery from "../hooks/shared/useFetch";
+import Quiz from "../components/Quiz/Quiz";
 
 const NewClass = () => {
   const { courseId } = useParams();
@@ -15,6 +16,11 @@ const NewClass = () => {
   );
   const [index, setIndex] = useState("");
   const [currentVideoIndex, setCurrentVideoIndex] = useState("");
+  const [questionPaper, setQuestionPaper] = useState("");
+  // console.log(
+  //   questionPaper,
+  //   "questionPaper from Classssssssss on line 11111111999999999999"
+  // );
   // const [initialVideoInde, setInitialVideoInde] = useState('')
   const playlist = useSelector((state) => state.playlist);
 
@@ -122,14 +128,24 @@ const NewClass = () => {
       <CommonWrapper>
         <div className="flex gap-8 p-4">
           <div className="w-2/3">
-            <iframe
-              width="100%"
-              height="450"
-              src={videoSrc}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
+            {videoSrc ? (
+              <iframe
+                width="100%"
+                height="450"
+                src={videoSrc}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            ) : (
+              <div className="w-full h-[450px] bg-[#101544]">
+                {questionPaper ? (
+                  <Quiz quizData={questionPaper} />
+                ) : (
+                  "No question paper available"
+                )}
+              </div>
+            )}
             {/* button  */}
             <div className="mt-4 flex justify-between gap-4">
               <button
@@ -161,6 +177,7 @@ const NewClass = () => {
                           milestone={milestone}
                           setVideoSrc={setVideoSrc}
                           setCurrentVideoIndex={setCurrentVideoIndex}
+                          setQuestionPaper={setQuestionPaper}
                         />
                       </AccordionItem>
                     </Accordion>
