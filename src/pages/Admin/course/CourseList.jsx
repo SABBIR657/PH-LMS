@@ -39,7 +39,7 @@ const CourseList = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
+    <div className="p-6 bg-slate-100 min-h-screen">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-gray-800">Course List</h1>
@@ -52,7 +52,7 @@ const CourseList = () => {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+      <div className="bg-white rounded-xl shadow-xl overflow-hidden mt-20">
         {isLoading ? (
           <div className="p-6 flex justify-center items-center">
             <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-indigo-500"></div>

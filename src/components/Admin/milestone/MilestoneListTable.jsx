@@ -40,39 +40,27 @@ export default function MilestoneListTable({
 }) {
   const [filterValue, setFilterValue] = React.useState("");
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const [sortDescriptor, setSortDescriptor] = React.useState({
-    column: "age",
-    direction: "ascending",
-  });
   const [page, setPage] = React.useState(1);
 
-  const pages = Math.ceil(users.length / rowsPerPage);
+  const pages = Math.ceil(courses.length / rowsPerPage);
 
   const renderCell = React.useCallback((item, columnKey, index) => {
     const cellValue = item[columnKey];
     switch (columnKey) {
       case "actions":
         return (
-          <div className="relative flex justify-end items-center gap-3">
-            <Tooltip content="Details">
+          <div className="relative flex justify-center items-center gap-10">
+            <Tooltip content="Details" color="primary">
               <span
-                className="text-lg text-default-400 cursor-pointer active:opacity-50"
+                className="text-2xl text-blue-500 cursor-pointer active:opacity-50"
                 onClick={() => onView(item._id)}
               >
                 <EyeIcon />
               </span>
             </Tooltip>
-            {/* <Tooltip content="Edit">
-              <span
-                className="text-lg text-default-400 cursor-pointer active:opacity-50"
-                onClick={() => onEdit(item._id)}
-              >
-                <EditIcon />
-              </span>
-            </Tooltip> */}
             <Tooltip color="danger" content="Delete">
               <span
-                className="text-lg text-danger cursor-pointer active:opacity-50"
+                className="text-2xl text-red-600 cursor-pointer active:opacity-50"
                 onClick={() => onDelete(item._id)}
               >
                 <DeleteIcon />
@@ -82,20 +70,20 @@ export default function MilestoneListTable({
         );
       case "isDeleted":
         return (
-          <p
-            className="flex items-center"
-            target="_blank"
-            rel="noopener noreferrer"
+          <span
+            className={`text-md font-semibold ${
+              item.isDeleted ? "text-red-600" : "text-green-600"
+            }`}
           >
             {item.isDeleted ? "Deleted" : "Live"}
-          </p>
+          </span>
         );
       case "moduleList":
         return <div className="flex items-center">{cellValue?.length}</div>;
       default:
-        return cellValue;
+        return <span className="text-lg">{cellValue}</span>;
     }
-  }, []);
+  }, [onDelete, onView]);
 
   const onRowsPerPageChange = React.useCallback((e) => {
     setRowsPerPage(Number(e.target.value));
@@ -114,39 +102,38 @@ export default function MilestoneListTable({
   const topContent = React.useMemo(() => {
     return (
       <div className="flex flex-col gap-4">
-        <div className="flex justify-between gap-3 items-end">
+        <div className="flex justify-between gap-3 pl-[42rem] mt-10">
           <Input
             isClearable
             classNames={{
-              base: "w-full sm:max-w-[44%]",
+              base: "w-full sm:max-w-[40%]",
               inputWrapper: "border-1",
             }}
             placeholder="Search by name..."
-            size="sm"
-            startContent={<SearchIcon className="text-default-300" />}
+            size="lg"
+            startContent={<SearchIcon className="text-purple-600" />}
             value={filterValue}
-            variant="bordered"
+            variant="flat"
             onClear={() => setFilterValue("")}
             onValueChange={onSearchChange}
           />
           <div className="flex gap-3">
             <Link to={createLink}>
-              <Button
+              {/* <Button
                 // className="bg-foreground text-background"
                 endContent={<PlusIcon />}
                 size="sm"
               >
                 Add New
-              </Button>
+              </Button> */}
             </Link>
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-default-400 text-small">Total 20 users</span>
-          <label className="flex items-center text-default-400 text-small">
+          <label className="flex items-center text-slate-400 text-md mt-4">
             Rows per page:
             <select
-              className="bg-transparent outline-none text-default-400 text-small"
+              className="bg-transparent outline-none text-blue-600 text-md font-bold pl-2"
               onChange={onRowsPerPageChange}
             >
               <option value="5">5</option>
@@ -157,16 +144,13 @@ export default function MilestoneListTable({
         </div>
       </div>
     );
-  }, [filterValue, onSearchChange, onRowsPerPageChange]);
+  }, [filterValue, onSearchChange, onRowsPerPageChange, createLink]);
 
   const bottomContent = React.useMemo(() => {
     return (
-      <div className="py-2 px-2 flex justify-center items-center">
+      <div className="py-2 px-2 flex justify-center items-center mt-10">
         <Pagination
           showControls
-          // classNames={{
-          //   cursor: "bg-foreground text-background",
-          // }}
           color="default"
           page={page}
           total={pages}
@@ -182,13 +166,9 @@ export default function MilestoneListTable({
       wrapper: ["max-h-[382px]", "max-w-3xl"],
       th: ["bg-transparent", "text-default-500", "border-b", "border-divider"],
       td: [
-        // changing the rows border radius
-        // first
         "group-data-[first=true]/tr:first:before:rounded-none",
         "group-data-[first=true]/tr:last:before:rounded-none",
-        // middle
         "group-data-[middle=true]/tr:before:rounded-none",
-        // last
         "group-data-[last=true]/tr:first:before:rounded-none",
         "group-data-[last=true]/tr:last:before:rounded-none",
       ],
@@ -197,11 +177,11 @@ export default function MilestoneListTable({
   );
 
   return (
-    <div>
+    <div className="ml-3 mr-3">
       <Table
         isCompact
         removeWrapper
-        aria-label="Course table with searching, pagination and sorting"
+        aria-label="Milestone table with searching, pagination and sorting"
         bottomContent={bottomContent}
         bottomContentPlacement="outside"
         checkboxesProps={{
@@ -211,10 +191,8 @@ export default function MilestoneListTable({
           },
         }}
         classNames={classNames}
-        sortDescriptor={sortDescriptor}
         topContent={topContent}
         topContentPlacement="outside"
-        onSortChange={setSortDescriptor}
       >
         <TableHeader columns={columns}>
           {(column) => (
@@ -222,21 +200,35 @@ export default function MilestoneListTable({
               key={column.uid}
               align={column.uid === "actions" ? "center" : "start"}
               allowsSorting={column.sortable}
+              className="text-lg"
             >
               {column.name}
             </TableColumn>
           )}
         </TableHeader>
         <TableBody
-          emptyContent={"No users found"}
+          emptyContent={
+            <div className="flex justify-center items-center p-6">
+              <span className="text-gray-500 text-lg">No milestones found</span>
+            </div>
+          }
           items={courses}
           isLoading={isLoading}
-          loadingContent={<Spinner color="default" />}
+          loadingContent={
+            <div className="flex justify-center items-center p-6">
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-indigo-500"></div>
+            </div>
+          }
         >
           {(item) => (
-            <TableRow key={item._id}>
+            <TableRow
+              key={item._id}
+              className="hover:bg-slate-300 transition duration-200 cursor-pointer"
+            >
               {(columnKey) => (
-                <TableCell>{renderCell(item, columnKey)}</TableCell>
+                <TableCell className="py-3 text-lg">
+                  {renderCell(item, columnKey)}
+                </TableCell>
               )}
             </TableRow>
           )}

@@ -39,7 +39,7 @@ const CreateInstructor = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#161A42] to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-[#45496D] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl w-full bg-slate-50 rounded-xl shadow-2xl p-8 space-y-8">
         <h2 className="text-3xl font-bold text-center text-gray-900">
           Create Instructor
