@@ -1,3 +1,4 @@
+import FaqQuestion from "../components/Header/FaqQuestion";
 import HeroSection from "../components/Header/HeroSection";
 import Learn from "../components/Header/Learn";
 import OurImpact from "../components/Header/OurImpact";
@@ -14,6 +15,7 @@ const Home = () => {
       <XFactor />
       <Learn />
       <ProjectBuild />
+      <FaqQuestion />
 
     </>
   );
