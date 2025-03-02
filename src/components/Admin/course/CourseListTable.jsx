@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import {
   Table,
@@ -223,10 +224,10 @@ export default function CourseListTable({
     switch (columnKey) {
       case "actions":
         return (
-          <div className="relative flex justify-end items-center gap-3">
-            <Tooltip content="Details">
+          <div className="relative flex justify-center items-center gap-10 ">
+            <Tooltip content="Details" color="primary">
               <span
-                className="text-lg text-default-400 cursor-pointer active:opacity-50"
+                className="text-2xl text-blue-500 cursor-pointer active:opacity-50 "
                 onClick={() => onView(item._id)}
               >
                 <EyeIcon />
@@ -242,7 +243,7 @@ export default function CourseListTable({
             </Tooltip> */}
             <Tooltip color="danger" content="Delete">
               <span
-                className="text-lg text-danger cursor-pointer active:opacity-50"
+                className="text-2xl text-danger cursor-pointer active:opacity-50"
                 onClick={() => onDelete(item._id)}
               >
                 <DeleteIcon />
@@ -252,13 +253,13 @@ export default function CourseListTable({
         );
       case "isDeleted":
         return (
-          <p
-            className="flex items-center"
-            target="_blank"
-            rel="noopener noreferrer"
+          <span
+            className={`text-md font-semibold ${
+              item.isDeleted ? "text-red-600" : "text-green-600"
+            }`}
           >
             {item.isDeleted ? "Deleted" : "Live"}
-          </p>
+          </span>
         );
       default:
         return cellValue;
@@ -282,39 +283,39 @@ export default function CourseListTable({
   const topContent = React.useMemo(() => {
     return (
       <div className="flex flex-col gap-4">
-        <div className="flex justify-between gap-3 items-end">
+        <div className="flex justify-between gap-3 pl-[42rem] mt-10 ">
           <Input
             isClearable
             classNames={{
-              base: "w-full sm:max-w-[44%]",
+              base: "w-full sm:max-w-[40%]",
               inputWrapper: "border-1",
             }}
             placeholder="Search by name..."
-            size="sm"
-            startContent={<SearchIcon className="text-default-300" />}
+            size="lg"
+            startContent={<SearchIcon className="text-purple-600" />}
             value={filterValue}
-            variant="bordered"
+            variant="flat"
             onClear={() => setFilterValue("")}
             onValueChange={onSearchChange}
           />
           <div className="flex gap-3">
             <Link to={createLink}>
-              <Button
+              {/* <Button
                 // className="bg-foreground text-background"
                 endContent={<PlusIcon />}
                 size="sm"
               >
                 Add New
-              </Button>
+              </Button> */}
             </Link>
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-default-400 text-small">Total 20 users</span>
-          <label className="flex items-center text-default-400 text-small">
+          {/* <span className="text-default-400 text-small">Total 20 users</span> */}
+          <label className="flex items-center text-slate-400 text-md  mt-4">
             Rows per page:
             <select
-              className="bg-transparent outline-none text-default-400 text-small"
+              className="bg-transparent outline-none text-blue-600 text-md font-bold pl-2 "
               onChange={onRowsPerPageChange}
             >
               <option value="5">5</option>
@@ -329,7 +330,7 @@ export default function CourseListTable({
 
   const bottomContent = React.useMemo(() => {
     return (
-      <div className="py-2 px-2 flex justify-center items-center">
+      <div className="py-2 px-2 flex justify-center items-center mt-10">
         <Pagination
           showControls
           // classNames={{
@@ -365,7 +366,7 @@ export default function CourseListTable({
   );
 
   return (
-    <div>
+    <div className="ml-3 mr-3">
       <Table
         isCompact
         removeWrapper
@@ -390,21 +391,35 @@ export default function CourseListTable({
               key={column.uid}
               align={column.uid === "actions" ? "center" : "start"}
               allowsSorting={column.sortable}
+              className="text-lg "
             >
               {column.name}
             </TableColumn>
           )}
         </TableHeader>
         <TableBody
-          emptyContent={"No users found"}
+          emptyContent={
+            <div className="flex justify-center items-center p-6">
+              <span className="text-gray-500 text-lg">No courses found</span>
+            </div>
+          }
           items={courses}
           isLoading={isLoading}
-          loadingContent={<Spinner color="default" />}
+          loadingContent={
+            <div className="flex justify-center items-center p-6">
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-indigo-500"></div>
+            </div>
+          }
         >
           {(item) => (
-            <TableRow key={item._id}>
+            <TableRow
+              key={item._id}
+              className="hover:bg-slate-300 transition duration-200 cursor-pointer  "
+            >
               {(columnKey) => (
-                <TableCell>{renderCell(item, columnKey)}</TableCell>
+                <TableCell className="py-3 text-lg">
+                  {renderCell(item, columnKey)}
+                </TableCell>
               )}
             </TableRow>
           )}

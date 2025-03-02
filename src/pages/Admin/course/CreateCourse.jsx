@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { Form, Input, Button, Select, SelectItem } from "@heroui/react";
+import { Form, Input, Button } from "@heroui/react";
 import useFetchQuery from "../../../hooks/shared/useFetch";
 import { postData } from "../../../helpers/axios";
 import toast from "react-hot-toast";
@@ -24,6 +24,7 @@ const CreateCourse = () => {
       const res = await postData("/course/create-course", data);
       setIsCreating(false);
       toast.success("Course created successfully");
+      reset(); // Reset the form after successful submission
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -32,114 +33,90 @@ const CreateCourse = () => {
     }
   };
 
-  const courseListItems =
-    data?.data?.map((item) => {
-      return {
-        key: item?._id,
-        label: item?.courseName,
-      };
-    }) || [];
-
   return (
-    <div className="text-black">
-      <h1 className="text-center text-xl font-semibold text-grays-600 py-5 shadow-sm rounded-lg bg-gray-100 mb-4">
-        Course Creation
-      </h1>
-      <div className="flex justify-center">
-        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
-          {/* Using react-hook-form's onSubmit */}
-          <Form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+    <div className="bg-slate-100 min-h-screen flex justify-center items-center p-6">
+      {/* Form Container */}
+      <div className="max-w-4xl w-full bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
+        <div className="p-8">
+          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+            Create Course
+          </h1>
+
+          {/* Form */}
+          <Form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+            {/* Course Name Field */}
             <Controller
               name="courseName"
               control={control}
-              rules={{ required: true }}
+              rules={{ required: "Course name is required" }}
               render={({ field }) => (
-                <Input
-                  {...field}
-                  isRequired
-                  errorMessage={
-                    errors.courseName && "Please enter a course name"
-                  }
-                  label="Name"
-                  labelPlacement="outside"
-                  placeholder="Enter your course name"
-                  type="text"
-                  classNames={{
-                    label: "bg-gray-300 px-3 rounded-sm",
-                  }}
-                />
+                <div className="relative w-full">
+                  <Input
+                    {...field}
+                    isRequired
+                    label="Course Name"
+                    labelPlacement="outside"
+                    // placeholder=" Course Name"
+                    type="text"
+                    errorMessage={errors.courseName?.message}
+                    classNames={{
+                      label: "text-sm font-medium text-gray-700 mb-1",
+                      inputWrapper:
+                        "border-b-2 border-purple-500 focus:border-purple-700 transition duration-300 rounded-none p-0 bg-transparent pl-2", // Purple border, no background
+                      input: "py-2 focus:outline-none placeholder-transparent", // Floating placeholder
+                    }}
+                  />
+                  {/* <label
+                    htmlFor="courseName"
+                    className="absolute left-0 -top-5 text-sm text-gray-500 transition-all duration-300 pointer-events-none"
+                  >
+                    Course Name
+                  </label> */}
+                </div>
               )}
             />
-            {/* Display errors */}
-            {errors.courseName && (
-              <p className="text-red-500 text-sm mt-2">
-                Milestone name is required
-              </p>
-            )}
+
+            {/* Amount Field */}
             <Controller
               name="amount"
               control={control}
-              rules={{ required: true }}
+              rules={{ required: "Amount is required" }}
               render={({ field }) => (
-                <Input
-                  {...field}
-                  isRequired
-                  errorMessage={
-                    errors.courseName && "Please enter a course amount"
-                  }
-                  label="Amount"
-                  labelPlacement="outside"
-                  placeholder="Enter amount"
-                  type="number"
-                  classNames={{
-                    label: "bg-gray-300 px-3 rounded-sm",
-                  }}
-                />
-              )}
-            />
-            {/* Display errors */}
-            {errors.amount && (
-              <p className="text-red-500 text-sm mt-2">
-                Milestone name is required
-              </p>
-            )}
-
-            {/* <Controller
-              name="course_id"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  className="w-full"
-                  label="Select a course"
-                  labelPlacement="outside"
-                  isLoading={isLoading}
-                >
-                  {courseListItems.map((item) => (
-                    <SelectItem key={item.key} value={item.key}>
-                      {item.label}
-                    </SelectItem>
-                  ))}
-                </Select>
+                <div className="relative w-full ">
+                  <Input
+                    {...field}
+                    isRequired
+                    label="Amount"
+                    labelPlacement="outside"
+                    // placeholder=" "
+                    type="number"
+                    errorMessage={errors.amount?.message}
+                    classNames={{
+                      label: "text-sm font-medium text-gray-700 mb-1",
+                      inputWrapper:
+                        "border-b-2 border-purple-500 focus:border-purple-700 transition duration-300 rounded-none p-0 bg-transparent pl-2", // Purple border, no background
+                      input: "py-2 focus:outline-none placeholder-transparent", // Floating placeholder
+                    }}
+                  />
+                  {/* <label
+                    htmlFor="amount"
+                    className="absolute left-0 -top-5 text-sm text-gray-500 transition-all duration-300 pointer-events-none"
+                  >
+                    Amount
+                  </label> */}
+                </div>
               )}
             />
 
-            {errors.course && (
-              <p className="text-red-500 text-sm mt-2">
-                Please select a course
-              </p>
-            )} */}
-
+            {/* Submit Button */}
             <Button
               disabled={isCreating}
               isLoading={isCreating}
               type="submit"
-              variant="solid"
-              colorScheme="indigo"
-              className="w-full py-2 mt-4 text-white font-semibold rounded-md shadow-md"
+              color="primary"
+              className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow-md transition duration-300 transform hover:scale-105"
             >
-              Submit
+              Create Course
             </Button>
           </Form>
         </div>

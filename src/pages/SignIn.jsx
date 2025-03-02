@@ -47,8 +47,13 @@ const SignIn = () => {
     toast.success("Successfully Logged In", { position: "top-right" });
     Cookies.set("user", res?.approvalToken, { expires: 30 });
     Cookies.set("refreshToken", res?.refreshToken, { expires: 30 });
-    Cookies.set("userName", res?.user?.name, { expires: 30 });
-    Cookies.set("userRole", res?.user?.role, { expires: 30 });
+    Cookies.set("userName", res?.user?.findUserAndUpdate?.name, {
+      expires: 30,
+    });
+    Cookies.set("userRole", res?.user?.findUserAndUpdate?.role, {
+      expires: 30,
+    });
+    console.log(res?.user);
     setUser(res?.user);
     setIsLoading(false);
     // navigate(path || "/admin");
