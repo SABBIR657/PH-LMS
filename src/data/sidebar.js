@@ -3,6 +3,10 @@ export const sidebarUrlList = [
     parentLabel: "Admin",
     children: [
       {
+        label: "Dashboard",
+        url: "/admin/",
+      },
+      {
         label: "Instructor Create",
         url: "/admin/create-instructor",
       },
