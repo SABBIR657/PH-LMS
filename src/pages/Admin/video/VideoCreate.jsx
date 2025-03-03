@@ -22,12 +22,12 @@ const VideoCreate = () => {
   );
 
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       setIsCreating(true);
       const res = await postData("/video/create-video", data);
       setIsCreating(false);
       toast.success("Video created successfully");
+      reset(); // Reset the form after successful submission
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -60,165 +60,181 @@ const VideoCreate = () => {
       };
     }) || [];
 
-  console.log("moduleResponse", moduleResponse);
-
   return (
-    <div className="text-black">
-      <h1 className="text-center text-xl font-semibold text-grays-600 py-5 shadow-sm rounded-lg bg-gray-100 mb-4">
-        Video Creation
-      </h1>
-      <div className="flex justify-center">
-        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
-          {/* Using react-hook-form's onSubmit */}
-          <Form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+    <div className="bg-slate-100 min-h-screen flex justify-center items-center p-6">
+      {/* Form Container */}
+      <div className="max-w-4xl w-full bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
+        <div className="p-8">
+          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+            Create Video
+          </h1>
+
+          {/* Form */}
+          <Form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+            {/* Video Name Field */}
             <Controller
               name="videoName"
               control={control}
-              rules={{ required: true }}
+              rules={{ required: "Video name is required" }}
               render={({ field }) => (
-                <Input
-                  {...field}
-                  isRequired
-                  errorMessage={errors.videoName && "Please enter a video name"}
-                  label="Video Name"
-                  labelPlacement="outside"
-                  placeholder="Enter your video name"
-                  type="text"
-                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
-                />
+                <div className="relative w-full">
+                  <Input
+                    {...field}
+                    isRequired
+                    label="Video Name"
+                    labelPlacement="outside"
+                    type="text"
+                    errorMessage={errors.videoName?.message}
+                    classNames={{
+                      label: "text-sm font-medium text-gray-700 mb-1",
+                      inputWrapper:
+                        "border-b-2 border-purple-500 focus:border-purple-700 transition duration-300 rounded-none p-0 bg-transparent pl-2",
+                      input: "py-2 focus:outline-none placeholder-transparent",
+                    }}
+                  />
+                </div>
               )}
             />
-            {/* Display errors */}
-            {errors.videoName && (
-              <p className="text-red-500 text-sm mt-2">
-                Video name is required
-              </p>
-            )}
+
+            {/* Video URL Field */}
             <Controller
               name="videoURL"
               control={control}
-              rules={{ required: true }}
+              rules={{ required: "Video URL is required" }}
               render={({ field }) => (
-                <Input
-                  {...field}
-                  isRequired
-                  errorMessage={errors.videoURL && "Please enter a module name"}
-                  label="Video URL"
-                  labelPlacement="outside"
-                  placeholder="Enter your video url"
-                  type="text"
-                  className="mt-1"
-                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
-                />
+                <div className="relative w-full">
+                  <Input
+                    {...field}
+                    isRequired
+                    label="Video URL"
+                    labelPlacement="outside"
+                    type="text"
+                    errorMessage={errors.videoURL?.message}
+                    classNames={{
+                      label: "text-sm font-medium text-gray-700 mb-1",
+                      inputWrapper:
+                        "border-b-2 border-purple-500 focus:border-purple-700 transition duration-300 rounded-none p-0 bg-transparent pl-2",
+                      input: "py-2 focus:outline-none placeholder-transparent",
+                    }}
+                  />
+                </div>
               )}
             />
-            {/* Display errors */}
-            {errors.videoURL && (
-              <p className="text-red-500 text-sm mt-2">Video URL is required</p>
-            )}
 
+            {/* Select Course Dropdown */}
             <Controller
               name="course_id"
               control={control}
-              rules={{ required: true }}
+              rules={{ required: "Please select a course" }}
               render={({ field }) => (
-                <Select
-                  {...field}
-                  className="w-full"
-                  label="Select a course"
-                  labelPlacement="outside"
-                  isLoading={isLoading}
-                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
-                >
-                  {courseListItems.map((item) => (
-                    <SelectItem
-                      key={item.key}
-                      value={item.key}
-                      className="bg-[#1F2937]"
-                    >
-                      {item.label}
-                    </SelectItem>
-                  ))}
-                </Select>
+                <div className="relative w-full">
+                  <Select
+                    {...field}
+                    isRequired
+                    label="Select a Course"
+                    labelPlacement="outside"
+                    isLoading={isLoading}
+                    errorMessage={errors.course_id?.message}
+                    classNames={{
+                      label: "text-sm font-medium text-gray-700 mb-1",
+                      trigger:
+                        "border-b-2 border-purple-500 focus:border-purple-700 transition duration-300 rounded-none p-0 bg-transparent pl-2",
+                      popoverContent: "bg-white border border-gray-300 rounded-lg",
+                    }}
+                  >
+                    {courseListItems.map((item) => (
+                      <SelectItem
+                        key={item.key}
+                        value={item.key}
+                        className="hover:bg-purple-50 text-black"
+                      >
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                  </Select>
+                </div>
               )}
             />
-            {errors.course_id && (
-              <p className="text-red-500 text-sm mt-2">
-                Please select a course
-              </p>
-            )}
 
+            {/* Select Milestone Dropdown */}
             <Controller
               name="milestoneId"
               control={control}
-              rules={{ required: true }}
+              rules={{ required: "Please select a milestone" }}
               render={({ field }) => (
-                <Select
-                  {...field}
-                  className="w-full"
-                  label="Select a milestone"
-                  labelPlacement="outside"
-                  isLoading={milestoneLoading}
-                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
-                >
-                  {milestoneListItems.map((item) => (
-                    <SelectItem
-                      key={item.key}
-                      value={item.key}
-                      className="bg-[#1F2937]"
-                    >
-                      {item.label}
-                    </SelectItem>
-                  ))}
-                </Select>
+                <div className="relative w-full">
+                  <Select
+                    {...field}
+                    isRequired
+                    label="Select a Milestone"
+                    labelPlacement="outside"
+                    isLoading={milestoneLoading}
+                    errorMessage={errors.milestoneId?.message}
+                    classNames={{
+                      label: "text-sm font-medium text-gray-700 mb-1",
+                      trigger:
+                        "border-b-2 border-purple-500 focus:border-purple-700 transition duration-300 rounded-none p-0 bg-transparent pl-2",
+                      popoverContent: "bg-white border border-gray-300 rounded-lg",
+                    }}
+                  >
+                    {milestoneListItems.map((item) => (
+                      <SelectItem
+                        key={item.key}
+                        value={item.key}
+                        className="hover:bg-purple-50 text-black"
+                      >
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                  </Select>
+                </div>
               )}
             />
-            {errors.milestoneId && (
-              <p className="text-red-500 text-sm mt-2">
-                Please select a milestone
-              </p>
-            )}
 
+            {/* Select Module Dropdown */}
             <Controller
               name="moduleId"
               control={control}
-              rules={{ required: true }}
+              rules={{ required: "Please select a module" }}
               render={({ field }) => (
-                <Select
-                  {...field}
-                  className="w-full"
-                  label="Select a module"
-                  labelPlacement="outside"
-                  isLoading={moduleLoading}
-                  classNames={{ label: "bg-gray-300 px-3 rounded-sm" }}
-                >
-                  {moduleListItems.map((item) => (
-                    <SelectItem
-                      key={item.key}
-                      value={item.key}
-                      className="bg-[#1F2937]"
-                    >
-                      {item.label}
-                    </SelectItem>
-                  ))}
-                </Select>
+                <div className="relative w-full">
+                  <Select
+                    {...field}
+                    isRequired
+                    label="Select a Module"
+                    labelPlacement="outside"
+                    isLoading={moduleLoading}
+                    errorMessage={errors.moduleId?.message}
+                    classNames={{
+                      label: "text-sm font-medium text-gray-700 mb-1",
+                      trigger:
+                        "border-b-2 border-purple-500 focus:border-purple-700 transition duration-300 rounded-none p-0 bg-transparent pl-2",
+                      popoverContent: "bg-white border border-gray-300 rounded-lg",
+                    }}
+                  >
+                    {moduleListItems.map((item) => (
+                      <SelectItem
+                        key={item.key}
+                        value={item.key}
+                        className="hover:bg-purple-50 text-black"
+                      >
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                  </Select>
+                </div>
               )}
             />
-            {errors.moduleId && (
-              <p className="text-red-500 text-sm mt-2">
-                Please select a module
-              </p>
-            )}
 
+            {/* Submit Button */}
             <Button
               disabled={isCreating}
               isLoading={isCreating}
               type="submit"
-              variant="solid"
-              colorScheme="indigo"
-              className="w-full py-2 mt-4 text-white font-semibold rounded-md shadow-md"
+              color="primary"
+              className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow-md transition duration-300 transform hover:scale-105"
             >
-              Submit
+              Create Video
             </Button>
           </Form>
         </div>
