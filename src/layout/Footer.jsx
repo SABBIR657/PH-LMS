@@ -6,59 +6,53 @@ import { Icons } from '@/assets/icons/Icons';
 
 const Footer = () => {
   return (
-    <footer className="  max-w-7xl w-[93%] mx-auto">
-      <div className="  py-10 gap-10 lg:gap-0   flex justify-between">
-        <div className="md:flex-row flex-col flex gap-10 items-center">
-          <Link
-            to={'/'}
-            className="flex items-center  justify-center text-base font-semibold"
-          >
-            Healthify
-          </Link>
-        </div>
-        <div className="flex gap-8 justify-center">
-          <Icons.facebookIcon className=" h-6 w-6" />
-          <Icons.youtubeIcon className=" h-6 w-6" />
-
-          <LinkedInLogoIcon className=" h-6 w-6" />
-        </div>
-      </div>
-
-      <Divider className="mb-8 bg-divider" />
-
-      <div className="pb-8 flex flex-col md:flex-row  gap-4 justify-between items-center ">
-        <p className="text-tiny  text-light-50  text-center">
-          2023 <span className=" hover:text-danger"> Pewds. </span> All right
-          reserved.
-        </p>
-        <ul className=" list-none flex justify-center flex-wrap items-center   gap-4">
-          {[
-            { name: 'Privacy Policy', path: 'privacy-policy' },
-
-            { name: 'Terms of Service', path: 'tos' },
-            { name: 'Cookies Settings', path: 'cookies-settings' },
-          ].map((el, index) => {
-            return (
-              <Link key={index} to={`/${el?.path}`}>
+    <footer className="bg-black text-foreground py-8">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <Link
+              to={'/'}
+              className="text-xl font-bold text-primary hover:text-primary-dark transition-colors"
+            >
+              LMS
+            </Link>
+            <div className="flex gap-6">
+              <Icons.facebookIcon className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+              <Icons.youtubeIcon className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+              <LinkedInLogoIcon className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+            </div>
+          </div>
+          <ul className="flex flex-wrap justify-center gap-4">
+            {[
+              { name: 'Privacy Policy', path: 'privacy-policy' },
+              { name: 'Terms of Service', path: 'tos' },
+              { name: 'Cookies Settings', path: 'cookies-settings' },
+            ].map((el, index) => (
+              <Link key={index} to={`/${el.path}`}>
                 <motion.li
                   variants={hoverVariants}
                   initial="hidden"
                   animate="visible"
                   whileHover="hover"
-                  className=" cursor-pointer text-light-50  text-tiny  underline underline-offset-1"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                 >
                   {el.name}
                 </motion.li>
               </Link>
-            );
-          })}
-        </ul>
+            ))}
+          </ul>
+        </div>
+        <Divider className="my-6 bg-divider" />
+        <p className="text-center text-sm text-muted-foreground">
+          © 2023 <span className="text-primary hover:text-primary-dark transition-colors">Pewds.</span> All rights reserved.
+        </p>
       </div>
     </footer>
   );
 };
 
 export default Footer;
+
 const hoverVariants = {
   hidden: {
     opacity: 0,
@@ -66,7 +60,6 @@ const hoverVariants = {
   },
   visible: {
     opacity: 1,
-
     transition: {
       type: 'spring',
       stiffness: 300,
