@@ -10,6 +10,7 @@ import {
 
 const Footer = () => {
   return (
+
     <footer className="bg-gradient-to-b from-[#0d0023] to-purple-900 text-gray-300 py-10 px-5 md:px-20">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Office Address */}
@@ -101,9 +102,12 @@ const Footer = () => {
       </div>
       <div class="flex justify-center items-center ">
         © Programming Hero 2025
+
       </div>
     </footer>
   );
 };
 
 export default Footer;
+
+

@@ -113,7 +113,7 @@ const routes = createBrowserRouter([
     ),
     children: [
       {
-        path: "dashboard",
+        path: "",
         element: (
           <ForInstructorRoute>
             <Dashboard />

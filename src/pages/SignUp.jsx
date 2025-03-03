@@ -36,11 +36,11 @@ const SignUp = () => {
   const location = useLocation();
   const { path } = location.state || {};
 
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate("/");
+  //   }
+  // }, [user, navigate]);
 
   const {
     control,
@@ -53,10 +53,12 @@ const SignUp = () => {
   } = useForm();
 
   const onSuccess = (res) => {
+    console.log(res);
     Cookies.set("user", res?.data?.data?.accessToken, { expires: 30 });
     setUser(res?.data?.data?.user);
     toast.success("Successfully Created User");
-    navigate(path || "/dashboard");
+    // navigate(path || "/dashboard");
+    navigate(path || "/login");
     setIsLoading(false);
   };
 
@@ -65,20 +67,20 @@ const SignUp = () => {
     setIsLoading(false);
   };
 
-  const { mutate } = usePostMutate("/users/", onSuccess, onError);
+  const { mutate } = usePostMutate("/user/createStudent", onSuccess, onError);
 
   const onSubmit = async (userData) => {
     setIsLoading(true);
-    if (!userData.avatar) {
-      setIsLoading(false);
-      return setError("avatar", {
-        type: "manual",
-        message: "Image is required.",
-      });
-    }
+    // if (!userData.avatar) {
+    //   setIsLoading(false);
+    //   return setError("avatar", {
+    //     type: "manual",
+    //     message: "Image is required.",
+    //   });
+    // }
 
     console.log(userData);
-    // mutate(userData);
+    mutate(userData);
   };
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -134,7 +136,7 @@ const SignUp = () => {
               className="text-center flex flex-col gap-5"
             >
               <div className="flex justify-center items-center gap-4">
-                {avatarUrl ? (
+                {/* {avatarUrl ? (
                   <ImageSelector handleFileChange={handleFileChange}>
                     <Avatar
                       isBordered
@@ -158,7 +160,7 @@ const SignUp = () => {
                       icon={<AvatarIcon />}
                     />
                   </ImageSelector>
-                )}
+                )} */}
 
                 <div className="w-full">
                   <Controller
