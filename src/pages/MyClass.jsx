@@ -34,7 +34,7 @@ const MyClass = () => {
     }
   }, [response]);
 
-  // console.log(courses, "courses from MyClass on line 28");
+  console.log(courses, "courses from MyClass on line 28");
 
   return (
     <div className="bg-[#010313] p-4">

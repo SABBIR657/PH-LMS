@@ -5,6 +5,7 @@ import Milestone from "../components/MyClass/Milestone";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import useFetchQuery from "../hooks/shared/useFetch";
+import Quiz from "../components/Quiz/Quiz";
 
 const NewClass = () => {
   const { courseId } = useParams();
@@ -15,6 +16,11 @@ const NewClass = () => {
   );
   const [index, setIndex] = useState("");
   const [currentVideoIndex, setCurrentVideoIndex] = useState("");
+  const [questionPaper, setQuestionPaper] = useState("");
+  // console.log(
+  //   questionPaper,
+  //   "questionPaper from Classssssssss on line 11111111999999999999"
+  // );
   // const [initialVideoInde, setInitialVideoInde] = useState('')
   const playlist = useSelector((state) => state.playlist);
 
@@ -120,18 +126,28 @@ const NewClass = () => {
   return (
     <div>
       <CommonWrapper>
-        <div className="flex gap-8 p-4">
-          <div className="w-2/3">
-            <iframe
-              width="100%"
-              height="450"
-              src={videoSrc}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
+        <div className="lg:flex lg:gap-8 lg:p-4">
+          <div className="lg:w-2/3">
+            {videoSrc ? (
+              <iframe
+                width="100%"
+                height="450"
+                src={videoSrc}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            ) : (
+              <div className="w-full h-[450px] p-1">
+                {questionPaper ? (
+                  <Quiz quizData={questionPaper} />
+                ) : (
+                  "No question paper available"
+                )}
+              </div>
+            )}
             {/* button  */}
-            <div className="mt-4 flex justify-between gap-4">
+            <div className="mt-4 flex justify-between gap-4 px-5">
               <button
                 className="px-6 py-2 bg-transparent border-hero-button text-white rounded-lg border-2 border-hero-button cursor-pointer"
                 onClick={handlePreviousVideo}
@@ -146,21 +162,23 @@ const NewClass = () => {
               </button>
             </div>
           </div>
-          <div className="w-1/3">
+          <div className="lg:w-1/3">
             <div>
-              <h1>Milestone</h1>
+              {/* <h1>Milestone</h1> */}
               <div className="">
                 {Array.isArray(milestones.milestoneList) &&
-                  milestones.milestoneList.map((milestone) => (
+                  milestones.milestoneList.map((milestone, index) => (
                     <Accordion key={milestone._id} className="">
                       <AccordionItem
                         className="mb-5 bg-[#160929] px-4 py-7 rounded-xl"
                         title={milestone.milestoneName}
+                        subtitle={"Milestone " + (index + 1)}
                       >
                         <Milestone
                           milestone={milestone}
                           setVideoSrc={setVideoSrc}
                           setCurrentVideoIndex={setCurrentVideoIndex}
+                          setQuestionPaper={setQuestionPaper}
                         />
                       </AccordionItem>
                     </Accordion>
