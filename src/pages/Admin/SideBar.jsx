@@ -27,6 +27,8 @@ const SideBar = () => {
         return <FaPlusCircle />;
       case "Video":
         return <FaVideo />;
+      case "Question":
+        return <FaListAlt />;
       default:
         return <FaTachometerAlt />;
     }
@@ -52,8 +54,12 @@ const SideBar = () => {
                   className="flex items-center space-x-3 p-2 hover:bg-gray-700 rounded-md cursor-pointer"
                   onClick={() => setSelectedItem(parent.parentLabel)}
                 >
-                  <div className="text-2xl">{renderIcon(parent.parentLabel)}</div>
-                  <h2 className="text-2xl font-semibold">{parent.parentLabel}</h2>
+                  <div className="text-2xl">
+                    {renderIcon(parent.parentLabel)}
+                  </div>
+                  <h2 className="text-2xl font-semibold">
+                    {parent.parentLabel}
+                  </h2>
                 </div>
               }
             >
