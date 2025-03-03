@@ -46,6 +46,7 @@ import PrivateRoute from "./PrivateRoute";
 import QuestionList from "../pages/Admin/Question/QuestionList";
 import QuestionCreate from "../pages/Admin/Question/QuestionCreate";
 import AddMcq from "../pages/Admin/Question/AddMcq";
+import AllProjects from "../components/Header/AllProjects";
 
 const routes = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const routes = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/all-project",
+        element: <AllProjects />,
       },
       {
         path: "/login",
