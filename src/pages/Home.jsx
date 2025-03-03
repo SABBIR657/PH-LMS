@@ -1,3 +1,4 @@
+import AllProjects from "../components/Header/AllProjects";
 import FaqQuestion from "../components/Header/FaqQuestion";
 import HeroSection from "../components/Header/HeroSection";
 import Learn from "../components/Header/Learn";
@@ -18,6 +19,7 @@ const Home = () => {
       <ProjectBuild />
       <MeetTeam />
       <FaqQuestion />
+      <AllProjects />
     </>
   );
 };

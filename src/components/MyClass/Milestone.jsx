@@ -3,7 +3,12 @@ import Module from "./Module";
 import { useEffect, useState } from "react";
 import useFetchQuery from "../../hooks/shared/useFetch";
 
-const Milestone = ({ milestone, setVideoSrc, setCurrentVideoIndex }) => {
+const Milestone = ({
+  milestone,
+  setVideoSrc,
+  setCurrentVideoIndex,
+  setQuestionPaper,
+}) => {
   //   console.log(milestone, "milestone from mahim in line 5");
   const milestoneId = milestone?._id;
   const [module, setModule] = useState([]);
@@ -47,6 +52,7 @@ const Milestone = ({ milestone, setVideoSrc, setCurrentVideoIndex }) => {
                 module={module}
                 setVideoSrc={setVideoSrc}
                 setCurrentVideoIndex={setCurrentVideoIndex}
+                setQuestionPaper={setQuestionPaper}
               />
             </AccordionItem>
           ))}
