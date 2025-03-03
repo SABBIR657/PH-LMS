@@ -1,80 +1,109 @@
-import { Divider } from '@heroui/react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { LinkedInLogoIcon } from '@radix-ui/react-icons';
-import { Icons } from '@/assets/icons/Icons';
+import {
+  FaApple,
+  FaFacebook,
+  FaGooglePlay,
+  FaInstagram,
+  FaLinkedin,
+  FaMicrosoft,
+  FaYoutube,
+} from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="  max-w-7xl w-[93%] mx-auto">
-      <div className="  py-10 gap-10 lg:gap-0   flex justify-between">
-        <div className="md:flex-row flex-col flex gap-10 items-center">
-          <Link
-            to={'/'}
-            className="flex items-center  justify-center text-base font-semibold"
-          >
-            Healthify
-          </Link>
+    <footer className="bg-gradient-to-b from-[#0d0023] to-purple-900 text-gray-300 py-10 px-5 md:px-20">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+        {/* Office Address */}
+        <div>
+          <h3 className="text-lg font-semibold text-white">Office Address</h3>
+          <p className="mt-2">Level-4, 34, Awal Centre, Banani, Dhaka</p>
+          <p className="flex items-center mt-2">📧 web@programming-hero.com</p>
+          <p className="flex items-center mt-2">📞 01322901105</p>
+          <p className="mt-2 text-sm">
+            (Available: Sat - Thu, 10:00 AM to 7:00 PM)
+          </p>
         </div>
-        <div className="flex gap-8 justify-center">
-          <Icons.facebookIcon className=" h-6 w-6" />
-          <Icons.youtubeIcon className=" h-6 w-6" />
 
-          <LinkedInLogoIcon className=" h-6 w-6" />
+        {/* Useful Links */}
+        <div>
+          <h3 className="text-lg font-semibold text-white">Useful Links</h3>
+          <ul className="mt-2 space-y-2">
+            <li className="hover:text-white transition-colors cursor-pointer">
+              Home
+            </li>
+            <li className="hover:text-white transition-colors cursor-pointer">
+              About Us
+            </li>
+            <li className="hover:text-white transition-colors cursor-pointer">
+              Success Page
+            </li>
+            <li className="hover:text-white transition-colors cursor-pointer">
+              Refund Policy
+            </li>
+            <li className="hover:text-white transition-colors cursor-pointer">
+              Privacy Policy
+            </li>
+            <li className="hover:text-white transition-colors cursor-pointer">
+              App Privacy Policy
+            </li>
+            <li className="hover:text-white transition-colors cursor-pointer">
+              Terms And Condition
+            </li>
+          </ul>
+        </div>
+
+        {/* Follow Us */}
+        <div>
+          <h3 className="text-lg font-semibold text-white">Follow Us</h3>
+          <ul className="mt-2 space-y-2">
+            <li className="flex items-center space-x-2 hover:text-white transition-colors cursor-pointer">
+              <FaFacebook />
+              Facebook
+            </li>
+            <li className="flex items-center space-x-2 hover:text-white transition-colors cursor-pointer">
+              <FaYoutube />
+              Youtube
+            </li>
+            <li className="flex items-center space-x-2 hover:text-white transition-colors cursor-pointer">
+              <FaLinkedin />
+              Linkedin
+            </li>
+            <li className="flex items-center space-x-2 hover:text-white transition-colors cursor-pointer">
+              <FaInstagram />
+              Instagram
+            </li>
+          </ul>
+        </div>
+
+        {/* Download Apps */}
+        <div>
+          <h3 className="text-lg font-semibold text-white">Download Apps</h3>
+          <div className="mt-3 space-y-2">
+            <button className="bg-gray-800 px-4 py-2 rounded-lg flex items-center space-x-2 w-full justify-center hover:bg-gray-700 transition">
+              <span>
+                <FaGooglePlay />
+              </span>{" "}
+              <span>Google Play</span>
+            </button>
+            <button className="bg-gray-800 px-4 py-2 rounded-lg flex items-center space-x-2 w-full justify-center hover:bg-gray-700 transition">
+              <span>
+                <FaApple />
+              </span>{" "}
+              <span>App Store</span>
+            </button>
+            <button className="bg-gray-800 px-4 py-2 rounded-lg flex items-center space-x-2 w-full justify-center hover:bg-gray-700 transition">
+              <span>
+                <FaMicrosoft />
+              </span>{" "}
+              <span>Microsoft</span>
+            </button>
+          </div>
         </div>
       </div>
-
-      <Divider className="mb-8 bg-divider" />
-
-      <div className="pb-8 flex flex-col md:flex-row  gap-4 justify-between items-center ">
-        <p className="text-tiny  text-light-50  text-center">
-          2023 <span className=" hover:text-danger"> Pewds. </span> All right
-          reserved.
-        </p>
-        <ul className=" list-none flex justify-center flex-wrap items-center   gap-4">
-          {[
-            { name: 'Privacy Policy', path: 'privacy-policy' },
-
-            { name: 'Terms of Service', path: 'tos' },
-            { name: 'Cookies Settings', path: 'cookies-settings' },
-          ].map((el, index) => {
-            return (
-              <Link key={index} to={`/${el?.path}`}>
-                <motion.li
-                  variants={hoverVariants}
-                  initial="hidden"
-                  animate="visible"
-                  whileHover="hover"
-                  className=" cursor-pointer text-light-50  text-tiny  underline underline-offset-1"
-                >
-                  {el.name}
-                </motion.li>
-              </Link>
-            );
-          })}
-        </ul>
+      <div class="flex justify-center items-center ">
+        © Programming Hero 2025
       </div>
     </footer>
   );
 };
 
 export default Footer;
-const hoverVariants = {
-  hidden: {
-    opacity: 0,
-    x: 0,
-  },
-  visible: {
-    opacity: 1,
-
-    transition: {
-      type: 'spring',
-      stiffness: 300,
-    },
-  },
-  hover: {
-    scale: [1, 1.06, 1, 1.06, 1],
-    originX: 0,
-    color: '#428ee6',
-  },
-};
