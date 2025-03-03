@@ -28,7 +28,7 @@ export const columns = [
 
 export const users = new Array(20);
 
-export default function VideoListTable({
+export default function QuestionListTable({
   videos = [],
   isLoading = false,
   onDelete,
@@ -60,14 +60,14 @@ export default function VideoListTable({
                 <EyeIcon />
               </span>
             </Tooltip>
-            <Tooltip color="danger" content="Delete">
+            {/* <Tooltip color="danger" content="Delete">
               <span
                 className="text-2xl text-danger cursor-pointer active:opacity-50"
                 onClick={() => onDelete(item._id)}
               >
                 <DeleteIcon />
               </span>
-            </Tooltip>
+            </Tooltip> */}
           </div>
         );
       case "videoURL":
