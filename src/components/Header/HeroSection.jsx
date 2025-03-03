@@ -16,7 +16,6 @@ const HeroSection = () => {
               <br />
               Your Career!
             </h1>
-
             {/* <div className="backdrop-blur-md bg-white/10 rounded-lg p-4 mt-8">
               <div className="flex flex-col gap-2 text-white">
                 <div className="flex items-center gap-2">
@@ -29,7 +28,6 @@ const HeroSection = () => {
                 </div>
               </div>
             </div> */}
-
             <div
               className="fixed bottom-10 left-14 text-black p-4 rounded-lg shadow-lg"
               style={{
@@ -82,7 +80,6 @@ const HeroSection = () => {
               </span>
             </p>
           </div>
-
           <div className="flex m-2">
             <FaUserPlus className="mr-3 mb-2 " />
             <p className="text-sm mr-2">

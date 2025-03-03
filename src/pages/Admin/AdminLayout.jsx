@@ -8,7 +8,7 @@ const AdminLayout = () => {
       <SideBar />
 
       {/* Main Content */}
-      <div className="flex-1 p-6 overflow-y-auto text-black">
+      <div className="flex-1 p-6 overflow-y-auto text-black bg-[#45496D]">
         {/* Render nested routes here */}
         <Outlet />
       </div>
