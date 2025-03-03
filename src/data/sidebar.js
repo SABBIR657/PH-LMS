@@ -64,4 +64,21 @@ export const sidebarUrlList = [
       },
     ],
   },
+  {
+    parentLabel: "Question",
+    children: [
+      // {
+      //   label: "Question",
+      //   url: "/admin/question",
+      // },
+      {
+        label: "Question Create",
+        url: "/admin/question-create",
+      },
+      // {
+      //   label: "Add MCQ",
+      //   url: "/admin/add-mcq",
+      // },
+    ],
+  },
 ];

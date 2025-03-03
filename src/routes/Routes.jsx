@@ -43,6 +43,10 @@ import NotPermitted from "../components/auth/NotPermitted";
 import ForInstructorRoute from "./ForInstructorRoute";
 import ForAdminRoute from "./ForAdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import QuestionList from "../pages/Admin/Question/QuestionList";
+import QuestionCreate from "../pages/Admin/Question/QuestionCreate";
+import AddMcq from "../pages/Admin/Question/AddMcq";
+import AllProjects from "../components/Header/AllProjects";
 
 const routes = createBrowserRouter([
   {
@@ -85,6 +89,10 @@ const routes = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/all-project",
+        element: <AllProjects />,
       },
       {
         path: "/login",
@@ -259,6 +267,31 @@ const routes = createBrowserRouter([
         element: (
           <ForInstructorRoute>
             <VideoDetails />
+          </ForInstructorRoute>
+        ),
+      },
+      //question related all routes
+      {
+        path: "question",
+        element: (
+          <ForInstructorRoute>
+            <QuestionList />
+          </ForInstructorRoute>
+        ),
+      },
+      {
+        path: "question-create",
+        element: (
+          <ForInstructorRoute>
+            <QuestionCreate />
+          </ForInstructorRoute>
+        ),
+      },
+      {
+        path: "add-mcq",
+        element: (
+          <ForInstructorRoute>
+            <AddMcq />
           </ForInstructorRoute>
         ),
       },

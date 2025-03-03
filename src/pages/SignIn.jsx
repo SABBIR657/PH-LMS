@@ -45,8 +45,12 @@ const SignIn = () => {
     toast.success("Successfully Logged In", { position: "top-right" });
     Cookies.set("user", res?.approvalToken, { expires: 30 });
     Cookies.set("refreshToken", res?.refreshToken, { expires: 30 });
-    Cookies.set("userName", res?.user?.findUserAndUpdate?.name, { expires: 30 });
-    Cookies.set("userRole", res?.user?.findUserAndUpdate?.role, { expires: 30 });
+    Cookies.set("userName", res?.user?.findUserAndUpdate?.name, {
+      expires: 30,
+    });
+    Cookies.set("userRole", res?.user?.findUserAndUpdate?.role, {
+      expires: 30,
+    });
     setUser(res?.user);
     setIsLoading(false);
     navigate(path || "/");
@@ -143,10 +147,10 @@ const SignIn = () => {
                 defaultValue=""
                 rules={{
                   required: "Password is required",
-                  minLength: {
-                    value: 6,
-                    message: "Password must be at least 6 characters",
-                  },
+                  // minLength: {
+                  //   value: 6,
+                  //   message: "Password must be at least 6 characters",
+                  // },
                 }}
                 render={({ field }) => (
                   <div>
@@ -155,9 +159,7 @@ const SignIn = () => {
                       type={isVisible ? "text" : "password"}
                       variant={"bordered"}
                       isInvalid={errors.password ? true : false}
-                      errorMessage={
-                        errors.password && errors.password.message
-                      }
+                      errorMessage={errors.password && errors.password.message}
                       classNames={{
                         errorMessage: "text-left",
                       }}
