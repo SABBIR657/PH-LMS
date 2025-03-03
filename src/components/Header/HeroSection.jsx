@@ -1,10 +1,8 @@
 import WaveGrid from "./WaveGrid";
 import { FaUserPlus } from "react-icons/fa";
 
-
 const HeroSection = () => {
   return (
-
     <div>
       <div className="relative min-h-screen bg-gradient-to-b from-[#0a051c] to-[#1a103c] overflow-hidden">
         <div className="absolute inset-0">
@@ -31,22 +29,33 @@ const HeroSection = () => {
                 </div>
               </div>
             </div> */}
-            <div className="fixed bottom-10 left-14 bg-white text-black p-4 rounded-lg shadow-lg">
+
+            <div
+              className="fixed bottom-10 left-14 text-black p-4 rounded-lg shadow-lg"
+              style={{
+                background:
+                  "linear-gradient(287.98deg, rgb(227, 251, 239) 68.02%, rgba(227, 251, 239, 0) 163.74%)",
+              }}
+            >
               <div className="flex m-2">
                 <FaUserPlus className="mr-3 mb-2" />
                 <p className="text-sm">
-                  এনরোলমেন্ট শুরু: <span className="text-base font-normal text-gray-700">{/* Content */}10th Jun, 2025</span>
-
+                  এনরোলমেন্ট শুরু:{" "}
+                  <span className="text-base font-normal text-gray-700">
+                    10th Jun, 2025
+                  </span>
                 </p>
               </div>
 
               <div className="flex m-2">
                 <FaUserPlus className="mr-3 mb-2 " />
-                <p className="text-sm mr-2"> এনরোলমেন্ট শেষ: <span className="text-base font-normal text-gray-700">{/* Content */}24th Jun, 2025</span>
-
+                <p className="text-sm mr-2">
+                  এনরোলমেন্ট শেষ:{" "}
+                  <span className="text-base font-normal text-gray-700">
+                    24th Jun, 2025
+                  </span>
                 </p>
               </div>
-
             </div>
           </div>
         </div>
@@ -57,23 +66,34 @@ const HeroSection = () => {
             <div className="w-1 h-2 bg-white rounded-full mx-auto mt-2 animate-bounce" />
           </div>
         </div> */}
-        <div className="fixed bottom-4 left-12 bg-[rgb(0,_0,_31)] text-white p-4 rounded-lg shadow-lg transition-opacity duration-245 duration-163 ease-[cubic-bezier(0.4,_0,_0.2,_1)] opacity-100 transform-none">
+        <div
+          className="fixed bottom-10 left-14 text-black p-4 rounded-lg shadow-lg"
+          style={{
+            background:
+              "linear-gradient(287.98deg, rgb(227, 251, 239) 68.02%, rgba(227, 251, 239, 0) 163.74%)",
+          }}
+        >
           <div className="flex m-2">
             <FaUserPlus className="mr-3 mb-2" />
             <p className="text-sm">
-              এনরোলমেন্ট শুরু: <span className="text-base font-normal text-gray-700">10th Jun, 2025</span>
+              এনরোলমেন্ট শুরু:{" "}
+              <span className="text-base font-normal text-gray-700">
+                10th Jun, 2025
+              </span>
             </p>
           </div>
 
           <div className="flex m-2">
-            <FaUserPlus className="mr-3 mb-2" />
-            <p className="text-sm mr-2"> এনরোলমেন্ট শেষ: <span className="text-base font-normal text-gray-700">24th Jun, 2025</span></p>
+            <FaUserPlus className="mr-3 mb-2 " />
+            <p className="text-sm mr-2">
+              এনরোলমেন্ট শেষ:{" "}
+              <span className="text-base font-normal text-gray-700">
+                24th Jun, 2025
+              </span>
+            </p>
           </div>
         </div>
-
-
       </div>
-
     </div>
   );
 };

@@ -16,8 +16,8 @@ const Home = () => {
       <XFactor />
       <Learn />
       <ProjectBuild />
-      <MeetTeam/>
-      <FaqQuestion/>
+      <MeetTeam />
+      <FaqQuestion />
     </>
   );
 };

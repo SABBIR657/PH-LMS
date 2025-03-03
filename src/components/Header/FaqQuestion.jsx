@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem } from "@heroui/react";
+import { Accordion, AccordionItem, Button } from "@heroui/react";
 import { FaQuestionCircle } from "react-icons/fa"; // For the icon
 
 export default function FaqQuestion() {
@@ -81,6 +81,10 @@ export default function FaqQuestion() {
       </Accordion>
       </div>
       </div>
+      <Button color="white" variant="bordered" style={{ borderColor: 'white' }}>
+  আরো দেখুন
+</Button>
+
     </div>
   );
 }
