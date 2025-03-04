@@ -7,9 +7,7 @@ import { useContext } from "react";
 export default function ForAdminRoute({ children }) {
   const { user } = useContext(AuthContext);
   const { pathname } = useLocation();
-  const token = Cookies.get("user");
-  const role = Cookies.get("userRole");
-  if (role == "admin") {
+  if (user?.role == "admin") {
     return children;
   }
   return (

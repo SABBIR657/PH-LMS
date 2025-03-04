@@ -29,11 +29,11 @@ const SignIn = () => {
   const location = useLocation();
   const { path } = location.state || {};
 
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate("/");
+  //   }
+  // }, [user, navigate]);
 
   const {
     control,
@@ -44,6 +44,7 @@ const SignIn = () => {
   const onSuccess = (res) => {
     toast.success("Successfully Logged In", { position: "top-right" });
     Cookies.set("user", res?.approvalToken, { expires: 30 });
+    Cookies.set("userId", res?.user?.findUserAndUpdate?._id, { expires: 30 });
     Cookies.set("refreshToken", res?.refreshToken, { expires: 30 });
     Cookies.set("userName", res?.user?.findUserAndUpdate?.name, {
       expires: 30,
@@ -51,7 +52,8 @@ const SignIn = () => {
     Cookies.set("userRole", res?.user?.findUserAndUpdate?.role, {
       expires: 30,
     });
-    setUser(res?.user);
+    setUser(res?.user?.findUserAndUpdate);
+    console.log(res?.user?.findUserAndUpdate?._id);
     setIsLoading(false);
     navigate(path || "/");
   };

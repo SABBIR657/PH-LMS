@@ -25,17 +25,18 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loginChecking, setLoginChecking] = useState(true);
   const token = Cookies.get("user");
+  const userId = Cookies.get("userId");
 
   useEffect(() => {
     const checkUserAuthentication = async () => {
       try {
-        const response = await Axios.get("/auth/", {
+        const response = await Axios.get(`/user/userProfile/${userId}`, {
           headers: {
             Authorization: token,
           },
         });
-        if (response.status === 200 && response.data.success) {
-          setUser(response.data.data.user);
+        if (response.status === 200) {
+          setUser(response?.data?.data);
         } else {
           setUser(null);
         }
