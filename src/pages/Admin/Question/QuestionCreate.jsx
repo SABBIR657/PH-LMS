@@ -88,7 +88,7 @@ const QuestionCreate = () => {
     }) || [];
 
   return (
-    <div className="bg-slate-100 min-h-screen flex justify-center items-center p-6">
+    <div className="min-h-screen flex justify-center items-center p-6 bg-[#45496D]">
       {/* Form Container */}
       <div className="max-w-7xl w-full bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
         <div className="p-8">
@@ -268,7 +268,7 @@ const QuestionCreate = () => {
                   </h3>
                   <div
                     key={index}
-                    className="flex w-full bg-gray-400 p-1 rounded-sm my-2"
+                    className="flex w-full border-[3px] border-gray-300 p-2 rounded-sm my-2"
                   >
                     <div className="w-[90%] pr-2">
                       {/* Question Name */}

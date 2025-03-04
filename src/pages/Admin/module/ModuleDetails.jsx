@@ -11,7 +11,7 @@ const ModuleDetails = () => {
 
   console.log(data);
   return (
-    <div>
+    <div className="bg-[#45496D]">
       <ModuleDetailsCard moduleDetails={data?.data} isLoading={isLoading} />
     </div>
   );

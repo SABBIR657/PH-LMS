@@ -10,7 +10,7 @@ const VideoDetails = () => {
 
   console.log(data);
   return (
-    <div>
+    <div className="bg-[#45496D]">
       <VideoDetailsCard videoDetails={data?.data} isLoading={isLoading} />
     </div>
   );

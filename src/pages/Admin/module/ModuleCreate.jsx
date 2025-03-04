@@ -52,7 +52,7 @@ const ModuleCreate = () => {
     }) || [];
 
   return (
-    <div className="bg-slate-100 min-h-screen flex justify-center items-center p-6">
+    <div className="bg-[#45496D] min-h-screen flex justify-center items-center p-6">
       {/* Form Container */}
       <div className="max-w-4xl w-full bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
         <div className="p-8">

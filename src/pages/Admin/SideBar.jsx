@@ -6,7 +6,12 @@ import {
   FaVideo,
   FaListAlt,
   FaPlusCircle,
+  FaRegUser,
 } from "react-icons/fa";
+import { CiViewList, CiCirclePlus, CiVideoOn } from "react-icons/ci";
+import { PiExamLight } from "react-icons/pi";
+import { IoSpeedometerOutline } from "react-icons/io5";
+
 import { Link, useLocation } from "react-router-dom";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 import { sidebarUrlList } from "../../data/sidebar";
@@ -19,17 +24,17 @@ const SideBar = () => {
   const renderIcon = (label) => {
     switch (label) {
       case "Course":
-        return <FaListAlt />;
+        return <CiViewList />;
       case "Admin":
-        return <FaUser />;
+        return <FaRegUser />;
       case "Milestone":
-        return <FaTachometerAlt />;
+        return <IoSpeedometerOutline />;
       case "Module":
-        return <FaPlusCircle />;
+        return <CiCirclePlus />;
       case "Video":
-        return <FaVideo />;
+        return <CiVideoOn />;
       case "Question":
-        return <FaListAlt />;
+        return <PiExamLight />;
       default:
         return <FaTachometerAlt />;
     }
@@ -55,10 +60,10 @@ const SideBar = () => {
                   className="flex items-center space-x-3 p-2 hover:bg-gray-700 rounded-md cursor-pointer"
                   onClick={() => setSelectedItem(parent.parentLabel)}
                 >
-                  <div className="text-2xl">
+                  <div className="text-xl">
                     {renderIcon(parent.parentLabel)}
                   </div>
-                  <h2 className="text-2xl font-semibold">
+                  <h2 className="text-xl font-semibold">
                     {parent.parentLabel}
                   </h2>
                 </div>

@@ -42,7 +42,7 @@ const CourseList = () => {
   };
 
   return (
-    <div className="p-6 bg-slate-100 min-h-screen">
+    <div className="p-6 bg-[#45496D] min-h-screen">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <GradientTitle title="Course List" />
