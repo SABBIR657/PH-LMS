@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Spinner } from "@heroui/react";
 import { Link } from "react-router-dom";
+import GradientTitle from "../components/typography/GradientTitle";
 
 const VideoDetailsCard = ({ videoDetails, isLoading, isSuccess }) => {
   console.log(videoDetails);
@@ -13,9 +14,7 @@ const VideoDetailsCard = ({ videoDetails, isLoading, isSuccess }) => {
   }
   return (
     <div>
-      <h1 className="text-center text-xl font-semibold text-grays-600 py-5 shadow-sm rounded-lg bg-gray-100 mb-4">
-        Video Details
-      </h1>
+      <GradientTitle title="Video Details" />
       <div className="max-w-4xl mx-auto p-6  shadow-md rounded-lg">
         {/* Course Header */}
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">

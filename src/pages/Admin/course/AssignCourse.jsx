@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 import { postData } from "../../../helpers/axios";
 import { useState } from "react";
 import { Button, Select, SelectItem } from "@heroui/react";
+import GradientHoverButton from "../../../components/Admin/components/input/GradientHoverButton";
+import GradientTitle from "../../../components/Admin/components/typography/GradientTitle";
 
 const AssignCourse = () => {
   const [isCreating, setIsCreating] = useState(false);
@@ -51,9 +53,7 @@ const AssignCourse = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#45496D] p-6">
       <div className="max-w-lg w-full bg-slate-50 rounded-xl shadow-2xl p-8 space-y-6">
-        <h2 className="text-3xl font-bold text-center text-gray-900">
-          Assign Course to Instructor
-        </h2>
+        <GradientTitle title="Assign Course to Instructor" />
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-10  ">
@@ -137,16 +137,13 @@ const AssignCourse = () => {
 
           {/* Submit Button */}
           <div>
-            <Button
+            <GradientHoverButton
               disabled={isCreating}
               isLoading={isCreating}
               type="submit"
-              variant="solid"
-              colorScheme="indigo"
-              className="w-full py-6 text-black bg-slate-400 font-semibold rounded-full shadow-md hover:bg-indigo-700 hover:text-white transition duration-200"
-            >
-              Assign Course
-            </Button>
+              text="Assign"
+              className={"w-full"}
+            />
           </div>
         </form>
       </div>

@@ -5,12 +5,14 @@ import useFetchQuery from "../../../hooks/shared/useFetch";
 import { postData } from "../../../helpers/axios";
 import toast from "react-hot-toast";
 import { CiCircleRemove } from "react-icons/ci";
+import GradientHoverButton from "../../../components/Admin/components/input/GradientHoverButton";
+import GradientTitle from "../../../components/Admin/components/typography/GradientTitle";
 
 const defaultMcq = {
   question: "",
   options: ["", "", "", ""],
-  correctAns: "",
-  mark: "",
+  correctAns: null,
+  mark: null,
 };
 
 const QuestionCreate = () => {
@@ -34,8 +36,10 @@ const QuestionCreate = () => {
   });
 
   const { data, isLoading } = useFetchQuery("/course/all-courses");
+
   const { data: milestoneResponse, isLoading: milestoneLoading } =
     useFetchQuery("/milestone/all-milestones");
+
   const { data: moduleResponse, isLoading: moduleLoading } = useFetchQuery(
     "/module/all-modules"
   );
@@ -84,13 +88,11 @@ const QuestionCreate = () => {
     }) || [];
 
   return (
-    <div className="bg-slate-100 min-h-screen flex justify-center items-center p-6">
+    <div className="min-h-screen flex justify-center items-center p-6 bg-[#45496D]">
       {/* Form Container */}
       <div className="max-w-7xl w-full bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
         <div className="p-8">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-            Create Question
-          </h1>
+          <GradientTitle title="Create Question" />
 
           {/* Form */}
           <Form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
@@ -266,7 +268,7 @@ const QuestionCreate = () => {
                   </h3>
                   <div
                     key={index}
-                    className="flex w-full bg-gray-400 p-1 rounded-sm my-2"
+                    className="flex w-full border-[3px] border-gray-300 p-2 rounded-sm my-2"
                   >
                     <div className="w-[90%] pr-2">
                       {/* Question Name */}
@@ -422,15 +424,13 @@ const QuestionCreate = () => {
             </button>
 
             {/* Submit Button */}
-            <Button
+            <GradientHoverButton
               disabled={isCreating}
               isLoading={isCreating}
               type="submit"
-              color="primary"
-              className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow-md transition duration-300 transform hover:scale-105"
-            >
-              Create Question
-            </Button>
+              text="Create"
+              className={"w-full"}
+            />
           </Form>
         </div>
       </div>
