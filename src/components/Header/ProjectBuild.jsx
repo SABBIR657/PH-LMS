@@ -42,7 +42,7 @@ const ProjectBuild = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="mb-40">
+      <div className="mb-64  md:mb-52 lg:mb-44 xl:mb-22">
         <h1 className="text-6xl font-semibold text-center mb-4 mt-10 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-purple-400">
           Projects you will build_
         </h1>
@@ -74,7 +74,7 @@ const ProjectBuild = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center ">
         <Button
           onClick={() => navigate("/all-project")}
           className="text-white px-4 py-2 rounded-md bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-indigo-600 hover:to-purple-500 transition"
