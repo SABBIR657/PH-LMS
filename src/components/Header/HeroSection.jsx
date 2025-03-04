@@ -5,7 +5,7 @@ import sun from "../../assets/sun1.png";
 
 const HeroSection = () => {
   return (
-    <div>
+    <div className="">
       <div
         className="relative min-h-screen overflow-hidden"
         style={{
