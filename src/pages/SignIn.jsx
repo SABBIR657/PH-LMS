@@ -20,6 +20,8 @@ import Cookies from "js-cookie";
 import toast from "react-hot-toast";
 import Info from "@/assets/icons/InfoIcon";
 import useAxiosSecure from "@/hooks/useAxios";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserInfo } from "../redux/new store/userSlice";
 
 const SignIn = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,6 +30,8 @@ const SignIn = () => {
   const { user, setUser, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const { path } = location.state || {};
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (user) {
@@ -51,6 +55,8 @@ const SignIn = () => {
     Cookies.set("userRole", res?.user?.findUserAndUpdate?.role, {
       expires: 30,
     });
+    console.log(res);
+    dispatch(setUserInfo(res?.user))
     setUser(res?.user);
     setIsLoading(false);
     navigate(path || "/");

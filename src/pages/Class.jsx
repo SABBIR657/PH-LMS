@@ -6,9 +6,15 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import useFetchQuery from "../hooks/shared/useFetch";
 import Quiz from "../components/Quiz/Quiz";
+import { setCourseId } from "../redux/new store/courseSlice";
 
 const NewClass = () => {
   const { courseId } = useParams();
+  const dispatch = useDispatch(); 
+
+  const newCourseId = useSelector((state) => state.course.courseId); // Access the courseId
+  console.log(newCourseId, "newwwww coursseeeeee idddddd")
+
   //   console.log(courseId, "courseId from NewClass on line 9999999999999999999");
   const [milestones, setMilestones] = useState([]);
   const [videoSrc, setVideoSrc] = useState(
@@ -17,45 +23,21 @@ const NewClass = () => {
   const [index, setIndex] = useState("");
   const [currentVideoIndex, setCurrentVideoIndex] = useState("");
   const [questionPaper, setQuestionPaper] = useState("");
-  // console.log(
-  //   questionPaper,
-  //   "questionPaper from Classssssssss on line 11111111999999999999"
-  // );
-  // const [initialVideoInde, setInitialVideoInde] = useState('')
+  
   const playlist = useSelector((state) => state.playlist);
 
-  // console.log("playlist----", playlist);
-  // useEffect(() => {
-  //   const fetchMilestones = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `${
-  //           import.meta.env.VITE_BACKEND_URL
-  //         }/course/allMilestonesByCourseId?course_id=${courseId}`
-  //       );
-  //       const data = await response.json();
-  //       setMilestones(data.data);
-  //       if (data.data.length > 0 && data.data[0].milestoneList.length > 0) {
-  //         const firstMilestone = data.data[0].milestoneList[0]; // Get the first milestone
-  //         const firstModule = firstMilestone.moduleList[0]; // Get the first module
-  //         const firstVideo = firstModule.videoList[0]; // Get the first video
-
-  //         if (firstVideo) {
-  //           const videoId = firstVideo.videoURL.split("v=")[1]?.split("&")[0];
-  //           setVideoSrc(`https://www.youtube.com/embed/${videoId}`);
-  //         }
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching courses: ", error);
-  //     }
-  //   };
-
-  //   fetchMilestones();
-  // }, [courseId]);
+  
 
   const response = useFetchQuery(
     `course/allMilestonesByCourseId?course_id=${courseId}`
   );
+
+  // Dispatch the courseId to Redux
+  useEffect(() => {
+    if (courseId) {
+      dispatch(setCourseId(courseId)); // Set the courseId in Redux
+    }
+  }, [courseId, dispatch]);
 
   useEffect(() => {
     if (response.isSuccess) {
