@@ -19,7 +19,6 @@ const Home = () => {
       <ProjectBuild />
       <MeetTeam />
       <FaqQuestion />
-      <AllProjects />
     </>
   );
 };

@@ -5,6 +5,7 @@ import photo1 from "../../assets/photo1.png";
 import photo2 from "../../assets/photo2.png";
 import photo3 from "../../assets/photo3.png";
 import photo4 from "../../assets/photo4.png";
+import { Link } from "react-router-dom";
 
 const employees = [
   { image: photo1 },
@@ -38,12 +39,10 @@ const Learn = () => {
       <h1 className="text-6xl font-semibold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-purple-400">
         what will you learn?_
       </h1>
-
       <p className="text-gray-400 text-center mb-6">
         কি নাই এই কোর্সে। ৮০+ মডিউল, ২৫+ প্রজেক্ট কোর্সে দেখানো হবে। ১২ টি
         এসাইনমেন্ট। আরো কত কি?
       </p>
-
       <div className="relative w-full overflow-hidden">
         <div ref={galleryRef} className="flex w-full">
           {/* Loop through employee images */}
@@ -71,7 +70,6 @@ const Learn = () => {
           ))}
         </div>
       </div>
-
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 4320 400"
@@ -119,7 +117,6 @@ const Learn = () => {
           Join Now
         </button>
       </div>
-
       {/* Popup Modal */}
       {isOpen && (
         <div className="fixed top-44 inset-0 bg-black bg-opacity-60 flex justify-center items-start z-50">
@@ -166,12 +163,11 @@ const Learn = () => {
             </div>
 
             <div className="flex justify-center mt-auto mb-8">
-              <button
-                onClick={() => setIsOpen(false)}
-                className="bg-gradient-to-r from-purple-800 to-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:from-purple-800 hover:to-purple-900 shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
-              >
-                Register Now
-              </button>
+              <Link href="/signup">
+                <button className="bg-gradient-to-r from-purple-800 to-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:from-purple-800 hover:to-purple-900 shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
+                  Register Now
+                </button>
+              </Link>
             </div>
           </div>
         </div>
