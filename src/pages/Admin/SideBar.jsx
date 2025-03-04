@@ -10,6 +10,7 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 import { sidebarUrlList } from "../../data/sidebar";
+import GradientTitle from "../../components/Admin/components/typography/GradientTitle";
 
 const SideBar = () => {
   const location = useLocation(); // Get current route location
@@ -39,7 +40,7 @@ const SideBar = () => {
       <header className="flex justify-between items-center border-b border-gray-600 p-4">
         <div>
           <Link to={"/"}>
-            <h1 className="text-2xl font-bold mt-3">Programming Hero</h1>
+            <GradientTitle title="Programming Hero" className={"text-xl"} />
           </Link>
         </div>
       </header>

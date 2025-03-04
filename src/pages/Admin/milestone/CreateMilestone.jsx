@@ -4,6 +4,8 @@ import { Form, Input, Button, Select, SelectItem } from "@heroui/react";
 import useFetchQuery from "../../../hooks/shared/useFetch";
 import { postData } from "../../../helpers/axios";
 import toast from "react-hot-toast";
+import GradientHoverButton from "../../../components/Admin/components/input/GradientHoverButton";
+import GradientTitle from "../../../components/Admin/components/typography/GradientTitle";
 
 const CreateMilestone = () => {
   const [isCreating, setIsCreating] = useState(false);
@@ -46,9 +48,7 @@ const CreateMilestone = () => {
       {/* Form Container */}
       <div className="max-w-4xl w-full bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
         <div className="p-8">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-            Create Milestone
-          </h1>
+          <GradientTitle title="Create Milestone" />
 
           {/* Form */}
           <Form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
@@ -95,7 +95,8 @@ const CreateMilestone = () => {
                       label: "text-sm font-medium text-gray-700 mb-1",
                       trigger:
                         "border-b-2 border-purple-500 focus:border-purple-700 transition duration-300 rounded-none p-0 bg-transparent pl-2", // Purple border, no background
-                      popoverContent: "bg-white border border-gray-300 rounded-lg",
+                      popoverContent:
+                        "bg-white border border-gray-300 rounded-lg",
                     }}
                   >
                     {courseListItems.map((item) => (
@@ -113,15 +114,13 @@ const CreateMilestone = () => {
             />
 
             {/* Submit Button */}
-            <Button
+            <GradientHoverButton
               disabled={isCreating}
               isLoading={isCreating}
               type="submit"
-              color="primary"
-              className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow-md transition duration-300 transform hover:scale-105"
-            >
-              Create Milestone
-            </Button>
+              text="Create"
+              className={"w-full"}
+            />
           </Form>
         </div>
       </div>

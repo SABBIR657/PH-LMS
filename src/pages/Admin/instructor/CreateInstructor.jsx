@@ -4,6 +4,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Button } from "@heroui/react";
 import toast, { Toaster } from "react-hot-toast";
 import { postData } from "../../../helpers/axios";
+import GradientHoverButton from "../../../components/Admin/components/input/GradientHoverButton";
+import GradientTitle from "../../../components/Admin/components/typography/GradientTitle";
 
 const CreateInstructor = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -41,9 +43,10 @@ const CreateInstructor = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#45496D] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl w-full bg-slate-50 rounded-xl shadow-2xl p-8 space-y-8">
-        <h2 className="text-3xl font-bold text-center text-gray-900">
+        {/* <h2 className="text-3xl font-bold text-center text-gray-900">
           Create Instructor
-        </h2>
+        </h2> */}
+        <GradientTitle title="Create Instructor" />
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Name Field */}
           <div>
@@ -64,7 +67,9 @@ const CreateInstructor = () => {
                 {...register("name", { required: "Name is required" })}
               />
               {errors.name && (
-                <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.name.message}
+                </p>
               )}
             </div>
           </div>
@@ -90,7 +95,9 @@ const CreateInstructor = () => {
                 })}
               />
               {errors.mobileNo && (
-                <p className="text-red-500 text-sm mt-1">{errors.mobileNo.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.mobileNo.message}
+                </p>
               )}
             </div>
           </div>
@@ -120,7 +127,9 @@ const CreateInstructor = () => {
                 })}
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
               )}
             </div>
           </div>
@@ -158,20 +167,21 @@ const CreateInstructor = () => {
               </button>
             </div>
             {errors.password && (
-              <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.password.message}
+              </p>
             )}
           </div>
 
           {/* Submit Button */}
           <div>
-            <Button
+            <GradientHoverButton
               disabled={isCreating}
               isLoading={isCreating}
               type="submit"
-              className="w-full py-3 px-4 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition duration-200"
-            >
-              Create Instructor
-            </Button>
+              text="Create"
+              className={"w-full"}
+            />
           </div>
         </form>
         <Toaster />

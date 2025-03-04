@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Spinner } from "@heroui/react";
 import { Link } from "react-router-dom";
+import GradientTitle from "../components/typography/GradientTitle";
 
 const MilestoneDetailsCard = ({ milestoneDetails, isLoading, isSuccess }) => {
   if (isLoading) {
@@ -16,9 +17,7 @@ const MilestoneDetailsCard = ({ milestoneDetails, isLoading, isSuccess }) => {
       {/* Header */}
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden mt-28">
         <div className="p-8">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-            Milestone Details
-          </h1>
+          <GradientTitle title="Milestone Details" />
 
           {/* Milestone Header */}
           <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
@@ -45,9 +44,10 @@ const MilestoneDetailsCard = ({ milestoneDetails, isLoading, isSuccess }) => {
             </h3>
             <p className="text-lg text-gray-600 leading-relaxed">
               This comprehensive bootcamp will teach you everything you need to
-              know to become a full-stack web developer. We will cover HTML, CSS,
-              JavaScript, Node.js, React, and much more. You&apos;ll work on
-              real-world projects and have access to a community of developers.
+              know to become a full-stack web developer. We will cover HTML,
+              CSS, JavaScript, Node.js, React, and much more. You&apos;ll work
+              on real-world projects and have access to a community of
+              developers.
             </p>
           </div>
 

@@ -4,6 +4,8 @@ import { Form, Input, Button } from "@heroui/react";
 import useFetchQuery from "../../../hooks/shared/useFetch";
 import { postData } from "../../../helpers/axios";
 import toast from "react-hot-toast";
+import GradientTitle from "../../../components/Admin/components/typography/GradientTitle";
+import GradientHoverButton from "../../../components/Admin/components/input/GradientHoverButton";
 
 const CreateCourse = () => {
   const [isCreating, setIsCreating] = useState(false);
@@ -38,9 +40,7 @@ const CreateCourse = () => {
       {/* Form Container */}
       <div className="max-w-4xl w-full bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
         <div className="p-8">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-            Create Course
-          </h1>
+          <GradientTitle title="Create Course" />
 
           {/* Form */}
           <Form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
@@ -109,15 +109,13 @@ const CreateCourse = () => {
             />
 
             {/* Submit Button */}
-            <Button
+            <GradientHoverButton
               disabled={isCreating}
               isLoading={isCreating}
               type="submit"
-              color="primary"
-              className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow-md transition duration-300 transform hover:scale-105"
-            >
-              Create Course
-            </Button>
+              text="Create"
+              className={"w-full"}
+            />
           </Form>
         </div>
       </div>
