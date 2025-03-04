@@ -81,7 +81,7 @@ const NewClass = () => {
   }, [currentVideoIndex]);
 
   const handleNextVideo = () => {
-    if (index == currentVideoIndex) {
+    if (index === currentVideoIndex) {
       const currentVideoObj = playlist[index + 1];
       const videoId = currentVideoObj.videoURL.split("v=")[1]?.split("&")[0]; // Extract video ID
       setVideoSrc(`https://www.youtube.com/embed/${videoId}`);
@@ -170,7 +170,7 @@ const NewClass = () => {
                   milestones.milestoneList.map((milestone, index) => (
                     <Accordion key={milestone._id} className="">
                       <AccordionItem
-                        className="mb-5 bg-[#160929] px-4 py-7 rounded-xl"
+                        className="mb-5 bg-[#160A2A] px-4 py-7 rounded-xl"
                         title={milestone.milestoneName}
                         subtitle={"Milestone " + (index + 1)}
                       >

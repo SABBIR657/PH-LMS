@@ -10,7 +10,7 @@ import XFactor from "../components/Header/XFactor";
 
 const Home = () => {
   return (
-    <>
+    <div>
       <HeroSection />
       <TopCompanies />
       <OurImpact />
@@ -19,7 +19,7 @@ const Home = () => {
       <ProjectBuild />
       <MeetTeam />
       <FaqQuestion />
-    </>
+    </div>
   );
 };
 
