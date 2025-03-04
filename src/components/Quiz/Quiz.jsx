@@ -10,6 +10,7 @@ const Quiz = ({ quizData }) => {
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
   const [score, setScore] = useState(0);
   const [startTime, setStartTime] = useState(null);
+  const [error, setError] = useState(null);
 
   const currentQuestion = quizData.MCQSet[currentQuestionIndex];
 
@@ -89,6 +90,7 @@ const Quiz = ({ quizData }) => {
       setIsQuizCompleted(true);
     } catch (error) {
       console.error("Error submitting quiz:", error);
+      setError(error)
     }
   };
 
@@ -105,22 +107,36 @@ const Quiz = ({ quizData }) => {
       </div>
     );
   }
+  if (error) {
+    // console.log(error)
+    return (
+      <div className="w-full h-[450px] bg-[#101544] rounded-xl text-white flex justify-center items-center">
+        <div>
+          <h2>{error?.response?.data?.message}</h2>
+          {/* <p>
+            Your score: {score} out of {quizData.MCQSet.length}
+          </p> */}
+        </div>
+      </div>
+    );
+  }
+  
 
   //   console.log(quizData, "quizData from mahim in line 5555555555555");
 
   // Render the quiz questions
   return (
     <div className="w-full h-[450px] bg-[#101544] rounded-xl text-white p-4">
-      <h2 className="text-xl font-bold mb-4">{currentQuestion.question}</h2>
+      <h2 className="text-xl font-bold mb-4 bg-gradient-to-r from-[#CC44E1] to-[#700AEB] bg-clip-text text-transparent">{currentQuestion.question}</h2>
       <ul>
         {Array.isArray(currentQuestion.options) &&
           currentQuestion.options.map((option, index) => (
             <li key={index} className="mb-2">
               <button
-                className={`w-full text-left p-2 rounded ${
+                className={`w-full text-left px-4 py-4 rounded-xl ${
                   userAnswers[currentQuestionIndex] === index + 1
                     ? "bg-blue-500"
-                    : "bg-gray-700"
+                    : "bg-[#160A2A]"
                 }`}
                 onClick={() => handleAnswerSelect(index)}
               >
@@ -129,7 +145,7 @@ const Quiz = ({ quizData }) => {
             </li>
           ))}
       </ul>
-      <div className="mt-4 flex justify-between">
+      <div className="mt-4 flex gap-4">
         <button
           className="px-4 py-2 bg-gray-700 rounded"
           onClick={handlePreviousQuestion}
@@ -139,7 +155,7 @@ const Quiz = ({ quizData }) => {
         </button>
         {currentQuestionIndex < quizData.MCQSet.length - 1 ? (
           <button
-            className="px-4 py-2 bg-blue-500 rounded"
+            className="px-4 py-2 bg-blue-500 rounded bg-gradient-to-r from-[#5344E1] to-[#CA0AEB]"
             onClick={handleNextQuestion}
           >
             Next

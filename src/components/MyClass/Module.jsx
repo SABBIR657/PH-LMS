@@ -14,26 +14,9 @@ const Module = ({
   const dispatch = useDispatch();
   const moduleId = module?._id;
   //   console.log(module, "module from maaaaaaahiiiiiiim in line 5");
+  const [quizResponse, setQuizResponse] = useState(null);
+
   const [video, setVideo] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchModule = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `${
-  //           import.meta.env.VITE_BACKEND_URL
-  //         }/module/allVideosByModuleId/${moduleId}`
-  //       );
-  //       const data = await response.json();
-  //       // console.log(data, "data in fetchModule in line 16");
-  //       setVideo(data.data);
-  //     } catch (error) {
-  //       console.error("Error fetching courses: ", error);
-  //     }
-  //   };
-
-  //   fetchModule();
-  // }, [moduleId]);
 
   const response = useFetchQuery(`module/allVideosByModuleId/${moduleId}`);
   // console.log(response, "response from moudle 9999999999999999999999999");
@@ -51,7 +34,6 @@ const Module = ({
     }
   }, [video, dispatch]);
 
-  const [quizResponse, setQuizResponse] = useState(null);
 
   const {
     data: quizData,
@@ -100,12 +82,13 @@ const Module = ({
         ))}
       <div>
         {video.quizId && (
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={handleQuiz}
-          >
-            Start Quiz
-          </button>
+         <button
+         className="bg-gradient-to-r from-[#5344E1] to-[#CA0AEB] hover:from-[#CA0AEB] hover:to-[#5344E1] hover:text-black flex mx-auto w-full text-white font-bold py-4 px-4 rounded text-center transition duration-300"
+         onClick={handleQuiz}
+       >
+         Start Quiz
+       </button>
+       
         )}
       </div>
     </div>
