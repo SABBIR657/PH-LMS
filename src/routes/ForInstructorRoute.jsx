@@ -9,7 +9,7 @@ export default function ForInstructorRoute({ children }) {
   const { pathname } = useLocation();
   const token = Cookies.get("user");
   const role = Cookies.get("userRole");
-  if (role == "admin" || role == "instructer") {
+  if (user?.role == "admin" || user?.role == "instructer") {
     return children;
   }
   return (

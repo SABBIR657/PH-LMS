@@ -39,7 +39,7 @@ const SideBar = () => {
       <header className="flex justify-between items-center border-b border-gray-600 p-4">
         <div>
           <Link to={"/"}>
-            <h1 className="text-2xl font-bold mt-3">Admin Dashboard</h1>
+            <h1 className="text-2xl font-bold mt-3">Programming Hero</h1>
           </Link>
         </div>
       </header>
