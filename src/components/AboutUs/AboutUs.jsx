@@ -6,6 +6,7 @@ import profile5 from "../../assets/profile5.png";
 import profile6 from "../../assets/profile6.png";
 import profile7 from "../../assets/profile7.png";
 import profile8 from "../../assets/profile8.png";
+import profile9 from "../../assets/profile9.png";
 
 const AboutUs = () => {
   const teamMembers = [
@@ -76,6 +77,15 @@ const AboutUs = () => {
       name: "Md Munnah Ahommed",
       role: "Software Developer",
       image1: profile8,
+      image2:
+        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
+      image3:
+        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
+    },
+    {
+      name: "Engr Abdul Alim ",
+      role: "Backend Developer",
+      image1: profile9,
       image2:
         "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
