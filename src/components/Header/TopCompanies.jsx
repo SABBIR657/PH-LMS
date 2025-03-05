@@ -106,7 +106,7 @@ const TopCompanies = () => {
   useEffect(() => {
     const tl = gsap.timeline({ repeat: -1 });
     tl.to(galleryRef.current, {
-      x: "-90%", // Move the gallery completely to the left
+      x: "90%", // Move the gallery completely to the right
       duration: 100, // Adjust the speed of the scroll
       ease: "linear",
       repeat: -3, // Continuous movement
@@ -126,22 +126,19 @@ const TopCompanies = () => {
           যায়।
         </p>
 
+        {/* Grid for First Two Rows */}
         <div className="relative w-[1200px] flex justify-center items-center overflow-hidden">
-          <div
-            ref={galleryRef}
-            className="flex flex-nowrap w-max"
-            style={{ display: "flex" }}
-          >
-            {/* Loop through employee images */}
-            {employees.concat(employees).map((emp, index) => (
+          <div className="grid grid-cols-5 gap-4 mb-8">
+            {/* First 10 items in grid */}
+            {employees.slice(0, 10).map((emp, index) => (
               <div
                 key={index}
-                className="w-1/4 p-4 relative group cursor-pointer"
+                className="w-full p-4 relative group cursor-pointer"
               >
                 <Tooltip.Provider>
                   <Tooltip.Root>
                     <div className="">
-                      <div className="w-[200px] relative group">
+                      <div className="w-full relative group">
                         <Tooltip.Trigger asChild>
                           <img
                             src={emp.image}
@@ -153,7 +150,53 @@ const TopCompanies = () => {
                           {emp.company}
                         </h1>
                       </div>
+                    </div>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-gradient-to-br from-purple-800 to-blue-600 text-white p-4 rounded-lg shadow-xl text-sm max-w-xs w-full"
+                        side="top"
+                        align="center"
+                      >
+                        <div className="flex flex-col items-center space-y-3">
+                          <img
+                            src={emp.companyLogo}
+                            alt={emp.company}
+                            className="w-16 h-16 rounded-full border-2 border-gray-600"
+                          />
+                          <div className="text-start">
+                            <p className="font-semibold text-lg">{emp.name}</p>
+                            <p className="text-sm text-gray-300">
+                              {emp.position}
+                            </p>
+                            <p className="text-xs text-gray-400">{emp.batch}</p>
+                          </div>
+                        </div>
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </Tooltip.Provider>
+              </div>
+            ))}
+          </div>
+        </div>
 
+        {/* Continuous Scroll for Remaining Photos */}
+        <div className="relative w-[1200px] flex justify-center items-center overflow-hidden">
+          <div
+            ref={galleryRef}
+            className="flex flex-nowrap w-max"
+            style={{ display: "flex" }}
+          >
+            {/* Remaining employee images */}
+            {employees.slice(10).map((emp, index) => (
+              <div
+                key={index}
+                className="w-1/4 p-4 relative group cursor-pointer"
+              >
+                <Tooltip.Provider>
+                  <Tooltip.Root>
+                    <div className="">
+                      {/* Photo Part */}
                       <div className="w-[200px] relative group">
                         <Tooltip.Trigger asChild>
                           <img
@@ -206,6 +249,7 @@ const TopCompanies = () => {
           </button>
         </div>
       </div>
+
       {/* Popup Modal */}
       {isOpen && (
         <div className="fixed top-44 inset-0 bg-black bg-opacity-60 flex justify-center items-start z-50">
