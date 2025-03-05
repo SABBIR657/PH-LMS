@@ -93,6 +93,11 @@ const { courseId } = useParams();
         address: { line1: formData.address },
       },
     });
+    if (error) {
+      console.error("Error creating PaymentMethod:", error);
+    } else {
+      console.log("PaymentMethod created:", paymentMethod);
+    }
   
     if (error) {
       setError(error.message);
@@ -126,6 +131,7 @@ const { courseId } = useParams();
       toast.success("Payment Successful!");
       navigate("/success"); // Redirect to a success page
     } else {
+      navigate(`/class/${newCourseId}`);
       toast.error(data.message || "Payment Failed");
     }
   };
