@@ -37,7 +37,7 @@ const AboutUs = () => {
         "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
-      name: "Mr Jachin",
+      name: "Habib Rifat",
       role: "Chief Operating Officer (COO)",
       image1: profile4,
       image2:
@@ -46,7 +46,7 @@ const AboutUs = () => {
         "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
-      name: "Karinaslam",
+      name: "Abdul Quedir",
       role: "Advice",
       image1: profile5,
       image2:
@@ -55,7 +55,7 @@ const AboutUs = () => {
         "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
-      name: "Amvar Hussein",
+      name: "Jayed Bin Nazir",
       role: "Lead Mobile Application Developer",
       image1: profile6,
       image2:
@@ -64,7 +64,7 @@ const AboutUs = () => {
         "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
-      name: "Abu Sufian",
+      name: "Md Sakib Mia",
       role: "Assistant Manager, HR",
       image1: profile7,
       image2:
@@ -73,8 +73,8 @@ const AboutUs = () => {
         "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
-      name: "Mohammed Rahatul Aseaikin",
-      role: "Shovo",
+      name: "Md Munnah Ahommed",
+      role: "Software Developer",
       image1: profile8,
       image2:
         "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
