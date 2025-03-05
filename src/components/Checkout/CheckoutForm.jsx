@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-// import CheckOutWrapper from "../../components/checkout/CheckoutWrapper";
 import { BreadcrumbItem, Breadcrumbs } from "@heroui/react";
 import mCard from "../../assets/checkout-image/mCard.png";
 import paypal from "../../assets/checkout-image/paypal.png";
 import visa from "../../assets/checkout-image/visa.png";
-// import NewsletterSection from "../../components/closetProducts/NewsletterSection";
 import Cookies from "js-cookie";
 import {
   CardCvcElement,
@@ -15,9 +13,9 @@ import {
 } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { setCourseId } from '../../redux/new store/courseSlice';
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { setCourseId } from "../../redux/new store/courseSlice";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -40,28 +38,20 @@ const CheckoutForm = () => {
   const [paymentData, setPaymentData] = useState({
     cardholderName: "",
   });
-//   const [paymentMethod, setPaymentMethod] = useState("SSL");
 
   const userInfo = useSelector((state) => state.userInfo);
-  console.log(userInfo, "user info on checkout form line 2222222222222--------51");
-
   const userId = userInfo?.userInfo?.findUserAndUpdate?._id;
-//   const courseId = userInfo?.userInfo?.progres[0]?.courseId;
-//   console.log(courseId, "courseId onaosdfalskdfjaskldfj");
-//   console.log(userId, "userId inas;dfkasdlfkas;dkfjasfd")
 
-const { courseId } = useParams();
-      const dispatch = useDispatch(); 
+  const { courseId } = useParams();
+  const dispatch = useDispatch();
 
-      useEffect(() => {
-          if (courseId) {
-            dispatch(setCourseId(courseId)); // Set the courseId in Redux
-          }
-        }, [courseId, dispatch]);
-    
+  useEffect(() => {
+    if (courseId) {
+      dispatch(setCourseId(courseId)); // Set the courseId in Redux
+    }
+  }, [courseId, dispatch]);
 
-    const newCourseId = useSelector((state) => state.course.courseId); // Access the courseId
-    console.log(newCourseId, "newwwww coursseeeeee idddddd in checkout.......")
+  const newCourseId = useSelector((state) => state.course.courseId); // Access the courseId
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,17 +61,15 @@ const { courseId } = useParams();
     }));
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) return;
-  
+
     setProcessing(true);
     setError(null);
-  
+
     const cardNumberElement = elements.getElement(CardNumberElement);
-  
+
     // Create payment method via Stripe
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
@@ -93,20 +81,15 @@ const { courseId } = useParams();
         address: { line1: formData.address },
       },
     });
-    if (error) {
-      console.error("Error creating PaymentMethod:", error);
-    } else {
-      console.log("PaymentMethod created:", paymentMethod);
-    }
-  
+
     if (error) {
       setError(error.message);
       setProcessing(false);
       return;
     }
-  
+
     const paymentMethodId = paymentMethod.id;
-  
+
     const response = await fetch(
       "https://ph-clone-alchemy.onrender.com/api/v1/user/enroll",
       {
@@ -123,10 +106,10 @@ const { courseId } = useParams();
         }),
       }
     );
-  
+
     const data = await response.json();
     setProcessing(false);
-  
+
     if (data.success) {
       toast.success("Payment Successful!");
       navigate("/success"); // Redirect to a success page
@@ -162,205 +145,151 @@ const { courseId } = useParams();
   };
 
   return (
-    <div className="w-[1920px] bg-white">
-      <div className="bg-gradient-to-r from-[#5344E1] to-[#CA0AEB] h-[437px] flex flex-col items-center justify-center">
-        <h1 className="text-[72px] font-bold">Checkout</h1>
-       
+    <div className="min-h-screen bg-[#060022] text-white">
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-[#5344E1] to-[#CA0AEB] py-20 flex flex-col items-center justify-center">
+        <h1 className="text-4xl md:text-6xl font-bold text-center">Checkout</h1>
       </div>
-      
-        <div className="flex justify-between p-8 bg-[#060022]">
-          {/* Left side - User Information Form */}
-          <form onSubmit={handleSubmit}>
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex flex-col">
-                  <label className="font-medium pb-4">First Name *</label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    className="border border-gray-300 p-2 rounded-xl bg-[#221639] bg-[#221639]"
-                    placeholder="Sazzad"
-                    required
-                  />
-                </div>
 
-                <div className="flex flex-col">
-                  <label className="font-medium pb-4 ">Last Name *</label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    className="border border-gray-300 p-2 rounded-xl bg-[#221639]"
-                    placeholder="Mahim"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex flex-col">
-                  <label className="font-medium pb-4 pt-3">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="border border-gray-300 p-2 rounded-xl bg-[#221639]"
-                    placeholder="sazzad@mahim.com"
-                    required
-                  />
-                </div>
-
-                <div className="flex flex-col">
-                  <label className="font-medium pb-4 pt-3">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="text"
-                    name="phoneNumber"
-                    value={formData.phoneNumber}
-                    onChange={handleChange}
-                    className="border border-gray-300 p-2 rounded-xl bg-[#221639]"
-                    placeholder="+8801456789123"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col pb-4 pt-3">
-                <label className="font-medium">Address *</label>
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Left Side - User Information Form */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <h2 className="text-2xl font-semibold mb-6">Billing Details</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium mb-2">First Name *</label>
                 <input
                   type="text"
-                  name="address"
-                  value={formData.address}
+                  name="firstName"
+                  value={formData.firstName}
                   onChange={handleChange}
-                  className="border border-gray-300 p-2 rounded-xl bg-[#221639]"
-                  placeholder="221B Baker Street"
+                  className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                  placeholder="Sazzad"
                   required
                 />
               </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex flex-col">
-                  <label className="font-medium pb-4 pt-3">Town/City *</label>
-                  <select
-                    name="country"
-                    value={formData.country}
-                    onChange={handlePaymentChange}
-                    className="border border-gray-300 p-2 rounded-xl bg-[#221639] text-[#5A5C5F]"
-                    required
-                  >
-                    <option value="" className="text-[#5A5C5F]">
-                      City Name
-                    </option>
-                    <option value="Dhaka" className="text-[#5A5C5F]">
-                      Dhaka
-                    </option>
-                  </select>
-                </div>
-
-                <div className="flex flex-col ">
-                  <label className="font-medium pb-4 pt-3 ">
-                    State/Country *
-                  </label>
-                  <select
-                    name="country"
-                    value={formData.country}
-                    onChange={handleChange}
-                    className="border border-gray-300 p-2 rounded-xl  bg-[#221639] text-[#5A5C5F]"
-                    required
-                  >
-                    <option value="" className="text-[#5A5C5F]">
-                      Country Name
-                    </option>
-                    <option value="Dhaka" className="text-[#5A5C5F]">
-                      Bangladesh
-                    </option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="flex flex-col">
-                <label className="font-medium pb-4 pt-3">Postal Code *</label>
+              <div>
+                <label className="block text-sm font-medium mb-2">Last Name *</label>
                 <input
                   type="text"
-                  name="postalCode"
-                  value={formData.postalCode}
+                  name="lastName"
+                  value={formData.lastName}
                   onChange={handleChange}
-                  className="border border-gray-300 p-2 rounded-xl bg-[#221639]"
-                  placeholder="1234"
+                  className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                  placeholder="Mahim"
                   required
                 />
               </div>
+            </div>
 
-              <div className="flex items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium mb-2">Email Address *</label>
                 <input
-                  type="checkbox"
-                  name="saveDetails"
-                  checked={formData.saveDetails}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      saveDetails: e.target.checked,
-                    }))
-                  }
-                  className="mr-2"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                  placeholder="sazzad@mahim.com"
+                  required
                 />
-                <span>Save your details for future order purpose</span>
               </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Phone Number *</label>
+                <input
+                  type="text"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                  placeholder="+8801456789123"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Address *</label>
+              <input
+                type="text"
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                placeholder="221B Baker Street"
+                required
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium mb-2">Town/City *</label>
+                <select
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                  required
+                >
+                  <option value="">Select City</option>
+                  <option value="Dhaka">Dhaka</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Country *</label>
+                <select
+                  name="country"
+                  value={formData.country}
+                  onChange={handleChange}
+                  className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                  required
+                >
+                  <option value="">Select Country</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Postal Code *</label>
+              <input
+                type="text"
+                name="postalCode"
+                value={formData.postalCode}
+                onChange={handleChange}
+                className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                placeholder="1234"
+                required
+              />
+            </div>
+
+            <div className="flex items-center">
+              <input
+                type="checkbox"
+                name="saveDetails"
+                checked={formData.saveDetails}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    saveDetails: e.target.checked,
+                  }))
+                }
+                className="mr-2"
+              />
+              <span className="text-sm">Save your details for future orders</span>
             </div>
           </form>
 
-          {/* Right side - Order Summary and Payment */}
-          <div className="w-[35%] bg-[#150F2D] p-6 rounded-lg shadow-md border-1 border-[#D9D9D9]">
-            <h2 className="text-xl font-bold mb-4 text-center pt-2">
-              Order Summary
-            </h2>
-            <hr className="mt-10 bg-[#C5C5C5]" />
-            <div className="space-y-4 pt-8">
-              <div className="flex justify-between">
-                <span>Price</span>
-                <span>$ 196.34</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Delivery Charge</span>
-                <span>$ 196.34</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Subtotal</span>
-                <span>$ 196.34</span>
-              </div>
-              <hr className=" bg-[#C5C5C5]" />
-              <div className="flex justify-between font-bold">
-                <span>Total</span>
-                <span>$ 196.34</span>
-              </div>
-            </div>
+          {/* Right Side - Payment Section */}
+          <div className="bg-[#150F2D] p-6 rounded-lg shadow-lg border border-[#D9D9D9]">
+            <h2 className="text-2xl font-semibold mb-6">Payment Details</h2>
+            <hr className="border-[#C5C5C5] mb-6" />
 
-            <h3 className="text-lg font-semibold mt-16 text-center">Payment</h3>
-            {/* <div className="mt-4">
-              <label htmlFor="paymentMethod" className="font-medium">
-                Select Payment Method
-              </label>
-              <select
-                id="paymentMethod"
-                value={paymentMethod}
-                onChange={(e) => setPaymentMethod(e.target.value)}
-                className="mt-2 p-3 bg-[#221639] rounded-md border border-gray-300 w-full"
-              >
-                <option value="SSL">SSL</option>
-                <option value="On-Arrival">On-Arrival</option>
-              </select>
-            </div> */}
-
-            <hr className=" bg-[#C5C5C5] mt-6" />
-            <div className="flex justify-between mt-8 mb-4">
-              <span>Credit Card</span>
+            <div className="flex justify-between items-center mb-6">
+              <span className="text-sm font-medium">Credit Card</span>
               <div className="flex space-x-2">
                 <img src={visa} alt="Visa" className="w-8 h-8" />
                 <img src={mCard} alt="MasterCard" className="w-8 h-8" />
@@ -368,81 +297,56 @@ const { courseId } = useParams();
               </div>
             </div>
 
-            <form onSubmit={handleSubmit}>
-              {/* {paymentMethod === "SSL" && (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium mb-2">Card Number *</label>
+                <CardNumberElement
+                  options={cardElementStyles}
+                  className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <div className="space-y-4 mt-10">
-                    <div>
-                      <label className="font-medium pb-4 pt-3">
-                        Card Number *
-                      </label>
-                      <CardNumberElement options={cardElementStyles} />
-                    </div>
-                    <div className="flex space-x-4">
-                      <div>
-                        <label className="font-medium pb-4 pt-3">
-                          Expiration Date *
-                        </label>
-                        <CardExpiryElement options={cardElementStyles} />
-                      </div>
-                      <div>
-                        <label className="font-medium pb-4 pt-3">CVC *</label>
-                        <CardCvcElement options={cardElementStyles} />
-                      </div>
-                    </div>
-                    <input
-                      type="text"
-                      name="cardholderName"
-                      value={paymentData.cardholderName}
-                      onChange={handlePaymentChange}
-                      placeholder="Cardholder name"
-                      className="border border-gray-300 bg-[#221639] p-3 rounded-md w-full"
-                    />
-                  </div>
+                  <label className="block text-sm font-medium mb-2">Expiration Date *</label>
+                  <CardExpiryElement
+                    options={cardElementStyles}
+                    className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                  />
                 </div>
-              )}
-               */}
-               <div>
-  <div className="space-y-4 mt-10">
-    <div>
-      <label className="font-medium pb-4 pt-3">Card Number *</label>
-      <CardNumberElement options={cardElementStyles} />
-    </div>
-    <div className="flex space-x-4">
-      <div>
-        <label className="font-medium pb-4 pt-3">Expiration Date *</label>
-        <CardExpiryElement options={cardElementStyles} />
-      </div>
-      <div>
-        <label className="font-medium pb-4 pt-3">CVC *</label>
-        <CardCvcElement options={cardElementStyles} />
-      </div>
-    </div>
-    <input
-      type="text"
-      name="cardholderName"
-      value={paymentData.cardholderName}
-      onChange={handlePaymentChange}
-      placeholder="Cardholder name"
-      className="border border-gray-300 bg-[#221639] p-3 rounded-md w-full"
-    />
-  </div>
-</div>
-              {/* Submit Button */}
+                <div>
+                  <label className="block text-sm font-medium mb-2">CVC *</label>
+                  <CardCvcElement
+                    options={cardElementStyles}
+                    className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Cardholder Name *</label>
+                <input
+                  type="text"
+                  name="cardholderName"
+                  value={paymentData.cardholderName}
+                  onChange={handlePaymentChange}
+                  className="w-full p-3 rounded-lg bg-[#221639] border border-gray-700 focus:outline-none focus:border-[#5344E1]"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+
               <button
-                onClick={handleSubmit}
+                type="submit"
                 disabled={processing || !stripe}
-                className="bg-gradient-to-r from-[#5344E1] to-[#CA0AEB] hover:from-[#CA0AEB] hover:to-[#5344E1] hover:text-black flex mx-auto w-full text-white font-bold py-4 px-4 rounded-full justify-center text-center transition duration-300 w-full mt-10"
+                className="w-full bg-gradient-to-r from-[#5344E1] to-[#CA0AEB] hover:from-[#CA0AEB] hover:to-[#5344E1] text-white font-bold py-3 rounded-lg transition duration-300"
               >
-                {processing ? "Processing..." : "Place Order Now"}
+                {processing ? "Processing..." : "Make Payment"}
               </button>
             </form>
           </div>
         </div>
-        <div className="mt-10">
-         
-        </div>
-    
+      </div>
     </div>
   );
 };

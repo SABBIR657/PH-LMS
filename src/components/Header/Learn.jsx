@@ -38,7 +38,7 @@ const Learn = () => {
     <div className="relative w-full min-h-screen bg-[1c1726px] overflow-hidden flex flex-col justify-center items-center">
       {/* Responsive Heading */}
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-purple-400">
-        what will you learn?_
+        what will you learn?
       </h1>
 
       {/* Responsive Paragraph */}

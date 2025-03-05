@@ -94,7 +94,7 @@ const XFactor = () => {
   return (
     <div>
       <h1 className="text-6xl font-semibold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-purple-400">
-        X-Factors of <br /> Programming Hero_
+        X-Factors of <br /> Programming Hero
       </h1>
       <div className="flex  justify-center items-center">
         <div
