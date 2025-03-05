@@ -11,7 +11,7 @@ const MilestoneDetails = () => {
 
   console.log(data);
   return (
-    <div>
+    <div className="bg-[#45496D]">
       <MilestoneDetailsCard
         milestoneDetails={data?.data}
         isLoading={isLoading}

@@ -26,79 +26,76 @@ const employees = [
     name: "MD HASIBUL HASAN",
     position: "Jr Software Engineer",
     batch: "BATCH-6",
-    company: "EWS",
+    company: "Vivasoft",
     image:
       "https://img.freepik.com/free-photo/fashion-girl-walking-summer-city_1157-20297.jpg?t=st=1740808162~exp=1740811762~hmac=0b19f3e019e56fcd5094e3d320ed93fbf66705d67e0399a0141d056447134aff&w=996",
     companyLogo:
-      "https://e7.pngegg.com/pngimages/359/743/png-clipart-logo-community-text-logo.png",
+      "https://cdn.vivasoftltd.com/wp-content/uploads/2024/03/Logo-1.svg",
   },
   {
     name: "MD HASIBUL HASAN",
     position: "Web Developer",
     batch: "BATCH-6",
-    company: "EWS",
+    company: "brainstation-23 ",
     image:
       "https://img.freepik.com/free-photo/charming-guy-enjoying-his-break-garden_23-2147562344.jpg?t=st=1740808215~exp=1740811815~hmac=5d730cb5987986ec9e553fc666fdec44ec048e4c635acd1394ed4f315113a2a3&w=1060",
     companyLogo:
-      "https://e7.pngegg.com/pngimages/359/743/png-clipart-logo-community-text-logo.png",
+      "https://brainstation-23.com/wp-content/uploads/2024/08/bs23_logo.png",
   },
   {
     name: "MD HASIBUL HASAN",
     position: "Software Engineer",
     batch: "BATCH-6",
-    company: "EWS",
+    company: "Enosis",
     image:
       "https://heroshotphotography.com/wp-content/uploads/2023/03/male-linkedin-corporate-headshot-on-white-square-1024x1024.jpg",
     companyLogo:
-      "https://e7.pngegg.com/pngimages/359/743/png-clipart-logo-community-text-logo.png",
+      "https://www.enosisbd.com/wp-content/uploads/2020/07/enosis-logo.png",
   },
   {
     name: "MD HASIBUL HASAN",
     position: "Web Developer",
     batch: "BATCH-6",
-    company: "EWS",
+    company: "TIger IT",
     image:
       "https://img.freepik.com/free-photo/smiling-confident-businesswoman-posing-with-arms-folded_1262-20950.jpg",
-    companyLogo:
-      "https://e7.pngegg.com/pngimages/359/743/png-clipart-logo-community-text-logo.png",
+    companyLogo: "https://www.tigerit.com/img/ti-logo.png",
   },
   {
     name: "MD HASIBUL HASAN",
     position: "Jr Software Engineer",
     batch: "BATCH-6",
-    company: "EWS",
+    company: "Cefalo",
     image:
       "https://i.pinimg.com/236x/1a/e4/a9/1ae4a97002850532f48e61cb35e0da02.jpg",
-    companyLogo:
-      "https://e7.pngegg.com/pngimages/359/743/png-clipart-logo-community-text-logo.png",
+    companyLogo: "https://www.cefalo.com/hubfs/logo/white-logo.svg",
   },
   {
     name: "MD HASIBUL HASAN",
     position: "Web Developer",
     batch: "BATCH-6",
-    company: "EWS",
+    company: "LEAD Ltd",
     image: "https://freepngimg.com/save/22654-man/594x600",
     companyLogo:
-      "https://e7.pngegg.com/pngimages/359/743/png-clipart-logo-community-text-logo.png",
+      "https://leads.com.bd/wp-content/uploads/2022/02/LEADS-1-150x29.png",
   },
   {
     name: "MD HASIBUL HASAN",
     position: "Web Developer",
     batch: "BATCH-6",
-    company: "EWS",
+    company: "Pridesys",
     image: "https://freepngimg.com/save/22654-man/594x600",
     companyLogo:
-      "https://e7.pngegg.com/pngimages/359/743/png-clipart-logo-community-text-logo.png",
+      "https://pridesys.com/wp-content/uploads/2024/08/Pridesys-It-Ltd.svg",
   },
 
   {
     name: "MD HASIBUL HASAN",
     position: "Web Developer",
     batch: "BATCH-6",
-    company: "EWS",
+    company: "BJIT",
     image: "https://freepngimg.com/save/22654-man/594x600",
-    companyLogo:
-      "https://e7.pngegg.com/pngimages/359/743/png-clipart-logo-community-text-logo.png",
+    companyLogo: "https://bjitgroup.com/static/svg/common/bjit-logo2.svg",
   },
 ];
 
@@ -109,7 +106,7 @@ const TopCompanies = () => {
   useEffect(() => {
     const tl = gsap.timeline({ repeat: -1 });
     tl.to(galleryRef.current, {
-      x: "-90%", // Move the gallery completely to the left
+      x: "90%", // Move the gallery completely to the right
       duration: 100, // Adjust the speed of the scroll
       ease: "linear",
       repeat: -3, // Continuous movement
@@ -129,14 +126,69 @@ const TopCompanies = () => {
           যায়।
         </p>
 
+        {/* Grid for First Two Rows */}
+        <div className="relative w-[1200px] flex justify-center items-center overflow-hidden">
+          <div className="grid grid-cols-5 gap-4 mb-8">
+            {/* First 10 items in grid */}
+            {employees.slice(0, 10).map((emp, index) => (
+              <div
+                key={index}
+                className="w-full p-4 relative group cursor-pointer"
+              >
+                <Tooltip.Provider>
+                  <Tooltip.Root>
+                    <div className="">
+                      <div className="w-full relative group">
+                        <Tooltip.Trigger asChild>
+                          <img
+                            src={emp.image}
+                            alt={emp.name}
+                            className="w-full h-36 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-110"
+                          />
+                        </Tooltip.Trigger>
+                        <h1 className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-center text-2xl p-1">
+                          {emp.company}
+                        </h1>
+                      </div>
+                    </div>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-gradient-to-br from-purple-800 to-blue-600 text-white p-4 rounded-lg shadow-xl text-sm max-w-xs w-full"
+                        side="top"
+                        align="center"
+                      >
+                        <div className="flex flex-col items-center space-y-3">
+                          <img
+                            src={emp.companyLogo}
+                            alt={emp.company}
+                            className="w-16 h-16 rounded-full border-2 border-gray-600"
+                          />
+                          <div className="text-start">
+                            <p className="font-semibold text-lg">{emp.name}</p>
+                            <p className="text-sm text-gray-300">
+                              {emp.position}
+                            </p>
+                            <p className="text-xs text-gray-400">{emp.batch}</p>
+                          </div>
+                        </div>
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </Tooltip.Provider>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Continuous Scroll for Remaining Photos */}
         <div className="relative w-[1200px] flex justify-center items-center overflow-hidden">
           <div
             ref={galleryRef}
             className="flex flex-nowrap w-max"
             style={{ display: "flex" }}
           >
-            {/* Loop through employee images */}
-            {employees.concat(employees).map((emp, index) => (
+            {/* Remaining employee images */}
+            {employees.slice(10).map((emp, index) => (
               <div
                 key={index}
                 className="w-1/4 p-4 relative group cursor-pointer"
@@ -144,7 +196,8 @@ const TopCompanies = () => {
                 <Tooltip.Provider>
                   <Tooltip.Root>
                     <div className="">
-                      <div className="w-[200px]">
+                      {/* Photo Part */}
+                      <div className="w-[200px] relative group">
                         <Tooltip.Trigger asChild>
                           <img
                             src={emp.image}
@@ -152,15 +205,9 @@ const TopCompanies = () => {
                             className="w-full h-36 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-110"
                           />
                         </Tooltip.Trigger>
-                      </div>
-                      <div className="w-[200px]">
-                        <Tooltip.Trigger asChild>
-                          <img
-                            src={emp.image}
-                            alt={emp.name}
-                            className="w-full h-36 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-110"
-                          />
-                        </Tooltip.Trigger>
+                        <h1 className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-center text-2xl p-1">
+                          {emp.company}
+                        </h1>
                       </div>
                     </div>
                     <Tooltip.Portal>
@@ -202,6 +249,7 @@ const TopCompanies = () => {
           </button>
         </div>
       </div>
+
       {/* Popup Modal */}
       {isOpen && (
         <div className="fixed top-44 inset-0 bg-black bg-opacity-60 flex justify-center items-start z-50">

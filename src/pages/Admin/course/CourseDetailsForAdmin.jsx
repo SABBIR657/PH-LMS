@@ -11,7 +11,7 @@ const CourseDetailsForAdmin = () => {
 
   console.log(data);
   return (
-    <div>
+    <div className="bg-[#45496D]">
       <CourseDetails
         courseDetails={data?.data}
         isLoading={isLoading}
