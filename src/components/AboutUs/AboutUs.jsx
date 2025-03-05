@@ -1,39 +1,54 @@
+import profile1 from "../../assets/profile1.png";
+import profile2 from "../../assets/profile2.png";
+import profile3 from "../../assets/profile3.png";
+import profile4 from "../../assets/profile4.png";
+import profile5 from "../../assets/profile5.png";
+import profile6 from "../../assets/profile6.png";
+import profile7 from "../../assets/profile7.png";
+import profile8 from "../../assets/profile8.png";
+
 const AboutUs = () => {
   const teamMembers = [
     {
-      name: "Engr S Arfin Mia",
-      role: "Co-Founder & (CEO)",
-      image1: "https://i.ibb.co.com/TBkLjxvB/arfin.png", // Main image
+      name: "Samsel Arfin ",
+      role: "Founder & CEO",
+      image1: profile1, // Main image
       image2:
         "https://web.programming-hero.com/static/media/team-bg.3478c063.png", // Background image
       image3:
         "https://web.programming-hero.com/static/media/glow-bg.b77580da.png", // Glow effect image
     },
     {
-      name: "Md Rossi Ahmed",
-      role: "Chief Product Officer (CPO)",
-      image1:
-        "https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1685703568999Rokibul%20Hasan%20Rokib.png",
+      name: "Sabbir Rahman ",
+      role: "Co-Founder",
+      image1: profile2,
       image2:
         "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
         "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
-      name: "ABDUR RAKIB",
-      role: "Chief Operating Officer (COO)",
-      image1:
-        "https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1685703697176Riyan%20Hasan.png",
+      name: "Sazzad Mahim",
+      role: "Chief Product Officer (CPO)",
+      image1: profile3,
       image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png", // Background image
+        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png", // Glow effect image
+        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
+    },
+    {
+      name: "Mr Jachin",
+      role: "Chief Operating Officer (COO)",
+      image1: profile4,
+      image2:
+        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
+      image3:
+        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
       name: "Karinaslam",
       role: "Advice",
-      image1:
-        "https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1711285189104Abdur%20Rakib.png",
+      image1: profile5,
       image2:
         "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
@@ -42,8 +57,7 @@ const AboutUs = () => {
     {
       name: "Amvar Hussein",
       role: "Lead Mobile Application Developer",
-      image1:
-        "https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1670513285266Sadia-Sultana-Kumu.png",
+      image1: profile6,
       image2:
         "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
@@ -52,8 +66,7 @@ const AboutUs = () => {
     {
       name: "Abu Sufian",
       role: "Assistant Manager, HR",
-      image1:
-        "https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1685703717436Sumiya%20Akter%20Shajuti.png",
+      image1: profile7,
       image2:
         "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
@@ -62,18 +75,7 @@ const AboutUs = () => {
     {
       name: "Mohammed Rahatul Aseaikin",
       role: "Shovo",
-      image1:
-        "	https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1685703280947Abu%20Sufian.png",
-      image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
-      image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
-    },
-    {
-      name: "Mirza Showvik",
-      role: "DS Developer",
-      image1:
-        "https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1685703568999Rokibul%20Hasan%20Rokib.png",
+      image1: profile8,
       image2:
         "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
