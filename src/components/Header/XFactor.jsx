@@ -57,7 +57,6 @@ const XFactor = () => {
 
   useEffect(() => {
     const cards = containerRef.current.children;
-    const firstCard = cards[0];
 
     gsap.fromTo(
       cards,
@@ -74,10 +73,8 @@ const XFactor = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 90%",
-          end: "bottom 50%",
+          end: "bottom 10%",
           scrub: 1,
-          pin: firstCard,
-          pinSpacing: false,
         },
       }
     );
@@ -96,7 +93,7 @@ const XFactor = () => {
       <h1 className="text-6xl font-semibold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-purple-400">
         X-Factors of <br /> Programming Hero
       </h1>
-      <div className="flex  justify-center items-center">
+      <div className="flex justify-center items-center">
         <div
           ref={containerRef}
           className="w-full sm:w-[900px] flex flex-col items-center gap-6"
@@ -104,9 +101,9 @@ const XFactor = () => {
           {cards.map((card) => (
             <div
               key={card.id}
-              className={`w-full sm:w-[85%] h-[350px] sm:h-[400px] relative rounded-xl text-white flex items-center ${card.bgColor}`}
+              className={`w-full sm:w-[85%] h-[350px] sm:h-[400px] relative rounded-xl text-white flex items-center overflow-hidden ${card.bgColor}`}
             >
-              <p className="absolute top-2 left-2 text-sm font-bold px-6 py-4 rounded-md">
+              <p className="absolute top-2 left-2 text-sm font-bold px-6 py-4 rounded-md bg-opacity-70 backdrop-blur-md">
                 {card.title}
               </p>
               <div className="flex-1 p-6">
@@ -116,7 +113,7 @@ const XFactor = () => {
               <img
                 src={card.img}
                 alt="icon"
-                className="w-[350px]  h-[350px]  rounded-tr-2xl rounded-br-2xl mx-auto hidden sm:block"
+                className="w-[350px] h-[350px] rounded-tr-2xl rounded-br-2xl mx-auto hidden sm:block"
               />
             </div>
           ))}

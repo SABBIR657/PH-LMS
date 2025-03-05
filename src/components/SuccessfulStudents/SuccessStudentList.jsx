@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { GrPrevious } from "react-icons/gr";
+import { GrNext } from "react-icons/gr";
 import {
   Select,
   SelectContent,
@@ -11,11 +13,10 @@ import {
 import { Button } from "@heroui/react";
 import { X } from "lucide-react";
 
-// Import StudentPopup if it's in a separate file
-// import StudentPopup from "./StudentPopup";
-
 const SuccessStudentList = () => {
   const [selectedStudent, setSelectedStudent] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const studentsPerPage = 6; // Show 6 students per page
 
   const studentsData = {
     "Batch 9": [
@@ -91,7 +92,49 @@ const SuccessStudentList = () => {
         image:
           "	https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1627885984709.jpg",
       },
+      {
+        name: "Tofayel Ahmed",
+        role: "Junior Software Developer",
+        company: "ANZA CORPORATION LTD",
+        story:
+          "After graduating from Daffodil International University, I found myself at ...",
+        image:
+          "	https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718013608397.jpg",
+      },
+      {
+        name: "Tofayel Ahmed",
+        role: "Junior Software Developer",
+        company: "ANZA CORPORATION LTD",
+        story:
+          "After graduating from Daffodil International University, I found myself at ...",
+        image:
+          "	https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1627885984709.jpg",
+      },
+      {
+        name: "Tofayel Ahmed",
+        role: "Junior Software Developer",
+        company: "ANZA CORPORATION LTD",
+        story:
+          "After graduating from Daffodil International University, I found myself at ...",
+        image:
+          "	https://phero-web.nyc3.cdn.digitaloceanspaces.com/website-prod-images/public/files/1718013608397.jpg",
+      },
     ],
+  };
+
+  // Pagination logic
+  const totalPages = Math.ceil(
+    studentsData["Batch 9"].length / studentsPerPage
+  );
+  const currentStudents = studentsData["Batch 9"].slice(
+    (currentPage - 1) * studentsPerPage,
+    currentPage * studentsPerPage
+  );
+
+  const handlePageChange = (page) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+    }
   };
 
   return (
@@ -125,20 +168,51 @@ const SuccessStudentList = () => {
         </div>
       </div>
 
-      {Object.entries(studentsData).map(([batch, students]) => (
-        <div key={batch} className="mb-8">
-          <h2 className="text-2xl font-bold mb-4 text-gray-700">{batch}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {students.map((student, index) => (
-              <StudentCard
-                key={index}
-                student={student}
-                onSeeMore={() => setSelectedStudent(student)}
-              />
-            ))}
-          </div>
+      <div>
+        <h2 className="text-2xl font-bold mb-4 text-gray-700">Batch 9</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          {currentStudents.map((student, index) => (
+            <StudentCard
+              key={index}
+              student={student}
+              onSeeMore={() => setSelectedStudent(student)}
+            />
+          ))}
         </div>
-      ))}
+      </div>
+
+      {/* Pagination buttons */}
+      <div className="flex justify-center mt-6 gap-4">
+        <Button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="w-10 h-10 flex items-center justify-center bg-purple-600 text-white rounded-full transition-all duration-300 hover:bg-purple-700 disabled:bg-purple-300 disabled:opacity-50"
+        >
+          <GrPrevious />
+        </Button>
+
+        {Array.from({ length: totalPages }, (_, index) => (
+          <Button
+            key={index}
+            onClick={() => handlePageChange(index + 1)}
+            className={`px-4 py-2 rounded-md transition-all duration-300 ${
+              currentPage === index + 1
+                ? "bg-purple-600 text-white"
+                : "bg-gray-200 text-black"
+            } hover:bg-purple-200`}
+          >
+            {index + 1}
+          </Button>
+        ))}
+
+        <Button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="w-6 h-10 flex items-center justify-center bg-purple-600 text-white rounded-full transition-all duration-300 hover:bg-purple-700 disabled:bg-purple-300 disabled:opacity-50"
+        >
+          <GrNext />
+        </Button>
+      </div>
 
       {selectedStudent && (
         <StudentPopup
@@ -150,6 +224,7 @@ const SuccessStudentList = () => {
   );
 };
 
+// StudentCard Component
 const StudentCard = ({ student, onSeeMore }) => {
   return (
     <div className="border p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow flex gap-4">
@@ -178,8 +253,8 @@ const StudentCard = ({ student, onSeeMore }) => {
   );
 };
 
-// StudentPopup Component (Fixed the missing definition)
-const StudentPopup = ({ student, batch, onClose }) => {
+// StudentPopup Component
+const StudentPopup = ({ student, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
       <div className="relative bg-black p-6 rounded-lg w-[600px] shadow-xl border border-purple-600">
