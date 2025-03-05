@@ -45,7 +45,7 @@ const SideBar = () => {
       <header className="flex justify-between items-center border-b border-gray-600 p-4">
         <div>
           <Link to={"/"}>
-            <GradientTitle title="Programming Hero" className={"text-xl"} />
+            <GradientTitle title="SkillForge" className={"text-xl"} />
           </Link>
         </div>
       </header>
