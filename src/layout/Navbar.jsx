@@ -2,11 +2,26 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // Import icons for the toggle button
+import toast from "react-hot-toast";
+import Cookies from "js-cookie"; 
 
 export default function NavBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu visibility
   const navigate = useNavigate();
+
+
+  const isAuthenticated = !!Cookies.get("user");
+
+  const handleLoginClick = (e) => {
+     if(isAuthenticated){
+      e.preventDefault();
+      toast.error("You are already logged in");
+     }
+     else{
+      navigate("/login");
+     }
+  }
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -15,6 +30,8 @@ export default function NavBar() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background shadow-sm">
@@ -84,7 +101,7 @@ export default function NavBar() {
         >
           My Classes
         </Link>
-        <Link
+             <Link
               to="/admin"
               className="text-gray-200 hover:text-white transition-colors"
               onClick={toggleMobileMenu}
@@ -136,6 +153,7 @@ export default function NavBar() {
         <Link
           to="/login"
           className="text-gray-200 hover:text-white transition-colors"
+          onClick={handleLoginClick}
         >
           Login
         </Link>
@@ -246,7 +264,11 @@ export default function NavBar() {
             <Link
               to="/login"
               className="text-gray-200 hover:text-white transition-colors"
-              onClick={toggleMobileMenu}
+              onClick={(e)=>{
+                toggleMobileMenu();
+                handleLoginClick(e);
+              }}
+              
             >
               Login
             </Link>
