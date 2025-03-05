@@ -35,9 +35,9 @@ const AboutUs = () => {
       image1:
         "https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1711285189104Abdur%20Rakib.png",
       image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png", // Background image
+        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png", // Glow effect image
+        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
       name: "Amvar Hussein",
@@ -45,9 +45,9 @@ const AboutUs = () => {
       image1:
         "https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1670513285266Sadia-Sultana-Kumu.png",
       image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png", // Background image
+        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png", // Glow effect image
+        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
       name: "Abu Sufian",
@@ -55,9 +55,9 @@ const AboutUs = () => {
       image1:
         "https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1685703717436Sumiya%20Akter%20Shajuti.png",
       image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png", // Background image
+        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png", // Glow effect image
+        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
       name: "Mohammed Rahatul Aseaikin",
@@ -65,9 +65,9 @@ const AboutUs = () => {
       image1:
         "	https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1685703280947Abu%20Sufian.png",
       image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png", // Background image
+        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png", // Glow effect image
+        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
       name: "Mirza Showvik",
@@ -75,9 +75,9 @@ const AboutUs = () => {
       image1:
         "https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1685703568999Rokibul%20Hasan%20Rokib.png",
       image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png", // Background image
+        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
       image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png", // Glow effect image
+        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
   ];
 
@@ -94,14 +94,12 @@ const AboutUs = () => {
               key={index}
               className="team-member my-1 text-center mt-5 bg-black text-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
             >
-              {/* Team Member Card */}
               <div
                 className="relative w-[190px] h-[250px] mx-auto rounded-[10px] overflow-hidden bg-cover bg-center -z-10"
                 style={{
-                  backgroundImage: `url(${member.image2})`, // Default background image
+                  backgroundImage: `url(${member.image2})`,
                 }}
               >
-                {/* Main Image (with Hover Effect) */}
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-all duration-300 transform hover:scale-105"
                   style={{
@@ -111,7 +109,6 @@ const AboutUs = () => {
                     width: "100%",
                   }}
                 >
-                  {/* Hover Effect: Dark overlay with design */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black opacity-0 hover:opacity-60 transition-all duration-300"></div>
                 </div>
 
