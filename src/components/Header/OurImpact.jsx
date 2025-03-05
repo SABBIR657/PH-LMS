@@ -26,8 +26,8 @@ const OurImpact = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-[#060022] text-white py-4 px-4 mb-20 -mt-5 sm:px-8 lg:px-16">
       {/* Heading */}
-      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 text-transparent bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text text-center sm:text-right capitalize">
-        Our <br className="hidden sm:block" /> Impact_
+      <h2 className="text-4xl  sm:text-5xl lg:text-6xl font-bold mb-8 text-transparent bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text  sm:text-right capitalize">
+        {/* Our <br className="hidden sm:block " /> Impact */} Our Impact
       </h2>
 
       {/* Stats Container */}

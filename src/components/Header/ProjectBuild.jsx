@@ -44,7 +44,7 @@ const ProjectBuild = () => {
     <div>
       <div className="mb-64  md:mb-52 lg:mb-44 xl:mb-22">
         <h1 className="text-6xl font-semibold text-center mb-4 mt-10 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-purple-400">
-          Projects you will build_
+          Projects you will build
         </h1>
 
         <div className="min-h-screen mt-10 flex items-center justify-center bg-[#060022] p-10 -mb-56">
