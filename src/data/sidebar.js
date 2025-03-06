@@ -71,18 +71,24 @@ export const sidebarUrlList = [
   {
     parentLabel: "Question",
     children: [
-      // {
-      //   label: "Question",
-      //   url: "/admin/question",
-      // },
       {
         label: "Question Create",
         url: "/admin/question-create",
       },
-      // {
-      //   label: "Add MCQ",
-      //   url: "/admin/add-mcq",
-      // },
+    ],
+  },
+  // ✅ Logout button added dynamically
+  {
+    parentLabel: "Account",
+    children: [
+      {
+        label: "Logout",
+        onClick: () => {
+          console.log("Logging out...");
+          // Replace with actual logout function
+          // Example: logoutUser();
+        },
+      },
     ],
   },
 ];

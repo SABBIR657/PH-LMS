@@ -5,6 +5,8 @@ import { Progress } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useFetchQuery from "../hooks/shared/useFetch";
+import classphoto1 from "../assets/backround-image/course1.jpg";
+import classphoto2 from "../assets/backround-image/course2.png";
 
 const MyClass = () => {
   const [courses, setCourses] = useState([]);
@@ -49,7 +51,12 @@ const MyClass = () => {
         <div className="mt-6">
           <Tabs aria-label="Options">
             {/* Courses Tab */}
-            <Tab key="courses" title="Courses">
+            <Tab
+              key="courses"
+              title="Courses"
+              selectedClassName="text-white bg-black" // Make active tab text white and background black
+              unselectedClassName="text-black bg-transparent" // Make inactive tab text black and transparent background
+            >
               <div className="flex w-full flex-col mt-4">
                 {courses.length > 0 ? (
                   courses.map((course, index) => (
@@ -59,7 +66,7 @@ const MyClass = () => {
                           {/* Left Side - Image */}
                           <div className="w-1/3 pr-4">
                             <img
-                              src={course.imageUrl} // Dynamically set course image URL
+                              src={classphoto1} // Dynamically set course image URL
                               alt={course.title}
                               className="rounded-lg w-full h-auto"
                             />
@@ -91,7 +98,9 @@ const MyClass = () => {
                             <div className="mt-4 flex gap-4">
                               <button
                                 className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-                                onClick={() => navigate(`/checkout/${course._id}`)}
+                                onClick={() =>
+                                  navigate(`/checkout/${course._id}`)
+                                }
                               >
                                 Continue Course
                               </button>
@@ -111,23 +120,40 @@ const MyClass = () => {
             </Tab>
 
             {/* Conceptual Session Tab */}
-            <Tab key="conceptual" title="Conceptual Session">
-              <Card>
+            <Tab
+              key="conceptual"
+              title="Conceptual Session"
+              selectedClassName="text-white bg-black" // Make active tab text white and background black
+              unselectedClassName="text-black  bg-transparent" // Make inactive tab text black and transparent background
+            >
+              <Card className="bg-[#363958]">
                 <CardBody>
-                  <h2 className="text-white text-xl font-semibold">
-                    Dummy Course (Conceptual Session)
-                  </h2>
-                  <p className="text-white mt-2">
-                    This is a placeholder for the conceptual session. You can
-                    add detailed content later.
-                  </p>
-                  <div className="mt-4 flex gap-4">
-                    <button className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-                      Start Session
-                    </button>
-                    <button className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
-                      View Materials
-                    </button>
+                  <div className="flex  ">
+                    <div className="w-1/3 pr-4">
+                      <img
+                        src={classphoto2}
+                        alt=""
+                        className="rounded-lg w-full h-auto"
+                      />
+                    </div>
+                    <div className="ml-2">
+                      <h2 className="text-white text-xl font-semibold">
+                        Dummy Course (Conceptual Session)
+                      </h2>
+                      <p className="text-white mt-2">
+                        This is a placeholder for the conceptual session. You
+                        can add detailed content later.
+                      </p>
+
+                      <div className="mt-12 flex gap-4">
+                        <button className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                          Start Session
+                        </button>
+                        <button className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
+                          View Materials
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </CardBody>
               </Card>

@@ -74,7 +74,7 @@ const AboutUs = () => {
         "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
     },
     {
-      name: "Md Munnah Ahommed",
+      name: "Md Munna Ahommed",
       role: "Software Developer",
       image1: profile8,
       image2:
