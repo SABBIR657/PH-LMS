@@ -44,46 +44,49 @@ export default function MilestoneListTable({
 
   const pages = Math.ceil(courses.length / rowsPerPage);
 
-  const renderCell = React.useCallback((item, columnKey, index) => {
-    const cellValue = item[columnKey];
-    switch (columnKey) {
-      case "actions":
-        return (
-          <div className="relative flex justify-center items-center gap-10">
-            <Tooltip content="Details" color="primary">
-              <span
-                className="text-2xl text-blue-500 cursor-pointer active:opacity-50"
-                onClick={() => onView(item._id)}
-              >
-                <EyeIcon />
-              </span>
-            </Tooltip>
-            <Tooltip color="danger" content="Delete">
-              <span
-                className="text-2xl text-red-600 cursor-pointer active:opacity-50"
-                onClick={() => onDelete(item._id)}
-              >
-                <DeleteIcon />
-              </span>
-            </Tooltip>
-          </div>
-        );
-      case "isDeleted":
-        return (
-          <span
-            className={`text-md font-semibold ${
-              item.isDeleted ? "text-red-600" : "text-green-600"
-            }`}
-          >
-            {item.isDeleted ? "Deleted" : "Live"}
-          </span>
-        );
-      case "moduleList":
-        return <div className="flex items-center">{cellValue?.length}</div>;
-      default:
-        return <span className="text-lg">{cellValue}</span>;
-    }
-  }, [onDelete, onView]);
+  const renderCell = React.useCallback(
+    (item, columnKey, index) => {
+      const cellValue = item[columnKey];
+      switch (columnKey) {
+        case "actions":
+          return (
+            <div className="relative flex justify-center items-center gap-10">
+              <Tooltip content="Details" color="primary">
+                <span
+                  className="text-2xl text-blue-500 cursor-pointer active:opacity-50"
+                  onClick={() => onView(item._id)}
+                >
+                  <EyeIcon />
+                </span>
+              </Tooltip>
+              <Tooltip color="danger" content="Delete">
+                <span
+                  className="text-2xl text-red-600 cursor-pointer active:opacity-50"
+                  onClick={() => onDelete(item._id)}
+                >
+                  <DeleteIcon />
+                </span>
+              </Tooltip>
+            </div>
+          );
+        case "isDeleted":
+          return (
+            <span
+              className={`text-md font-semibold ${
+                item.isDeleted ? "text-red-600" : "text-green-600"
+              }`}
+            >
+              {item.isDeleted ? "Deleted" : "Live"}
+            </span>
+          );
+        case "moduleList":
+          return <div className="flex items-center">{cellValue?.length}</div>;
+        default:
+          return <span className="text-lg">{cellValue}</span>;
+      }
+    },
+    [onDelete, onView]
+  );
 
   const onRowsPerPageChange = React.useCallback((e) => {
     setRowsPerPage(Number(e.target.value));

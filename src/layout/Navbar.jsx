@@ -85,12 +85,12 @@ export default function NavBar() {
           My Classes
         </Link>
         <Link
-              to="/admin"
-              className="text-gray-200 hover:text-white transition-colors"
-              onClick={toggleMobileMenu}
-            >
-              Dashboard
-            </Link>
+          to="/admin"
+          className="text-gray-200 hover:text-white transition-colors"
+          onClick={toggleMobileMenu}
+        >
+          Dashboard
+        </Link>
 
         {/* Custom Dropdown */}
         <div className="relative">
