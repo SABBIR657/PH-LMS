@@ -9,6 +9,7 @@ const Dashboard = () => {
   const [modulesCount, setModulesCount] = useState(0);
   const [videosCount, setVideosCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // State to handle errors
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,41 +18,48 @@ const Dashboard = () => {
         const instructorsData = await getData(
           "https://ph-clone-alchemy.onrender.com/api/v1/user/getAllInstructors"
         );
-        // const instructorsData = await instructorsResponse.json();
-        // setInstructorsCount(instructorsData.data.length);
-        // console.log("instructorrrr",instructorsData)
-        setInstructorsCount(instructorsData?.data.length);
-        // console.log("instructor data", instructorsData);
+        if (instructorsData?.data) {
+          setInstructorsCount(instructorsData.data.length);
+        }
 
         // Fetch all students
         const studentsData = await getData(
           "https://ph-clone-alchemy.onrender.com/api/v1/user/getAllStudents"
         );
-
-        setStudentsCount(studentsData?.data.length);
+        if (studentsData?.data) {
+          setStudentsCount(studentsData.data.length);
+        }
 
         // Fetch all modules
         const modulesData = await getData(
           "https://ph-clone-alchemy.onrender.com/api/v1/module/all-modules"
         );
-        // const modulesData = await modulesResponse.json();
-        setModulesCount(modulesData?.data.length);
+        if (modulesData?.data) {
+          setModulesCount(modulesData.data.length);
+        }
 
         // Fetch all videos
         const videosData = await getData(
           "https://ph-clone-alchemy.onrender.com/api/v1/video/all-videos"
         );
-
-        setVideosCount(videosData?.data.length);
+        if (videosData?.data) {
+          setVideosCount(videosData.data.length);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError("Failed to fetch data. Please try again later."); // Set error message
       } finally {
-        setLoading(false);
+        setLoading(false); // Stop loading
       }
     };
 
     fetchData();
   }, []);
+
+  // 🔄 Function to reload the webpage
+  const handleRefresh = () => {
+    window.location.reload();
+  };
 
   if (loading) {
     return (
@@ -65,11 +73,34 @@ const Dashboard = () => {
     );
   }
 
+  if (error) {
+    return (
+      <div className="flex flex-col justify-center items-center h-screen">
+        <p className="text-red-500 text-lg mb-4">{error}</p>
+        <button
+          onClick={handleRefresh}
+          className="px-4 py-2 bg-blue-600 text-white rounded"
+        >
+          Refresh
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-8 text-gray-400">
-        Dashboard Overview
-      </h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold text-gray-400">
+          Dashboard Overview
+        </h1>
+        <button
+          onClick={handleRefresh}
+          className="px-4 py-2 bg-blue-600 text-white rounded"
+        >
+          Refresh
+        </button>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Instructor Card */}
         <Card className="bg-blue-50">
