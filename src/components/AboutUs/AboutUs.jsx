@@ -11,7 +11,7 @@ import profile9 from "../../assets/profile9.png";
 const AboutUs = () => {
   const teamMembers = [
     {
-      name: "Samsel Arfin ",
+      name: "Md S Arfin ",
       role: "Founder & CEO",
       image1: profile1, // Main image
       image2:
@@ -48,7 +48,7 @@ const AboutUs = () => {
     },
     {
       name: "Abdul Quedir",
-      role: "Advice",
+      role: "Chief Technology Officer (CTO)",
       image1: profile5,
       image2:
         "https://web.programming-hero.com/static/media/team-bg.3478c063.png",

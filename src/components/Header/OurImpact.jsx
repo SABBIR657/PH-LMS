@@ -31,7 +31,7 @@ const OurImpact = () => {
       </h2>
 
       {/* Stats Container */}
-      <div className="bg-gradient-to-r from-pink-600 to-purple-600 p-6 sm:p-8 rounded-lg shadow-lg flex flex-col sm:flex-row gap-6 sm:gap-8 items-center justify-center w-full max-w-4xl h-[250px]">
+      <div className="bg-gradient-to-r from-pink-600 to-purple-600 p-6 sm:p-8 rounded-lg shadow-lg flex flex-col sm:flex-row gap-6 sm:gap-8 items-center justify-center w-full max-w-4xl h-[290px]">
         {/* Job Placements */}
         <div className="text-center">
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold ">

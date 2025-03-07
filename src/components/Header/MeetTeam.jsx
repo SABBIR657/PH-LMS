@@ -1,61 +1,69 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import profile1 from "../../assets/profile1.png";
+import profile2 from "../../assets/profile2.png";
+import profile3 from "../../assets/profile3.png";
+import profile4 from "../../assets/profile4.png";
+import profile5 from "../../assets/profile5.png";
+import profile6 from "../../assets/profile6.png";
+import profile7 from "../../assets/profile7.png";
+import profile8 from "../../assets/profile8.png";
+import profile9 from "../../assets/profile9.png";
 
 const teamMembers = [
   {
     id: 1,
-    name: "M Mahmud Hossain",
-    position: "CS Instructor",
-    image:
-      "https://file.portal.gov.bd/files/sylhet.gov.bd/officer_list/d97aa06d_c39d_493c_8522_b524c1aa7db5/24b0a463a15dfd05ba80a3c7987351f1.png",
+    name: "Md S Arfin ",
+    position: "Founder & CEO",
+    image: profile1,
   },
   {
     id: 2,
-    name: "John Doe",
+    name: "Sabbir Rahman ",
     position: "Software Engineer",
-    image:
-      "https://static01.nyt.com/images/2013/10/04/opinion/Anan-contributor/contributors-images-slide-1OZF-superJumbo.jpg",
+    image: profile2,
   },
   {
     id: 3,
-    name: "Jane Smith",
+    name: "Sazzad Mahim",
     position: "AI Researcher",
-    image:
-      "https://www.apcom.org/wp-content/uploads/2021/08/Tushar-Baidya-modified.png",
+    image: profile3,
   },
   {
     id: 4,
-    name: "Alice Johnson",
+    name: "Habib Rifat",
     position: "UX Designer",
-    image:
-      "https://png.pngitem.com/pimgs/s/507-5077806_transparent-women-professional-business-woman-transparent-background-hd.png",
+    image: profile4,
   },
   {
     id: 5,
-    name: "M Mahmud Hossain",
+    name: "Abdul Quedir",
     position: "CS Instructor",
-    image: "https://api.kyamch.org/asset/img/doctors/dr-abdullah-al-mamun.png",
+    image: profile5,
   },
   {
     id: 6,
-    name: "John Doe",
+    name: "Jayed Bin Nazir",
     position: "Software Engineer",
-    image:
-      "https://rukminim2.flixcart.com/image/850/1000/ko382a80/shirt/n/1/t/46-efsnj13packof2-ruan-original-imag2msdgrgcfuup.jpeg?q=90&crop=false",
+    image: profile6,
   },
   {
     id: 7,
-    name: "Jane Smith",
+    name: "Md Sakib Mia",
     position: "AI Researcher",
-    image:
-      "https://i.pinimg.com/736x/f8/93/c7/f893c7e1abe5b076eaee7c58223329e5.jpg",
+    image: profile7,
   },
   {
     id: 8,
-    name: "Alice Johnson",
+    name: "Md Munna Ahommed",
     position: "UX Designer",
-    image:
-      "https://png.pngitem.com/pimgs/s/507-5077806_transparent-women-professional-business-woman-transparent-background-hd.png",
+    image: profile8,
+  },
+  {
+    id: 8,
+    name: "Engr Abdul Alim ",
+    position: "UX Designer",
+    image: profile9,
   },
 ];
 
