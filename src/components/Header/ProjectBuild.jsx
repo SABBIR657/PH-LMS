@@ -55,7 +55,9 @@ const ProjectBuild = () => {
                 className="relative bg-[#1b0e3f] text-white p-6 rounded-2xl shadow-lg w-full max-w-[628px] h-[174px] group"
               >
                 <div className="absolute inset-0 flex items-center justify-center ml-[400px] mt-4">
-                  <FaCircleArrowRight className="w-10 h-10 text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <button onClick={() => navigate("/all-build-projects")}>
+                    <FaCircleArrowRight className="w-10 h-10 text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  </button>
                 </div>
                 <div className="flex justify-center items-start w-full">
                   <div className="ml-4 w-full mt-12">

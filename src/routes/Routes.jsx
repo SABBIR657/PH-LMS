@@ -48,6 +48,7 @@ import QuestionCreate from "../pages/Admin/Question/QuestionCreate";
 import AddMcq from "../pages/Admin/Question/AddMcq";
 import AllProjects from "../components/Header/AllProjects";
 import Checkout from "../pages/Checkout";
+import AllBuildProjects from "../components/Header/AllBuildProjects";
 
 const routes = createBrowserRouter([
   {
@@ -94,6 +95,10 @@ const routes = createBrowserRouter([
       {
         path: "/all-project",
         element: <AllProjects />,
+      },
+      {
+        path: "/all-build-projects",
+        element: <AllBuildProjects />,
       },
       {
         path: "/checkout/:courseId",
