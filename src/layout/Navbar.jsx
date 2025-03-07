@@ -3,25 +3,23 @@ import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // Import icons for the toggle button
 import toast from "react-hot-toast";
-import Cookies from "js-cookie"; 
+import Cookies from "js-cookie";
 
 export default function NavBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu visibility
   const navigate = useNavigate();
 
-
   const isAuthenticated = !!Cookies.get("user");
 
   const handleLoginClick = (e) => {
-     if(isAuthenticated){
+    if (isAuthenticated) {
       e.preventDefault();
       toast.error("You are already logged in");
-     }
-     else{
+    } else {
       navigate("/login");
-     }
-  }
+    }
+  };
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -30,8 +28,6 @@ export default function NavBar() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-
-  
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background shadow-sm">
@@ -52,8 +48,8 @@ export default function NavBar() {
         <span className="text-xl font-bold text-white">SkillForge</span>
       </Link>
 
-      {/* Mobile Toggle Button */}
-      <div className="lg:hidden">
+      {/* Mobile & Medium Toggle Button */}
+      <div className="md:hidden">
         <Button
           onClick={toggleMobileMenu}
           variant="ghost"
@@ -63,8 +59,8 @@ export default function NavBar() {
         </Button>
       </div>
 
-      {/* Desktop Navigation Menu */}
-      <div className="hidden lg:flex items-center gap-8">
+      {/* Desktop Navigation Menu - Only for Large Screens */}
+      <div className="hidden md:flex items-center gap-8">
         <Link
           to="#"
           className="text-gray-200 hover:text-white transition-colors"
@@ -101,15 +97,12 @@ export default function NavBar() {
         >
           My Classes
         </Link>
-
-             <Link
-              to="/admin"
-              className="text-gray-200 hover:text-white transition-colors"
-              onClick={toggleMobileMenu}
-            >
-              Dashboard
-            </Link>
-
+        <Link
+          to="/admin"
+          className="text-gray-200 hover:text-white transition-colors"
+        >
+          Dashboard
+        </Link>
 
         {/* Custom Dropdown */}
         <div className="relative">
@@ -165,9 +158,9 @@ export default function NavBar() {
         </Button>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile & Medium Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-16 left-0 right-0 bg-background shadow-lg p-6">
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-background shadow-lg p-6">
           <div className="flex flex-col space-y-4">
             <Link
               to="#"
@@ -255,6 +248,7 @@ export default function NavBar() {
                 </div>
               )}
             </div>
+
             <Link
               to="/admin"
               className="text-gray-200 hover:text-white transition-colors"
@@ -266,11 +260,10 @@ export default function NavBar() {
             <Link
               to="/login"
               className="text-gray-200 hover:text-white transition-colors"
-              onClick={(e)=>{
+              onClick={(e) => {
                 toggleMobileMenu();
                 handleLoginClick(e);
               }}
-              
             >
               Login
             </Link>
