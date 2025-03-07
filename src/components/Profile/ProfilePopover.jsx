@@ -76,7 +76,7 @@ export default function ProfilePopover() {
   return (
     // <Navbar classNames={{ }}>
     <NavbarContent as="div" justify="end">
-      <Dropdown placement="bottom-end" className="bg-gray-500">
+      <Dropdown placement="bottom-end" className="bg-[#511a66]">
         <DropdownTrigger>
           <Avatar
             isBordered
