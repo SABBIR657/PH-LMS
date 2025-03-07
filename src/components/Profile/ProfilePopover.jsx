@@ -84,18 +84,36 @@ export default function ProfilePopover() {
             className="transition-transform"
             color="secondary"
             name="Jason Hughes"
-            size="sm"
+            size="md"
             src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
           />
         </DropdownTrigger>
         <DropdownMenu aria-label="Profile Actions" variant="flat">
           <DropdownItem key="profile" className="h-14 gap-2">
-            <p className="font-semibold">Signed in as</p>
-            <p className="font-semibold">{user?.name}</p>
+            <div className="flex justify-center">
+              <Avatar
+                isBordered
+                as="button"
+                className="transition-transform"
+                color="secondary"
+                name="Jason Hughes"
+                size="sm"
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              />
+            </div>
+          </DropdownItem>
+          <DropdownItem key="profile" className="h-14 gap-2">
+            <div className="">
+              <p className="font-semibold text-center">{user?.name}</p>
+              <p className="font-semibold">Student ID: WEB-777</p>
+            </div>
           </DropdownItem>
           {profileLinks.map((item) => {
             return (
-              <DropdownItem key={item.id}>
+              <DropdownItem
+                key={item.id}
+                className="border-b-1 rounded-none border-gray-300"
+              >
                 <Link to={item.url}>{item.Label}</Link>
               </DropdownItem>
             );
