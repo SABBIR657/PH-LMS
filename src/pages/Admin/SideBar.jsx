@@ -15,7 +15,9 @@ const SideBar = () => {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const { logout } = useContext(AuthContext);
+  const { logout, user } = useContext(AuthContext);
+
+  console.log("role---", user.role);
 
   // Logout function
   const handleLogout = async () => {
@@ -79,14 +81,12 @@ const SideBar = () => {
       <header className="flex justify-between items-center border-b border-gray-600 p-4">
         <div>
           <Link to={"/"}>
-
             <GradientTitle title="SkillForge" className={"text-xl"} />
-
           </Link>
         </div>
       </header>
 
-      <div className="flex-grow overflow-y-auto mt-4">
+      {/* <div className="flex-grow overflow-y-auto mt-4">
         <Accordion>
           {sidebarUrlList.map((parent) => (
             <AccordionItem
@@ -123,6 +123,59 @@ const SideBar = () => {
               </ul>
             </AccordionItem>
           ))}
+        </Accordion>
+      </div> */}
+
+      <div className="flex-grow overflow-y-auto mt-4">
+        <Accordion>
+          {sidebarUrlList
+            .filter((parent) => parent.roles.includes(user?.role)) // 👈 Filter by role
+            .map((parent) => (
+              <AccordionItem
+                key={parent.parentLabel}
+                title={
+                  <div
+                    className="flex items-center space-x-3 p-2 hover:bg-gray-700 rounded-md cursor-pointer"
+                    onClick={() => setSelectedItem(parent.parentLabel)}
+                  >
+                    <div className="text-xl">
+                      {renderIcon(parent.parentLabel)}
+                    </div>
+                    <h2 className="text-xl font-semibold">
+                      {parent.parentLabel}
+                    </h2>
+                  </div>
+                }
+              >
+                <ul className="space-y-2 pl-4">
+                  {parent.children
+                    .filter((child) => child.roles.includes(user?.role)) // 👈 Filter by role
+                    .map((child) => (
+                      <li key={child.label}>
+                        {child.url ? (
+                          <Link
+                            to={child.url}
+                            className={`flex items-center space-x-3 hover:bg-gray-700 p-2 rounded-md ${
+                              location.pathname === child.url
+                                ? "bg-gray-700 font-bold"
+                                : ""
+                            }`}
+                          >
+                            <span className="text-lg p-1">{child.label}</span>
+                          </Link>
+                        ) : (
+                          <button
+                            onClick={child.onClick}
+                            className="flex items-center space-x-3 hover:bg-gray-700 p-2 rounded-md w-full text-left"
+                          >
+                            <span className="text-lg p-1">{child.label}</span>
+                          </button>
+                        )}
+                      </li>
+                    ))}
+                </ul>
+              </AccordionItem>
+            ))}
         </Accordion>
       </div>
 
