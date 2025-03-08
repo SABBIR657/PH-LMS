@@ -86,10 +86,6 @@ const routes = createBrowserRouter([
         element: <MyClass />,
       },
       {
-        path: "/user-profile",
-        element: <UserProfile />,
-      },
-      {
         path: "/class/:courseId",
         element: <NewClass />,
       },
@@ -118,6 +114,10 @@ const routes = createBrowserRouter([
         element: <SignUp />,
       },
     ],
+  },
+  {
+    path: "/user-profile",
+    element: <UserProfile />,
   },
   {
     path: "/admin",
