@@ -1,0 +1,21 @@
+/* Custom scrollbar styles */
+.sidebar::-webkit-scrollbar {
+  width: 8px; /* Small scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent; /* No track background */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #6b3fa0, #9b6cf5); /* Purple gradient */
+  border-radius: 8px; /* Rounded thumb */
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    135deg,
+    #9b6cf5,
+    #6b3fa0
+  ); /* Lighter gradient on hover */
+}

@@ -15,6 +15,11 @@ import { Link } from "react-router-dom";
 
 const profileLinks = [
   {
+    id: 9,
+    Label: "User Profile",
+    url: "/user-profile",
+  },
+  {
     id: 10,
     Label: "My Classes",
     url: "/my-class",

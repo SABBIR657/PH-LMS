@@ -49,6 +49,7 @@ import AddMcq from "../pages/Admin/Question/AddMcq";
 import AllProjects from "../components/Header/AllProjects";
 import Checkout from "../pages/Checkout";
 import AllBuildProjects from "../components/Header/AllBuildProjects";
+import UserProfile from "../components/Profile/UserProfile";
 
 const routes = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const routes = createBrowserRouter([
       {
         path: "/my-class",
         element: <MyClass />,
+      },
+      {
+        path: "/user-profile",
+        element: <UserProfile />,
       },
       {
         path: "/class/:courseId",
