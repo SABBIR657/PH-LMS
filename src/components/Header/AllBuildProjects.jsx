@@ -5,7 +5,7 @@ const AllBuildProjects = () => {
   return (
     <div>
       <div className="bg-gray-900 min-h-screen text-white p-8">
-        <h1 className="text-5xl font-bold text-purple-300  mb-8">
+        <h1 className="text-6xl font-bold text-purple-300  mb-8">
           Scribbles Cafe
         </h1>
 

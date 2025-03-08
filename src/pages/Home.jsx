@@ -8,6 +8,7 @@ import OurImpact from "../components/Header/OurImpact";
 import ProjectBuild from "../components/Header/ProjectBuild";
 import TopCompanies from "../components/Header/TopCompanies";
 import XFactor from "../components/Header/XFactor";
+import UserProfile from "../components/Profile/UserProfile";
 
 const Home = () => {
   return (
