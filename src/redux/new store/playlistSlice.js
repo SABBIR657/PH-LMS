@@ -6,7 +6,7 @@ export const playlistSlice = createSlice({
   initialState: [],
   reducers: {
     addPlaylist: (state, action) => {
-      // Use action.payload instead of just payload
+      console.log(action.payload, "video on redux store");
       return [...action.payload];
     },
   },

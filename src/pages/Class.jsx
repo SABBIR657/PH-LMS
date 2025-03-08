@@ -13,7 +13,9 @@ const NewClass = () => {
   const dispatch = useDispatch(); 
 
   const newCourseId = useSelector((state) => state.course.courseId); // Access the courseId
-  console.log(newCourseId, "newwwww coursseeeeee idddddd")
+  const initialVideo = useSelector((state) => state.playlist[0]);
+  console.log(initialVideo, "initial video from useSelector redux")
+  // console.log(newCourseId, "newwwww coursseeeeee idddddd")
 
   //   console.log(courseId, "courseId from NewClass on line 9999999999999999999");
   const [milestones, setMilestones] = useState([]);
@@ -23,6 +25,7 @@ const NewClass = () => {
   const [index, setIndex] = useState("");
   const [currentVideoIndex, setCurrentVideoIndex] = useState("");
   const [questionPaper, setQuestionPaper] = useState("");
+  const [unlockedVideos, setUnlockedVideos] = useState([true]);
   
   const playlist = useSelector((state) => state.playlist);
 
@@ -65,9 +68,15 @@ const NewClass = () => {
   const handleNextVideo = () => {
     if (index === currentVideoIndex) {
       const currentVideoObj = playlist[index + 1];
+      const nextIndex = index + 1;
       const videoId = currentVideoObj.videoURL.split("v=")[1]?.split("&")[0]; // Extract video ID
       setVideoSrc(`https://www.youtube.com/embed/${videoId}`);
       setIndex(index + 2);
+      setUnlockedVideos((prev) => {
+        const updatedUnlocks = [...prev];
+        updatedUnlocks[nextIndex] = true;
+        return updatedUnlocks;
+      });
     } else {
       if (index < playlist.length) {
         const currentVideoObj = playlist[index];
@@ -88,12 +97,12 @@ const NewClass = () => {
       setVideoSrc(`https://www.youtube.com/embed/${videoId}`);
       setIndex(index - 2);
     } else {
-      // if (index < playlist.length) {
-      //   const currentVideoObj = playlist[index];
-      //   const videoId = currentVideoObj.videoURL.split("v=")[1]?.split("&")[0];
-      //   setVideoSrc(`https://www.youtube.com/embed/${videoId}`); // Extract video ID
-      //   setIndex(index + 1);
-      // }
+      if (index < playlist.length) {
+        const currentVideoObj = playlist[index];
+        const videoId = currentVideoObj.videoURL.split("v=")[1]?.split("&")[0];
+        setVideoSrc(`https://www.youtube.com/embed/${videoId}`); // Extract video ID
+        setIndex(index + 1);
+      }
       const currentVideoObj = playlist[index];
       const videoId = currentVideoObj.videoURL.split("v=")[1]?.split("&")[0];
       setVideoSrc(`https://www.youtube.com/embed/${videoId}`); // Extract video ID
