@@ -23,7 +23,7 @@ const ProfilePage = () => {
           </div>
           <div className="flex justify-between">
             <span className="text-gray-400">Email</span>
-            <span>arfin.cse.green.edu.bd@gmail.com</span>
+            <span>username@gmail.com</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-400">Student ID</span>
