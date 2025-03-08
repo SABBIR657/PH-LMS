@@ -20,9 +20,11 @@ import { MdLightbulbOutline } from "react-icons/md";
 import { GiLevelFourAdvanced } from "react-icons/gi";
 import { HiRefresh } from "react-icons/hi";
 import { BiCertification } from "react-icons/bi";
+import { useContext } from "react";
+import { AuthContext } from "../../hooks/AuthContextProvider";
 
 // User details
-const user = {
+const staticUser = {
   name: "Md Samsel Arfin",
   studentId: "WEB7-3352",
   email: "arfin.cse.green.edu.bd@gmail.com",
@@ -33,6 +35,8 @@ const user = {
 };
 
 export default function ProfileSidebar() {
+  const { user } = useContext(AuthContext);
+
   return (
     <Sidebar className="w-80 bg-gray-900 text-white rounded-lg p-4 overflow-auto scrollbar">
       <SidebarContent>
@@ -43,9 +47,9 @@ export default function ProfileSidebar() {
             <AvatarFallback>MS</AvatarFallback>
           </Avatar>
           <h2 className="mt-4 text-lg font-semibold">{user.name}</h2>
-          <p className="text-sm text-gray-400">{user.studentId}</p>
+          <p className="text-sm text-gray-400">{user._id}</p>
           <p className="text-sm text-gray-400">{user.email}</p>
-          <p className="text-sm text-gray-400">{user.phone}</p>
+          <p className="text-sm text-gray-400">{staticUser.phone}</p>
           <ProgressBar value={user.profileCompletion} />
         </div>
 
