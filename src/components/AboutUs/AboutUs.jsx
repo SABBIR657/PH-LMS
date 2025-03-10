@@ -7,6 +7,8 @@ import profile6 from "../../assets/profile6.png";
 import profile7 from "../../assets/profile7.png";
 import profile8 from "../../assets/profile8.png";
 import profile9 from "../../assets/profile9.png";
+import aboutg1 from "../../assets/aboutg2.png";
+import aboutg2 from "../../assets/aboutg2.png";
 
 const AboutUs = () => {
   const teamMembers = [
@@ -14,82 +16,55 @@ const AboutUs = () => {
       name: "Md S Arfin ",
       role: "Founder & CEO",
       image1: profile1, // Main image
-      image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png", // Background image
-      image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png", // Glow effect image
+      image2: aboutg1,
     },
     {
       name: "Sabbir Rahman ",
       role: "Co-Founder",
       image1: profile2,
-      image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
-      image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
+      image2: aboutg1,
     },
     {
       name: "Sazzad Mahim",
       role: "Chief Product Officer (CPO)",
       image1: profile3,
-      image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
-      image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
+      image2: aboutg1,
     },
     {
       name: "Habib Rifat",
       role: "Chief Operating Officer (COO)",
       image1: profile4,
-      image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
-      image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
+      image2: aboutg1,
     },
     {
       name: "Abdul Quedir",
       role: "Chief Technology Officer (CTO)",
       image1: profile5,
-      image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
-      image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
+      image2: aboutg1,
     },
     {
       name: "Jayed Bin Nazir",
       role: "Lead Mobile Application Developer",
       image1: profile6,
-      image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
-      image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
+      image2: aboutg1,
     },
     {
       name: "Md Sakib Mia",
       role: "Assistant Manager, HR",
       image1: profile7,
-      image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
-      image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
+      image2: aboutg1,
     },
     {
       name: "Md Munna Ahommed",
       role: "Software Developer",
       image1: profile8,
-      image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
-      image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
+      image2: aboutg1,
     },
     {
       name: "Engr Abdul Alim ",
       role: "Backend Developer",
       image1: profile9,
-      image2:
-        "https://web.programming-hero.com/static/media/team-bg.3478c063.png",
-      image3:
-        "https://web.programming-hero.com/static/media/glow-bg.b77580da.png",
+      image2: aboutg1,
     },
   ];
 
