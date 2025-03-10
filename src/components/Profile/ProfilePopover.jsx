@@ -104,11 +104,22 @@ export default function ProfilePopover() {
               />
             </div>
           </DropdownItem>
-          <DropdownItem key="profile" className="h-14 gap-2">
+          {/* <DropdownItem key="profile" className="h-14 gap-2">
             <div className="">
               <p className="font-semibold text-center">{user?.name}</p>
               <p className="font-semibold">Student ID: WEB-777</p>
             </div>
+          </DropdownItem> */}
+          <DropdownItem key="profile" className="h-14 gap-2">
+            <Link
+              to="/user-profile"
+              className="w-full h-full flex flex-col items-center p-2"
+            >
+              <div>
+                <p className="font-semibold text-center">{user?.name}</p>
+                <p className="font-semibold">Student ID: WEB-777</p>
+              </div>
+            </Link>
           </DropdownItem>
           {profileLinks.map((item) => {
             return (
