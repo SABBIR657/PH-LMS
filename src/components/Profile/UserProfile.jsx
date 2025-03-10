@@ -3,7 +3,6 @@ import Footer from "../../layout/Footer";
 import NavBar from "../../layout/Navbar";
 import { SidebarProvider } from "../ui/sidebar";
 import ProfileSidebar from "./ProfileSidebar";
-import ProfilePage from "./ProfileContent/ProfilePage";
 
 const UserProfile = () => {
   const location = useLocation();
