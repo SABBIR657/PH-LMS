@@ -5,7 +5,6 @@ const About = () => {
   return (
     <div>
       <AboutUs />
-      <ProfilePage />
     </div>
   );
 };

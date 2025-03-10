@@ -7,6 +7,9 @@ import Cookies from "js-cookie";
 import { AuthContext } from "../hooks/AuthContextProvider";
 import ProfilePopover from "../components/Profile/ProfilePopover";
 import { Navbar } from "@heroui/react";
+
+import logo from "../assets/logo.svg";
+
 export default function NavBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu visibility
@@ -43,7 +46,7 @@ export default function NavBar() {
         >
           <span>
             <img
-              src="https://web.programming-hero.com/static/media/ph_logo.cda7f338.svg"
+              src={logo}
               alt="Programming Hero logo"
               width={60}
               height={60}

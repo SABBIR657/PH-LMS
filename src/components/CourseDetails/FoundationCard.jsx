@@ -1,4 +1,4 @@
-import React from "react";
+import timeline from "../../assets/foundation1.svg";
 
 const FoundationCard = () => {
   return (
@@ -7,11 +7,7 @@ const FoundationCard = () => {
         {/* First Feature Card */}
         <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg w-full max-w-[628px] h-[174px]">
           <div className="flex items-start w-full">
-            <img
-              src="https://web.programming-hero.com/static/media/check-circle.b5956cb2.svg"
-              alt="Check Icon"
-              className="w-6 h-6"
-            />
+            <img src={timeline} alt="Check Icon" className="w-6 h-6" />
             <div className="ml-4 w-full">
               <h3 className="text-green-400 font-semibold text-lg">
                 Foundations First
@@ -27,11 +23,7 @@ const FoundationCard = () => {
         {/* Second Feature Card */}
         <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg w-full max-w-[628px] h-[174px]">
           <div className="flex items-start w-full">
-            <img
-              src="https://web.programming-hero.com/static/media/check-circle.b5956cb2.svg"
-              alt="Check Icon"
-              className="w-6 h-6"
-            />
+            <img src={timeline} alt="Check Icon" className="w-6 h-6" />
             <div className="ml-4 w-full">
               <h3 className="text-green-400 font-semibold text-lg">
                 Next Steps
@@ -47,11 +39,7 @@ const FoundationCard = () => {
         {/* Third Feature Card */}
         <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg w-full max-w-[628px] h-[174px]">
           <div className="flex items-start w-full">
-            <img
-              src="https://web.programming-hero.com/static/media/check-circle.b5956cb2.svg"
-              alt="Check Icon"
-              className="w-6 h-6"
-            />
+            <img src={timeline} alt="Check Icon" className="w-6 h-6" />
             <div className="ml-4 w-full">
               <h3 className="text-green-400 font-semibold text-lg">
                 React and Beyond
@@ -68,11 +56,7 @@ const FoundationCard = () => {
         {/* Fourth Feature Card */}
         <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg w-full max-w-[628px] h-[174px]">
           <div className="flex items-start w-full">
-            <img
-              src="https://web.programming-hero.com/static/media/check-circle.b5956cb2.svg"
-              alt="Check Icon"
-              className="w-6 h-6"
-            />
+            <img src={timeline} alt="Check Icon" className="w-6 h-6" />
             <div className="ml-4 w-full">
               <h3 className="text-green-400 font-semibold text-lg">
                 Server-Side Skills
@@ -88,11 +72,7 @@ const FoundationCard = () => {
         {/* Fifth Feature Card */}
         <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg w-full max-w-[628px] h-[174px]">
           <div className="flex items-start w-full">
-            <img
-              src="https://web.programming-hero.com/static/media/check-circle.b5956cb2.svg"
-              alt="Check Icon"
-              className="w-6 h-6"
-            />
+            <img src={timeline} alt="Check Icon" className="w-6 h-6" />
             <div className="ml-4 w-full">
               <h3 className="text-green-400 font-semibold text-lg">
                 Practical Application
@@ -108,11 +88,7 @@ const FoundationCard = () => {
         {/* Sixth Feature Card */}
         <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg w-full max-w-[628px] h-[174px]">
           <div className="flex items-start w-full">
-            <img
-              src="https://web.programming-hero.com/static/media/check-circle.b5956cb2.svg"
-              alt="Check Icon"
-              className="w-6 h-6"
-            />
+            <img src={timeline} alt="Check Icon" className="w-6 h-6" />
             <div className="ml-4 w-full">
               <h3 className="text-green-400 font-semibold text-lg">
                 Engaging Learning Approach

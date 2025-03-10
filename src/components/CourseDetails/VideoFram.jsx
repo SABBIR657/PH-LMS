@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Title from "../ReusedabaleComponenet/Title";
 import CommonWrapper from "../CommonWrapper";
+import video from "../../assets/video.jpg";
+
+video;
 
 const VideoFrame = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -62,7 +65,7 @@ const VideoFrame = () => {
           {/* Image with play icon */}
           <div className="relative">
             <img
-              src="https://web.programming-hero.com/static/media/courseThumbnail.6c6380ce.jpg"
+              src={video}
               alt="Course Thumbnail"
               className="lg:max-w-[1320px] lg:max-h-[559px] object-cover border-4 border-solid border-gray-300 rounded-2xl"
             />

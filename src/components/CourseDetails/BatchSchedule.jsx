@@ -1,5 +1,9 @@
 import { Button } from "@heroui/react";
 import Title from "../ReusedabaleComponenet/Title";
+import batch1 from "../../assets/batch1.svg";
+import batch2 from "../../assets/batch2.svg";
+import batch3 from "../../assets/batch3.svg";
+import batch4 from "../../assets/batch3.svg";
 
 const BatchSchedule = () => {
   return (
@@ -11,7 +15,7 @@ const BatchSchedule = () => {
             {/* Enrollment Starts */}
             <div className="w-[300px] sm:w-1/2 lg:w-1/4 flex items-center mb-4 lg:mb-0 justify-center">
               <img
-                src="https://web.programming-hero.com/static/media/enrollment-start.781e854e.svg"
+                src={batch1}
                 alt="Enrollment Starts"
                 className="text-4xl mr-4"
               />
@@ -25,7 +29,7 @@ const BatchSchedule = () => {
             {/* Enrollment Ends */}
             <div className="w-[300px] sm:w-1/2 lg:w-1/4 flex items-center mb-4 lg:mb-0 justify-center">
               <img
-                src="https://web.programming-hero.com/static/media/enrollment-end.612d0dbd.svg"
+                src={batch2}
                 alt="Enrollment Ends"
                 className="text-4xl mr-4"
               />
@@ -39,7 +43,7 @@ const BatchSchedule = () => {
             {/* Orientation Starts */}
             <div className="w-[300px] sm:w-1/2 lg:w-1/4 flex items-center mb-4 lg:mb-0 justify-center">
               <img
-                src="https://web.programming-hero.com/static/media/webinar.91b3d48f.svg"
+                src={batch3}
                 alt="Orientation Starts"
                 className="text-4xl mr-4"
               />
@@ -53,7 +57,7 @@ const BatchSchedule = () => {
             {/* Orientation Starts */}
             <div className="w-[300px] sm:w-1/2 lg:w-1/4 flex items-center mb-4 lg:mb-0 justify-center">
               <img
-                src="https://web.programming-hero.com/static/media/webinar.91b3d48f.svg"
+                src={batch4}
                 alt="Orientation Starts"
                 className="text-4xl mr-4"
               />
